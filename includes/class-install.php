@@ -79,6 +79,7 @@ class HK_Install {
 			'CREATE TABLE ' . self::table( 'login_attempts' ) . " (
 			id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 			user_id bigint(20) unsigned NOT NULL,
+			ip_hash char(32) NOT NULL DEFAULT '',
 			attempted_at int(10) unsigned NOT NULL,
 			PRIMARY KEY  (id),
 			KEY user_time (user_id,attempted_at)

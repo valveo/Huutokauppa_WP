@@ -28,6 +28,44 @@ class HK_Frontend {
 		add_shortcode( 'huutokauppa_omat', array( __CLASS__, 'sc_account' ) );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'post_thumbnail_html', array( __CLASS__, 'hide_theme_thumbnail' ), 10, 2 );
+		add_action( 'template_redirect', array( __CLASS__, 'hide_bidder_archives' ), 1 );
+		add_filter( 'wp_sitemaps_users_query_args', array( __CLASS__, 'sitemap_users' ) );
+		add_filter( 'oembed_response_data', array( __CLASS__, 'oembed_data' ), 10, 2 );
+	}
+
+	/**
+	 * Bidders and sellers must stay anonymous, but WordPress shows an author archive
+	 * (with the display name in the title) for any user id, e.g. /?author=14.
+	 */
+	public static function hide_bidder_archives(): void {
+		if ( is_author() ) {
+			$author = get_queried_object();
+			if ( ! $author instanceof WP_User || HK_Users::is_bidder_only( (int) $author->ID ) ) {
+				global $wp_query;
+				$wp_query->set_404();
+				status_header( 404 );
+				nocache_headers();
+			}
+		}
+	}
+
+	/** Leave auction items out when choosing which users get a sitemap entry. */
+	public static function sitemap_users( array $args ): array {
+		$types = $args['has_published_posts'] ?? array();
+		if ( is_array( $types ) ) {
+			$args['has_published_posts'] = array_values( array_diff( $types, array( HK_Post_Types::ITEM ) ) );
+			if ( ! $args['has_published_posts'] ) {
+				$args['has_published_posts'] = array( 'post' );
+			}
+		}
+		return $args;
+	}
+
+	public static function oembed_data( array $data, $post ): array {
+		if ( $post instanceof WP_Post && HK_Post_Types::ITEM === $post->post_type ) {
+			unset( $data['author_name'], $data['author_url'] );
+		}
+		return $data;
 	}
 
 	/** The item page has its own gallery, so the theme's featured image would show the same picture twice. */
@@ -121,7 +159,9 @@ class HK_Frontend {
 				'id'          => $id,
 				'user_id'     => get_current_user_id(),
 				'snap'        => HK_Rest::public_snapshot( $id, true ),
-				'description' => apply_filters( 'the_content', $description ),
+				// Not the_content: that would run shortcodes and auto-embeds, which sellers
+				// could use to pull other content into their item page.
+				'description' => wpautop( wptexturize( wp_kses_post( $description ) ) ),
 				'gallery'     => HK_Item::gallery( $id ),
 				'can_bid'     => HK_Bidding::can_bid( $id, get_current_user_id() ),
 				'watching'    => is_user_logged_in() && HK_Users::is_watching( $id, get_current_user_id() ),
@@ -342,7 +382,7 @@ class HK_Frontend {
 		);
 	}
 
-	private static function activation_message(): string {
+	public static function activation_message(): string {
 		$m = sanitize_key( wp_unslash( $_GET['hk_msg'] ?? '' ) ); // phpcs:ignore WordPress.Security.NonceVerification
 		switch ( $m ) {
 			case 'activated':
@@ -351,6 +391,10 @@ class HK_Frontend {
 				return hk_notice( __( 'This account is already activated.', 'huutokauppa' ) );
 			case 'invalid':
 				return hk_notice( __( 'The activation link is invalid or has already been used.', 'huutokauppa' ), 'error' );
+			case 'email_changed':
+				return hk_notice( __( 'Your e-mail address has been changed.', 'huutokauppa' ), 'success' );
+			case 'taken':
+				return hk_notice( __( 'The e-mail address could not be changed because another account now uses it.', 'huutokauppa' ), 'error' );
 		}
 		return '';
 	}

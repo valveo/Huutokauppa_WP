@@ -101,7 +101,7 @@ class HK_Rest {
 
 	private static function visible_item( int $id ): bool {
 		$post = get_post( $id );
-		return $post && HK_Post_Types::ITEM === $post->post_type && 'publish' === $post->post_status;
+		return $post && HK_Post_Types::ITEM === $post->post_type && 'publish' === $post->post_status && '' === $post->post_password;
 	}
 
 	public static function status( WP_REST_Request $r ): WP_REST_Response {

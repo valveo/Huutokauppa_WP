@@ -76,9 +76,7 @@ class HK_Cron {
 				continue;
 			}
 			update_post_meta( $id, '_hk_end_notified', hk_now() );
-			if ( ! HK_Bidding::highest_bid( $id ) ) {
-				update_post_meta( $id, '_hk_result', 'no_bids' );
-				update_post_meta( $id, '_hk_result_at', hk_now() );
+			if ( HK_Winner::close_without_bids( $id ) ) {
 				continue;
 			}
 			if ( HK_Settings::get( 'auto_accept' ) ) {

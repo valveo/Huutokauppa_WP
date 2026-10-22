@@ -20,7 +20,8 @@ class HK_Mailer {
 			return false;
 		}
 
-		$switched = $user ? switch_to_user_locale( $user->ID ) : false;
+		$locale_user = $user ? $user->ID : (int) ( $args['user_id'] ?? 0 );
+		$switched    = $locale_user ? switch_to_user_locale( $locale_user ) : false;
 		[ $subject, $body ] = self::compose( $type, $args, $user );
 		if ( $switched ) {
 			restore_previous_locale();
@@ -45,7 +46,9 @@ class HK_Mailer {
 
 	private static function compose( string $type, array $a, ?WP_User $user ): array {
 		$site  = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
-		$hello = $user && $user->display_name
+		// Account e-mails do not repeat the user-entered name: it could be used to
+		// put arbitrary text into mail sent to someone else's address.
+		$hello = $user && $user->display_name && ! in_array( $type, array( 'activation', 'email_change' ), true )
 			/* translators: %s: recipient name */
 			? sprintf( __( 'Hello %s,', 'huutokauppa' ), $user->display_name )
 			: __( 'Hello,', 'huutokauppa' );
@@ -64,6 +67,17 @@ class HK_Mailer {
 					. sprintf( __( 'Thank you for registering at %s. Confirm your e-mail address by opening this link:', 'huutokauppa' ), $site )
 					. "\n\n" . $a['url'] . "\n\n"
 					. __( 'If you did not register, you can ignore this message.', 'huutokauppa' ) . $sign,
+				);
+
+			case 'email_change':
+				return array(
+					/* translators: %s: site name */
+					sprintf( __( '[%s] Confirm your new e-mail address', 'huutokauppa' ), $site ),
+					$hello . "\n\n"
+					/* translators: %s: site name */
+					. sprintf( __( 'Someone asked to use this e-mail address for an account at %s. To confirm the change, open this link within two days:', 'huutokauppa' ), $site )
+					. "\n\n" . $a['url'] . "\n\n"
+					. __( 'If you did not ask for this, ignore this message. The address will not be changed.', 'huutokauppa' ) . $sign,
 				);
 
 			case 'won':

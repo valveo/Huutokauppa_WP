@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'HK_VERSION', '1.0.0' );
-define( 'HK_DB_VERSION', '1' );
+define( 'HK_DB_VERSION', '2' );
 define( 'HK_FILE', __FILE__ );
 define( 'HK_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HK_URL', plugin_dir_url( __FILE__ ) );
@@ -48,8 +48,15 @@ register_deactivation_hook( __FILE__, array( 'HK_Install', 'deactivate' ) );
 add_action(
 	'plugins_loaded',
 	static function () {
-		load_plugin_textdomain( 'huutokauppa', false, dirname( plugin_basename( HK_FILE ) ) . '/languages' );
-		HK_Install::maybe_upgrade();
+		// Translations and the database/role upgrade need WordPress fully loaded.
+		add_action(
+			'init',
+			static function () {
+				load_plugin_textdomain( 'huutokauppa', false, dirname( plugin_basename( HK_FILE ) ) . '/languages' );
+				HK_Install::maybe_upgrade();
+			},
+			1
+		);
 		HK_Settings::init();
 		HK_Post_Types::init();
 		HK_Cron::init();

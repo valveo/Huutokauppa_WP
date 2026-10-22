@@ -9,6 +9,31 @@ class HK_Winner {
 
 	/** Accept the highest bid. Notifies the winner. */
 	public static function accept( int $item_id ): bool {
+		// Under the item lock, so a bid arriving at the last moment cannot slip in
+		// between checking the state and recording the result.
+		return (bool) HK_Bidding::with_lock( $item_id, static fn() => self::do_accept( $item_id ) );
+	}
+
+	/** Reject the highest bid (did not reach the seller's lowest price). Notifies the bidder. */
+	public static function reject( int $item_id ): bool {
+		return (bool) HK_Bidding::with_lock( $item_id, static fn() => self::do_reject( $item_id ) );
+	}
+
+	/** Close an ended auction that has no bids. */
+	public static function close_without_bids( int $item_id ): bool {
+		return (bool) HK_Bidding::with_lock(
+			$item_id,
+			static function () use ( $item_id ) {
+				if ( HK_Item::STATE_ENDED !== HK_Item::state( $item_id ) || HK_Bidding::highest_bid( $item_id ) ) {
+					return false;
+				}
+				self::set_result( $item_id, 'no_bids', 0 );
+				return true;
+			}
+		);
+	}
+
+	private static function do_accept( int $item_id ): bool {
 		if ( HK_Item::STATE_ENDED !== HK_Item::state( $item_id ) ) {
 			return false;
 		}
@@ -23,8 +48,7 @@ class HK_Winner {
 		return true;
 	}
 
-	/** Reject the highest bid (did not reach the seller's lowest price). Notifies the bidder. */
-	public static function reject( int $item_id ): bool {
+	private static function do_reject( int $item_id ): bool {
 		if ( HK_Item::STATE_ENDED !== HK_Item::state( $item_id ) ) {
 			return false;
 		}

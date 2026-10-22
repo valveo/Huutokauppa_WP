@@ -29,8 +29,12 @@ class HK_Users {
 		add_filter( 'manage_users_columns', array( __CLASS__, 'columns' ) );
 		add_filter( 'manage_users_custom_column', array( __CLASS__, 'column' ), 10, 3 );
 		add_filter( 'authenticate', array( __CLASS__, 'check_lockout' ), 30, 3 );
-		add_action( 'wp_login_failed', array( __CLASS__, 'record_failed_login' ) );
+		add_action( 'wp_login_failed', array( __CLASS__, 'record_failed_login' ), 10, 2 );
+		add_action( 'wp_login', array( __CLASS__, 'clear_failed_logins' ), 10, 2 );
+		add_action( 'after_password_reset', array( __CLASS__, 'clear_all_failed_logins' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'handle_activation' ) );
+		add_action( 'admin_init', array( __CLASS__, 'keep_bidders_out_of_admin' ) );
+		add_filter( 'show_admin_bar', array( __CLASS__, 'admin_bar' ) );
 		add_action( 'delete_user', array( __CLASS__, 'delete_user_data' ) );
 	}
 
@@ -45,6 +49,10 @@ class HK_Users {
 	public static function set_blocked( int $user_id, bool $blocked ): void {
 		if ( $blocked ) {
 			update_user_meta( $user_id, 'hk_blocked', 1 );
+			// A blocked user's automatic bids stop. Bids already placed stay until an
+			// administrator removes them on the item's edit screen.
+			global $wpdb;
+			$wpdb->delete( HK_Install::table( 'autobids' ), array( 'user_id' => $user_id ), array( '%d' ) );
 		} else {
 			delete_user_meta( $user_id, 'hk_blocked' );
 		}
@@ -68,7 +76,75 @@ class HK_Users {
 		);
 	}
 
+	/* ------------------------------------------------------------------
+	 * E-mail address change: the new address takes effect only after the
+	 * link sent to it has been opened.
+	 * ---------------------------------------------------------------- */
+
+	const EMAIL_CHANGES_PER_DAY = 3;
+
+	/** Pending new address, or ''. */
+	public static function pending_email( int $user_id ): string {
+		$p = get_user_meta( $user_id, 'hk_new_email', true );
+		return is_array( $p ) && ! empty( $p['email'] ) && (int) $p['time'] > hk_now() - 2 * DAY_IN_SECONDS ? (string) $p['email'] : '';
+	}
+
+	/** @return true|WP_Error */
+	public static function request_email_change( int $user_id, string $email ) {
+		$limit_key = 'hk_emchg_' . $user_id;
+		$count     = (int) get_transient( $limit_key );
+		if ( $count >= (int) apply_filters( 'hk_email_changes_per_day', self::EMAIL_CHANGES_PER_DAY ) ) {
+			return new WP_Error( 'hk_limit', __( 'You have changed your e-mail address too many times today. Please try again tomorrow.', 'huutokauppa' ) );
+		}
+		set_transient( $limit_key, $count + 1, DAY_IN_SECONDS );
+		$key = wp_generate_password( 32, false );
+		update_user_meta(
+			$user_id,
+			'hk_new_email',
+			array(
+				'email' => $email,
+				'hash'  => wp_hash_password( $key ),
+				'time'  => hk_now(),
+			)
+		);
+		$url = add_query_arg(
+			array(
+				'hk_confirm_email' => $key,
+				'hk_user'          => $user_id,
+			),
+			HK_Settings::page_url( 'profile' )
+		);
+		HK_Mailer::send( 'email_change', $email, array( 'url' => $url, 'user_id' => $user_id ) );
+		return true;
+	}
+
+	public static function cancel_email_change( int $user_id ): void {
+		delete_user_meta( $user_id, 'hk_new_email' );
+	}
+
+	private static function confirm_email_change( int $user_id, string $key ): string {
+		$p = get_user_meta( $user_id, 'hk_new_email', true );
+		if ( ! is_array( $p ) || '' === self::pending_email( $user_id ) || ! wp_check_password( $key, (string) $p['hash'], $user_id ) ) {
+			return 'invalid';
+		}
+		$other = email_exists( $p['email'] );
+		if ( $other && (int) $other !== $user_id ) {
+			delete_user_meta( $user_id, 'hk_new_email' );
+			return 'taken';
+		}
+		$r = wp_update_user( array( 'ID' => $user_id, 'user_email' => $p['email'] ) );
+		delete_user_meta( $user_id, 'hk_new_email' );
+		return is_wp_error( $r ) ? 'invalid' : 'email_changed';
+	}
+
 	public static function handle_activation(): void {
+		// phpcs:disable WordPress.Security.NonceVerification -- links from e-mail, protected by the one-time key.
+		if ( ! empty( $_GET['hk_confirm_email'] ) && ! empty( $_GET['hk_user'] ) ) {
+			$status = self::confirm_email_change( absint( $_GET['hk_user'] ), sanitize_text_field( wp_unslash( $_GET['hk_confirm_email'] ) ) );
+			wp_safe_redirect( add_query_arg( 'hk_msg', $status, remove_query_arg( array( 'hk_confirm_email', 'hk_user' ) ) ) );
+			exit;
+		}
+		// phpcs:enable
 		if ( empty( $_GET['hk_activate'] ) || empty( $_GET['hk_user'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			return;
 		}
@@ -161,11 +237,19 @@ class HK_Users {
 
 	/* ------------------------------------------------------------------ */
 
+	/**
+	 * Hash of the visitor's IP address. Failed logins are counted per account and
+	 * address, so nobody can lock another person out from their own network.
+	 */
+	private static function ip_hash(): string {
+		return md5( wp_salt( 'auth' ) . ( $_SERVER['REMOTE_ADDR'] ?? '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	}
+
 	private static function failed_count( int $user_id ): int {
 		global $wpdb;
 		$t = HK_Install::table( 'login_attempts' );
 		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-		return (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $t WHERE user_id = %d AND attempted_at > %d", $user_id, hk_now() - 2 * HOUR_IN_SECONDS ) );
+		return (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $t WHERE user_id = %d AND ip_hash = %s AND attempted_at > %d", $user_id, self::ip_hash(), hk_now() - 2 * HOUR_IN_SECONDS ) );
 	}
 
 	private static function user_by_login( string $login ): ?WP_User {
@@ -185,12 +269,63 @@ class HK_Users {
 		return $user;
 	}
 
-	public static function record_failed_login( $username ): void {
+	public static function record_failed_login( $username, $error = null ): void {
+		// A refusal caused by the lockout itself is not a new guess; counting it would
+		// keep the lock alive for as long as someone keeps trying.
+		if ( $error instanceof WP_Error && in_array( 'hk_locked', $error->get_error_codes(), true ) ) {
+			return;
+		}
 		$u = self::user_by_login( (string) $username );
 		if ( $u ) {
 			global $wpdb;
-			$wpdb->insert( HK_Install::table( 'login_attempts' ), array( 'user_id' => $u->ID, 'attempted_at' => hk_now() ), array( '%d', '%d' ) );
+			$wpdb->insert(
+				HK_Install::table( 'login_attempts' ),
+				array( 'user_id' => $u->ID, 'ip_hash' => self::ip_hash(), 'attempted_at' => hk_now() ),
+				array( '%d', '%s', '%d' )
+			);
 		}
+	}
+
+	public static function clear_failed_logins( $login, $user = null ): void {
+		if ( $user instanceof WP_User ) {
+			global $wpdb;
+			$wpdb->delete( HK_Install::table( 'login_attempts' ), array( 'user_id' => $user->ID, 'ip_hash' => self::ip_hash() ), array( '%d', '%s' ) );
+		}
+	}
+
+	public static function clear_all_failed_logins( $user ): void {
+		if ( $user instanceof WP_User ) {
+			global $wpdb;
+			$wpdb->delete( HK_Install::table( 'login_attempts' ), array( 'user_id' => $user->ID ), array( '%d' ) );
+		}
+	}
+
+	/* ------------------------------------------------------------------ */
+
+	/** Whether a user only bids/sells and should use the front-end pages instead of wp-admin. */
+	public static function is_bidder_only( int $user_id ): bool {
+		$only = $user_id && ! user_can( $user_id, 'edit_posts' ) && ! user_can( $user_id, 'manage_auctions' );
+		return (bool) apply_filters( 'hk_keep_out_of_admin', $only, $user_id );
+	}
+
+	/**
+	 * Bidders edit their details on the front-end "My details" page, which asks for the
+	 * current password before changing the e-mail address or password. The core profile
+	 * screen does not, so it is not offered to them.
+	 */
+	public static function keep_bidders_out_of_admin(): void {
+		global $pagenow;
+		if ( wp_doing_ajax() || in_array( $pagenow, array( 'admin-post.php', 'async-upload.php' ), true ) ) {
+			return;
+		}
+		if ( self::is_bidder_only( get_current_user_id() ) ) {
+			wp_safe_redirect( HK_Settings::get( 'page_profile' ) ? HK_Settings::page_url( 'profile' ) : home_url( '/' ) );
+			exit;
+		}
+	}
+
+	public static function admin_bar( $show ) {
+		return self::is_bidder_only( get_current_user_id() ) ? false : $show;
 	}
 
 	/** Remove a deleted user's automatic bids and watch list. Bid history is kept. */

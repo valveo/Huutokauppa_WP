@@ -219,6 +219,34 @@ class HK_Bidding {
 		);
 	}
 
+	/**
+	 * Remove all of one user's bids and their automatic bid on an item (administrator
+	 * action, e.g. for a joke bid). Other automatic bids then respond to the new price.
+	 * The end time is not changed. Returns the number of bids removed, or false when the
+	 * item already has a final result.
+	 *
+	 * @return int|false
+	 */
+	public static function retract_user_bids( int $item_id, int $user_id ) {
+		return self::with_lock(
+			$item_id,
+			function () use ( $item_id, $user_id ) {
+				if ( ! in_array( HK_Item::state( $item_id ), array( HK_Item::STATE_LIVE, HK_Item::STATE_ENDED ), true ) ) {
+					return false;
+				}
+				global $wpdb;
+				$n = (int) $wpdb->delete( HK_Install::table( 'bids' ), array( 'item_id' => $item_id, 'user_id' => $user_id ), array( '%d', '%d' ) );
+				self::remove_autobid( $item_id, $user_id );
+				if ( HK_Item::is_live( $item_id ) ) {
+					self::resolve_autobids( $item_id );
+				}
+				self::refresh_cache( $item_id );
+				do_action( 'hk_bids_retracted', $item_id, $user_id, $n );
+				return $n;
+			}
+		);
+	}
+
 	public static function remove_autobid( int $item_id, int $user_id ): bool {
 		global $wpdb;
 		return (bool) $wpdb->delete( HK_Install::table( 'autobids' ), array( 'item_id' => $item_id, 'user_id' => $user_id ), array( '%d', '%d' ) );
@@ -323,13 +351,21 @@ class HK_Bidding {
 		return array( 'ok' => false, 'code' => $code, 'message' => $message );
 	}
 
-	/** Run $fn while holding a per-item MySQL lock. */
 	private static function locked( int $item_id, callable $fn ): array {
+		return self::with_lock( $item_id, $fn, self::fail( 'hk_busy', __( 'The item is busy. Please try again.', 'huutokauppa' ) ) );
+	}
+
+	/**
+	 * Run $fn while holding the item's MySQL lock and return its result, or $busy if the
+	 * lock could not be taken. Everything that changes bids or the outcome of an item
+	 * goes through this. MySQL/MariaDB named locks are re-entrant within a connection.
+	 */
+	public static function with_lock( int $item_id, callable $fn, $busy = false ) {
 		global $wpdb;
 		$name = substr( 'hk_' . $wpdb->prefix . $item_id, 0, 64 );
 		$got  = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 10)', $name ) );
 		if ( 1 !== $got ) {
-			return self::fail( 'hk_busy', __( 'The item is busy. Please try again.', 'huutokauppa' ) );
+			return $busy;
 		}
 		try {
 			// Fresh meta in case another request changed it while we waited.

@@ -207,6 +207,7 @@ class HK_Forms {
 			self::$errors[] = __( 'Too many registrations from your network. Please try again later.', 'huutokauppa' );
 			return;
 		}
+		set_transient( $ip_key, $count + 1, HOUR_IN_SECONDS ); // Counted for every attempt that passes the checks above.
 		$name  = sanitize_text_field( self::old( 'name' ) );
 		$email = sanitize_email( self::old( 'email' ) );
 		$pass  = self::old( 'password' );
@@ -277,7 +278,6 @@ class HK_Forms {
 			wp_set_auth_cookie( $user_id );
 			self::set_flash( 'success', __( 'Thank you for registering! You can now bid.', 'huutokauppa' ) );
 		}
-		set_transient( $ip_key, $count + 1, HOUR_IN_SECONDS );
 		do_action( 'hk_user_registered', $user_id );
 		self::redirect( get_permalink() );
 	}
@@ -356,11 +356,19 @@ class HK_Forms {
 		if ( self::$errors ) {
 			return;
 		}
+		// A new e-mail address is stored as pending and takes effect only when the
+		// link sent to it is opened, so nobody can take over another person's address.
+		if ( $email_changed ) {
+			$req = HK_Users::request_email_change( $uid, $email );
+			if ( is_wp_error( $req ) ) {
+				self::$errors[] = $req->get_error_message();
+				return;
+			}
+		}
 		$data = array(
 			'ID'           => $uid,
 			'display_name' => $name,
 			'first_name'   => $name,
-			'user_email'   => $email,
 		);
 		if ( '' !== $pass ) {
 			$data['user_pass'] = $pass;
@@ -377,11 +385,8 @@ class HK_Forms {
 		if ( '' !== $pass ) {
 			wp_set_auth_cookie( $uid );
 		}
-		if ( $email_changed && HK_Settings::get( 'require_activation' ) ) {
-			// The new address must be confirmed before the account can bid again.
-			$url = HK_Users::start_activation( $uid );
-			HK_Mailer::send( 'activation', $uid, array( 'url' => $url ) );
-			self::set_flash( 'success', __( 'Your details have been saved. We sent a confirmation link to your new e-mail address; open it before bidding again.', 'huutokauppa' ) );
+		if ( $email_changed ) {
+			self::set_flash( 'success', __( 'Your details have been saved. We sent a confirmation link to your new e-mail address. The address changes when you open the link.', 'huutokauppa' ) );
 			self::redirect( get_permalink() );
 		}
 		self::set_flash( 'success', __( 'Your details have been saved.', 'huutokauppa' ) );
@@ -397,7 +402,13 @@ class HK_Forms {
 		$l     = HK_Users::field_labels();
 		$flash = self::take_flash();
 		$val   = static fn( $k, $current ) => self::$old ? self::old( $k ) : $current;
-		$html  = ( $flash ? hk_notice( $flash['message'], $flash['type'] ) : '' ) . self::errors_html() . self::form_open( 'profile' );
+		$html  = HK_Frontend::activation_message() . ( $flash ? hk_notice( $flash['message'], $flash['type'] ) : '' ) . self::errors_html();
+		$pending = HK_Users::pending_email( $u->ID );
+		if ( $pending ) {
+			/* translators: %s: new e-mail address */
+			$html .= hk_notice( sprintf( __( 'Waiting for confirmation: %s. Open the link we sent to that address to change your e-mail address.', 'huutokauppa' ), $pending ) );
+		}
+		$html .= self::form_open( 'profile' );
 		$html .= self::field( 'name', __( 'Name or company name', 'huutokauppa' ), array( 'required' => true, 'value' => $val( 'name', $u->display_name ) ) );
 		$html .= self::field( 'email', __( 'E-mail', 'huutokauppa' ), array( 'type' => 'email', 'required' => true, 'value' => $val( 'email', $u->user_email ) ) );
 		foreach ( HK_Users::FIELDS as $f ) {
@@ -443,7 +454,8 @@ class HK_Forms {
 				array(
 					'post_type'      => HK_Post_Types::ITEM,
 					'post_status'    => 'pending',
-					'author'         => $uid,
+					'meta_key'       => '_hk_seller_user',
+					'meta_value'     => $uid,
 					'fields'         => 'ids',
 					'posts_per_page' => 100,
 				)
@@ -497,7 +509,9 @@ class HK_Forms {
 				'post_status'  => 'pending',
 				'post_title'   => $title,
 				'post_content' => $description,
-				'post_author'  => $uid,
+				// Not the seller: WordPress shows the post author publicly (bylines, oEmbed,
+				// author archives). The seller is stored in _hk_seller_user instead.
+				'post_author'  => self::item_owner(),
 			),
 			true
 		);
@@ -547,6 +561,12 @@ class HK_Forms {
 		do_action( 'hk_item_submitted', $post_id, $uid );
 		self::set_flash( 'success', __( 'Thank you! Your item has been sent for approval. We will e-mail you when it is in the auction.', 'huutokauppa' ) );
 		self::redirect( get_permalink() );
+	}
+
+	/** User shown as the WordPress author of submitted items: the first administrator. */
+	private static function item_owner(): int {
+		$admins = get_users( array( 'role' => 'administrator', 'orderby' => 'ID', 'number' => 1, 'fields' => 'ID' ) );
+		return (int) apply_filters( 'hk_item_author', $admins ? (int) $admins[0] : 0 );
 	}
 
 	/** Validated $_FILES entries for the image field, or WP_Error. */

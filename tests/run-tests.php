@@ -250,6 +250,45 @@ HK_Bidding::place_bid( $i, $b, 300 );
 t_eq( array( $b, 300.0 ), t_high( $i ), 'automatic bid of an unconfirmed user does not answer' );
 delete_user_meta( $c, 'hk_activation' );
 
+echo "Removing a bidder's bids\n";
+$i = t_item( array(), $created_items );
+HK_Bidding::set_autobid( $i, $a, 400 );
+HK_Bidding::place_bid( $i, $b, 99999999 );
+t_eq( $b, t_high( $i )[0], 'joke bid leads' );
+t_eq( 1, HK_Bidding::retract_user_bids( $i, $b ), 'joke bid removed' );
+t_eq( array( $a, 110.0 ), t_high( $i ), 'remaining automatic bid answers at the minimum again' );
+HK_Users::set_blocked( $a, true );
+t_eq( null, HK_Bidding::get_autobid( $i, $a ), 'blocking removes the automatic bids' );
+HK_Users::set_blocked( $a, false );
+
+echo "E-mail change\n";
+$old_email = get_userdata( $c )->user_email;
+$GLOBALS['hk_test_mail'] = array();
+t_ok( true === HK_Users::request_email_change( $c, 'new-' . $old_email ), 'change requested' );
+clean_user_cache( $c );
+t_eq( $old_email, get_userdata( $c )->user_email, 'address does not change before confirmation' );
+t_eq( 'new-' . $old_email, $GLOBALS['hk_test_mail'][0]['to'] ?? '', 'confirmation sent to the new address' );
+t_ok( false === strpos( $GLOBALS['hk_test_mail'][0]['message'] ?? '', get_userdata( $c )->display_name ), 'mail does not contain the user-entered name' );
+preg_match( '/hk_confirm_email=([A-Za-z0-9]+)/', $GLOBALS['hk_test_mail'][0]['message'] ?? '', $m );
+$confirm = new ReflectionMethod( 'HK_Users', 'confirm_email_change' );
+t_eq( 'invalid', $confirm->invoke( null, $c, 'wrongkey' ), 'wrong key rejected' );
+t_eq( 'email_changed', $confirm->invoke( null, $c, $m[1] ?? '' ), 'right key changes the address' );
+clean_user_cache( $c );
+t_eq( 'new-' . $old_email, get_userdata( $c )->user_email, 'address changed' );
+HK_Users::request_email_change( $c, 'x1@example.com' );
+HK_Users::request_email_change( $c, 'x2@example.com' );
+t_ok( is_wp_error( HK_Users::request_email_change( $c, 'x3@example.com' ) ), 'daily limit on e-mail changes' );
+delete_transient( 'hk_emchg_' . $c );
+HK_Users::cancel_email_change( $c );
+
+echo "Description rendering\n";
+$i = t_item( array(), $created_items );
+wp_update_post( array( 'ID' => $i, 'post_content' => "Text [huutokauppa_rekisteroidy]\n\n<script>alert(1)</script><b>bold</b>" ) );
+$GLOBALS['post'] = get_post( $i );
+$html = wpautop( wptexturize( wp_kses_post( HK_Item::localized( $i, 'content' ) ) ) );
+t_ok( false !== strpos( $html, '[huutokauppa_rekisteroidy]' ) && false === strpos( $html, 'hk-page-form' ), 'shortcodes are not run' );
+t_ok( false === strpos( $html, '<script' ) && false !== strpos( $html, '<b>bold</b>' ), 'scripts removed, basic HTML kept' );
+
 echo "Failed-login lockout\n";
 HK_Settings::update( array( 'max_failed_logins' => 3 ) );
 $login = get_userdata( $a )->user_login;
@@ -258,6 +297,18 @@ for ( $n = 0; $n < 3; $n++ ) {
 }
 $res = wp_authenticate( $login, 'wrong' );
 t_ok( is_wp_error( $res ) && 'hk_locked' === $res->get_error_code(), 'account locked after too many failures' );
+global $wpdb;
+$before = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM ' . HK_Install::table( 'login_attempts' ) . ' WHERE user_id = %d', $a ) );
+wp_authenticate( $login, 'wrong' );
+$after = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM ' . HK_Install::table( 'login_attempts' ) . ' WHERE user_id = %d', $a ) );
+t_eq( $before, $after, 'attempts refused by the lockout are not counted again' );
+$_SERVER['REMOTE_ADDR'] = '203.0.113.9';
+$res = wp_authenticate( $login, 'wrong' );
+t_ok( ! is_wp_error( $res ) || 'hk_locked' !== $res->get_error_code(), 'lockout does not apply from another address' );
+unset( $_SERVER['REMOTE_ADDR'] );
+do_action( 'after_password_reset', get_userdata( $a ), 'x' );
+$res = wp_authenticate( $login, 'wrong' );
+t_ok( ! is_wp_error( $res ) || 'hk_locked' !== $res->get_error_code(), 'password reset clears the lockout' );
 HK_Settings::update( array( 'max_failed_logins' => 5 ) );
 
 // Clean up.

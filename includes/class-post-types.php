@@ -35,7 +35,7 @@ class HK_Post_Types {
 				'has_archive'     => false,
 				'menu_icon'       => 'dashicons-hammer',
 				'menu_position'   => 26,
-				'supports'        => array( 'title', 'editor', 'thumbnail', 'author' ),
+				'supports'        => array( 'title', 'editor', 'thumbnail' ),
 				'show_in_rest'    => false,
 				'rewrite'         => array(
 					/* translators: URL slug for auction items */

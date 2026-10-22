@@ -76,18 +76,32 @@ when "Anyone can register" is off in WordPress settings.
 
 ## Security notes
 
+- Bidders and sellers stay anonymous to visitors: public bid history shows
+  "Bidder 1, 2…", submitted items are authored by an administrator (the seller
+  is stored separately), author archives of bidders return 404, and items are
+  left out of the users sitemap and oEmbed author data.
 - Accounts registered through the plugin get a random login name; users log in
-  with their e-mail address, which is never used in public URLs.
-- Changing the e-mail address or password on the *My details* page requires
-  the current password, and a new e-mail address must be confirmed again
-  before the account can bid.
+  with their e-mail address.
+- Changing the e-mail address or password on *My details* requires the current
+  password. A new e-mail address takes effect only after the link sent to it
+  is opened (at most 3 change requests per day). Bidders are kept out of
+  wp-admin, whose profile screen does not ask for the current password
+  (`hk_keep_out_of_admin` filter).
+- Failed logins are counted per account **and** IP address, so others cannot
+  lock someone out from their own network. Refusals caused by the lockout are
+  not counted again, and a password reset clears it.
 - Registrations are limited to 5 per IP address per hour
-  (`hk_registrations_per_hour` filter) and pending submissions to 10 per user
+  (`hk_registrations_per_hour`), pending submissions to 10 per user
   (`hk_max_pending_submissions`). New accounts always get the `subscriber`
-  role (`hk_new_user_role`), never the site's default role.
-- The failed-login lockout is per account, so someone who knows an e-mail
-  address can lock that account for two hours by guessing wrong. Set the limit
-  to 0 if you use a separate login-protection plugin instead.
+  role (`hk_new_user_role`).
+- Seller descriptions are shown as text with basic HTML; shortcodes and
+  embeds are not run.
+- Administrators can remove all of one bidder's bids on an item (e.g. a joke
+  bid) from the item's edit screen. Blocking a user stops their automatic bids.
+- Bids, winner decisions and closing an auction all take the same per-item
+  database lock.
+- Uploaded photos keep their original EXIF data (which may include GPS
+  location). Images of rejected submissions are deleted.
 
 ## Development
 
@@ -109,7 +123,7 @@ Uninstalling keeps auction data unless `HK_REMOVE_ALL_DATA` is defined as
 - All database access uses prepared statements.
 - The "intra" and "admin" sections are replaced by the WordPress admin.
 - Static pages (rules, privacy, contact) are ordinary WordPress pages.
-- Bidders are shown anonymised in the public bid history ("Bidder 2").
+- Bidders and sellers are not shown publicly (see Security notes).
 - The auction fee calculation in the old item page was not displayed anywhere
   and is not included.
 

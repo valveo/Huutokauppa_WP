@@ -21,6 +21,7 @@ class HK_Admin {
 		add_filter( 'post_row_actions', array( __CLASS__, 'row_actions' ), 10, 2 );
 		add_action( 'admin_action_hk_duplicate', array( __CLASS__, 'duplicate' ) );
 		add_action( 'admin_post_hk_decide', array( __CLASS__, 'decide' ) );
+		add_action( 'admin_post_hk_retract', array( __CLASS__, 'retract' ) );
 		add_action( 'admin_post_hk_export', array( __CLASS__, 'export' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'notices' ) );
 		add_action( 'post_submitbox_misc_actions', array( __CLASS__, 'reject_button' ) );
@@ -143,11 +144,13 @@ class HK_Admin {
 			<tr>
 				<th><label for="hk_start"><?php esc_html_e( 'Bidding starts', 'huutokauppa' ); ?></label></th>
 				<td><input type="datetime-local" id="hk_start" name="hk[start]" value="<?php echo esc_attr( hk_ts_to_local_input( $start ?: null ) ); ?>">
+					<input type="hidden" name="hk[start_orig]" value="<?php echo esc_attr( hk_ts_to_local_input( $start ?: null ) ); ?>">
 					<p class="description"><?php esc_html_e( 'Empty = when the item is published.', 'huutokauppa' ); ?></p></td>
 			</tr>
 			<tr>
 				<th><label for="hk_end"><?php esc_html_e( 'Bidding ends', 'huutokauppa' ); ?></label></th>
 				<td><input type="datetime-local" id="hk_end" name="hk[end]" value="<?php echo esc_attr( hk_ts_to_local_input( $end ?: null ) ); ?>">
+					<input type="hidden" name="hk[end_orig]" value="<?php echo esc_attr( hk_ts_to_local_input( $end ?: null ) ); ?>">
 					<?php /* translators: %d: number of days */ ?>
 					<p class="description"><?php echo esc_html( sprintf( __( 'Empty = %d days after the start.', 'huutokauppa' ), $default_d ) ); ?> <?php echo esc_html( wp_timezone_string() ); ?></p></td>
 			</tr>
@@ -260,6 +263,9 @@ class HK_Admin {
 			echo ' · <strong>' . esc_html__( 'Highest bid:', 'huutokauppa' ) . '</strong> ' . esc_html( hk_money( $high->amount ) ) . ' (' . esc_html( $u ? $u->display_name . ', ' . $u->user_email : '#' . $high->user_id ) . ')';
 		}
 		echo '</p>';
+		if ( $high && ( ! get_userdata( (int) $high->user_id ) || HK_Users::is_blocked( (int) $high->user_id ) ) ) {
+			echo '<div class="notice notice-error inline"><p>' . esc_html__( 'The highest bidder is blocked or no longer exists. Remove their bids before accepting a winner.', 'huutokauppa' ) . '</p></div>';
+		}
 
 		$action = static function ( string $decision, string $label, string $class = 'button' ) use ( $id ): string {
 			$url = wp_nonce_url( admin_url( 'admin-post.php?action=hk_decide&item=' . $id . '&decision=' . $decision ), 'hk_decide_' . $id );
@@ -275,12 +281,26 @@ class HK_Admin {
 		if ( ! $bids ) {
 			echo '<p>' . esc_html__( 'No bids yet.', 'huutokauppa' ) . '</p>';
 		} else {
-			echo '<table class="widefat striped"><thead><tr><th>' . esc_html__( 'Bidder', 'huutokauppa' ) . '</th><th>' . esc_html__( 'Amount', 'huutokauppa' ) . '</th><th>' . esc_html__( 'Time', 'huutokauppa' ) . '</th></tr></thead><tbody>';
+			$can_retract = in_array( $state, array( HK_Item::STATE_LIVE, HK_Item::STATE_ENDED ), true ) && current_user_can( 'manage_auctions' );
+			echo '<table class="widefat striped"><thead><tr><th>' . esc_html__( 'Bidder', 'huutokauppa' ) . '</th><th>' . esc_html__( 'Amount', 'huutokauppa' ) . '</th><th>' . esc_html__( 'Time', 'huutokauppa' ) . '</th>' . ( $can_retract ? '<th></th>' : '' ) . '</tr></thead><tbody>';
+			$shown = array();
 			foreach ( $bids as $b ) {
 				$u = get_userdata( (int) $b->user_id );
-				echo '<tr><td>' . ( $u ? '<a href="' . esc_url( get_edit_user_link( $u->ID ) ) . '">' . esc_html( $u->display_name ) . '</a> <span class="description">' . esc_html( $u->user_email ) . '</span>' : '#' . (int) $b->user_id ) . '</td>'
+				echo '<tr><td>' . ( $u ? '<a href="' . esc_url( get_edit_user_link( $u->ID ) ) . '">' . esc_html( $u->display_name ) . '</a> <span class="description">' . esc_html( $u->user_email ) . '</span>' : '#' . (int) $b->user_id )
+					. ( $u && HK_Users::is_blocked( $u->ID ) ? ' <strong class="hk-needs-decision">' . esc_html__( 'Blocked', 'huutokauppa' ) . '</strong>' : '' ) . '</td>'
 					. '<td>' . esc_html( hk_money( $b->amount ) ) . ( $b->is_auto ? ' <span class="description">' . esc_html__( 'automatic', 'huutokauppa' ) . '</span>' : '' ) . '</td>'
-					. '<td>' . esc_html( hk_format_time( (int) strtotime( $b->created_at . ' UTC' ), false ) ) . '</td></tr>';
+					. '<td>' . esc_html( hk_format_time( (int) strtotime( $b->created_at . ' UTC' ), false ) ) . '</td>';
+				if ( $can_retract ) {
+					echo '<td>';
+					// One link per bidder, on their newest bid.
+					if ( ! isset( $shown[ (int) $b->user_id ] ) ) {
+						$shown[ (int) $b->user_id ] = true;
+						$url = wp_nonce_url( admin_url( 'admin-post.php?action=hk_retract&item=' . $id . '&user=' . (int) $b->user_id ), 'hk_retract_' . $id . '_' . (int) $b->user_id );
+						echo '<a class="submitdelete" href="' . esc_url( $url ) . '" onclick="return confirm(\'' . esc_js( __( 'Remove all bids by this bidder on this item?', 'huutokauppa' ) ) . '\')">' . esc_html__( 'Remove bidder\'s bids', 'huutokauppa' ) . '</a>';
+					}
+					echo '</td>';
+				}
+				echo '</tr>';
 			}
 			echo '</tbody></table>';
 			$csv = wp_nonce_url( admin_url( 'admin-post.php?action=hk_export&what=bids&item=' . $id ), 'hk_export' );
@@ -315,8 +335,16 @@ class HK_Admin {
 			return;
 		}
 
-		$start = hk_local_input_to_ts( self::scalar( $in, 'start' ) );
-		$end   = hk_local_input_to_ts( self::scalar( $in, 'end' ) );
+		// The inputs are only accurate to the minute and were loaded when the screen was
+		// opened. A late bid may have extended the end time since then, so the stored
+		// times are kept unless the user actually changed the field.
+		$times = array();
+		foreach ( array( 'start' => HK_Item::start( $post_id ), 'end' => HK_Item::end( $post_id ) ) as $k => $stored ) {
+			$value       = self::scalar( $in, $k );
+			$times[ $k ] = ( $stored && $value === self::scalar( $in, $k . '_orig' ) ) ? $stored : hk_local_input_to_ts( $value );
+		}
+		$start = $times['start'];
+		$end   = $times['end'];
 		if ( 'publish' === $post->post_status ) {
 			$start = $start ?: ( HK_Item::start( $post_id ) ?: hk_now() );
 			$end   = $end ?: $start + DAY_IN_SECONDS * (int) HK_Settings::get( 'default_duration' );
@@ -384,6 +412,12 @@ class HK_Admin {
 			wp_die( esc_html__( 'You are not allowed to do this.', 'huutokauppa' ) );
 		}
 		wp_update_post( array( 'ID' => $id, 'post_status' => 'hk_rejected' ) );
+		// The seller's photos would otherwise stay publicly reachable in the uploads folder.
+		foreach ( get_attached_media( 'image', $id ) as $att ) {
+			wp_delete_attachment( $att->ID, true );
+		}
+		delete_post_meta( $id, '_hk_gallery' );
+		delete_post_thumbnail( $id );
 		set_transient( 'hk_admin_notice_' . get_current_user_id(), array( 'success', __( 'Submission rejected.', 'huutokauppa' ) ), 60 );
 		wp_safe_redirect( admin_url( 'edit.php?post_type=' . HK_Post_Types::ITEM ) );
 		exit;
@@ -419,6 +453,26 @@ class HK_Admin {
 		set_transient(
 			'hk_admin_notice_' . get_current_user_id(),
 			$ok ? array( 'success', $msg ) : array( 'error', __( 'The auction is not waiting for a decision.', 'huutokauppa' ) ),
+			60
+		);
+		wp_safe_redirect( wp_get_referer() ?: admin_url( 'post.php?action=edit&post=' . $id ) );
+		exit;
+	}
+
+	public static function retract(): void {
+		$id   = absint( $_GET['item'] ?? 0 );
+		$user = absint( $_GET['user'] ?? 0 );
+		check_admin_referer( 'hk_retract_' . $id . '_' . $user );
+		if ( ! current_user_can( 'manage_auctions' ) || ! current_user_can( 'edit_post', $id ) ) {
+			wp_die( esc_html__( 'You are not allowed to do this.', 'huutokauppa' ) );
+		}
+		$n = HK_Bidding::retract_user_bids( $id, $user );
+		set_transient(
+			'hk_admin_notice_' . get_current_user_id(),
+			false === $n
+				? array( 'error', __( 'Bids cannot be removed after the result has been decided. Undo the decision first.', 'huutokauppa' ) )
+				/* translators: %d: number of bids removed */
+				: array( 'success', sprintf( _n( '%d bid removed.', '%d bids removed.', (int) $n, 'huutokauppa' ), (int) $n ) ),
 			60
 		);
 		wp_safe_redirect( wp_get_referer() ?: admin_url( 'post.php?action=edit&post=' . $id ) );
