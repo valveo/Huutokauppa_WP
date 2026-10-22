@@ -31,6 +31,7 @@ require_once HK_DIR . 'includes/class-post-types.php';
 require_once HK_DIR . 'includes/class-item.php';
 require_once HK_DIR . 'includes/class-bidding.php';
 require_once HK_DIR . 'includes/class-mailer.php';
+require_once HK_DIR . 'includes/class-images.php';
 require_once HK_DIR . 'includes/class-winner.php';
 require_once HK_DIR . 'includes/class-cron.php';
 require_once HK_DIR . 'includes/class-users.php';

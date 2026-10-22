@@ -526,6 +526,11 @@ class HK_Forms {
 			require_once ABSPATH . 'wp-admin/includes/media.php';
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 			foreach ( $files as $n => $file ) {
+				// Remove camera and GPS metadata before WordPress stores the file and
+				// makes the other sizes from it (only when Imagick is available).
+				HK_Images::strip_metadata( $file['tmp_name'], $file['type'] );
+				clearstatcache( true, $file['tmp_name'] );
+				$file['size']               = (int) filesize( $file['tmp_name'] );
 				$_FILES[ 'hk_image_' . $n ] = $file;
 				$att = media_handle_upload( 'hk_image_' . $n, $post_id, array(), array( 'test_form' => false ) );
 				if ( ! is_wp_error( $att ) ) {

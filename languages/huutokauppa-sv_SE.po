@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Huutokauppa 1.0.0\n"
 "Report-Msgid-Bugs-To: matti.mieskonen@gmail.com\n"
-"POT-Creation-Date: 2026-10-22T19:21:56+00:00\n"
+"POT-Creation-Date: 2026-10-22T19:44:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,11 +70,11 @@ msgstr "Ta bort"
 msgid "Bids and result"
 msgstr "Bud och resultat"
 
-#: includes/class-admin.php:103 includes/class-forms.php:642
+#: includes/class-admin.php:103 includes/class-forms.php:647
 msgid "Auction"
 msgstr "Auktion"
 
-#: includes/class-admin.php:104 includes/class-forms.php:637
+#: includes/class-admin.php:104 includes/class-forms.php:642
 msgid "Images"
 msgstr "Bilder"
 
@@ -83,7 +83,7 @@ msgid "Translations"
 msgstr "Översättningar"
 
 #: includes/class-admin.php:111 includes/class-admin.php:645
-#: includes/class-forms.php:653
+#: includes/class-forms.php:658
 msgid "Seller"
 msgstr "Säljare"
 
@@ -132,7 +132,7 @@ msgstr "Utropspris"
 msgid "Minimum raise"
 msgstr "Minsta höjning"
 
-#: includes/class-admin.php:166 includes/class-forms.php:649
+#: includes/class-admin.php:166 includes/class-forms.php:654
 msgid "VAT"
 msgstr "Moms"
 
@@ -149,13 +149,13 @@ msgstr "Moms %s %% tillkommer"
 msgid "Show nothing"
 msgstr "Visa inget"
 
-#: includes/class-admin.php:175 includes/class-forms.php:640
+#: includes/class-admin.php:175 includes/class-forms.php:645
 #: templates/single-item.php:176
 msgid "Location"
 msgstr "Plats"
 
 #: includes/class-admin.php:179 includes/class-admin.php:221
-#: includes/class-forms.php:641 templates/single-item.php:182
+#: includes/class-forms.php:646 templates/single-item.php:182
 msgid "Delivery"
 msgstr "Leverans"
 
@@ -183,11 +183,11 @@ msgstr ""
 "Visas för besökare som använder webbplatsen på det språket. Tomma fält "
 "ersätts med huvudrubriken och -beskrivningen."
 
-#: includes/class-admin.php:217 includes/class-forms.php:635
+#: includes/class-admin.php:217 includes/class-forms.php:640
 msgid "Title"
 msgstr "Rubrik"
 
-#: includes/class-admin.php:219 includes/class-forms.php:636
+#: includes/class-admin.php:219 includes/class-forms.php:641
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -220,7 +220,7 @@ msgstr "Telefon"
 #: includes/class-admin.php:238 includes/class-admin.php:626
 #: includes/class-admin.php:633 includes/class-admin.php:645
 #: includes/class-admin.php:677 includes/class-forms.php:298
-#: includes/class-forms.php:413 includes/class-forms.php:660
+#: includes/class-forms.php:413 includes/class-forms.php:665
 msgid "E-mail"
 msgstr "E-post"
 
@@ -418,7 +418,7 @@ msgstr "Avslutade auktioner och vinnare"
 msgid "Newsletter"
 msgstr "Nyhetsbrev"
 
-#: includes/class-admin.php:645 includes/class-forms.php:634
+#: includes/class-admin.php:645 includes/class-forms.php:639
 #: templates/account.php:39 templates/account.php:65 templates/account.php:101
 msgid "Item"
 msgstr "Objekt"
@@ -590,7 +590,7 @@ msgid "Account"
 msgstr "Konto"
 
 #: includes/class-forms.php:297 includes/class-forms.php:412
-#: includes/class-forms.php:654
+#: includes/class-forms.php:659
 msgid "Name or company name"
 msgstr "Namn eller företagsnamn"
 
@@ -745,7 +745,7 @@ msgstr "Den önskade sluttiden måste vara i framtiden."
 msgid "Fill in the seller's name, phone and e-mail."
 msgstr "Fyll i säljarens namn, telefon och e-post."
 
-#: includes/class-forms.php:562
+#: includes/class-forms.php:567
 msgid ""
 "Thank you! Your item has been sent for approval. We will e-mail you when it "
 "is in the auction."
@@ -754,65 +754,65 @@ msgstr ""
 "när det är med i auktionen."
 
 #. translators: %s: file name
-#: includes/class-forms.php:588
+#: includes/class-forms.php:593
 msgid "The image %s could not be uploaded. It may be too large."
 msgstr "Bilden %s kunde inte laddas upp. Den kan vara för stor."
 
 #. translators: %s: file name
-#: includes/class-forms.php:593
+#: includes/class-forms.php:598
 msgid "%s is not a JPEG, PNG, WebP or GIF image."
 msgstr "%s är inte en JPEG-, PNG-, WebP- eller GIF-bild."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:605
+#: includes/class-forms.php:610
 msgid "You can add at most %d images."
 msgstr "Du kan lägga till högst %d bilder."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:639
+#: includes/class-forms.php:644
 msgid "Up to %d images. The first one is the main image."
 msgstr "Högst %d bilder. Den första är huvudbilden."
 
-#: includes/class-forms.php:641
+#: includes/class-forms.php:646
 msgid "For example: pick-up only, or shipping at the buyer's cost."
 msgstr "Till exempel: endast avhämtning, eller frakt på köparens bekostnad."
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:644
+#: includes/class-forms.php:649
 msgid "Start price (%s)"
 msgstr "Utropspris (%s)"
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:646
+#: includes/class-forms.php:651
 msgid "Minimum raise (%s)"
 msgstr "Minsta höjning (%s)"
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Requested end time"
 msgstr "Önskad sluttid"
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Optional. The administrator sets the final schedule."
 msgstr "Valfritt. Administratören bestämmer den slutliga tidtabellen."
 
-#: includes/class-forms.php:650
+#: includes/class-forms.php:655
 msgid "VAT 0 % (private seller or margin scheme)"
 msgstr "Moms 0 % (privat säljare eller marginalbeskattning)"
 
 #. translators: %s: VAT rate
-#: includes/class-forms.php:652
+#: includes/class-forms.php:657
 msgid "VAT %s %% is added to the price"
 msgstr "Moms %s %% tillkommer på priset"
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Contact person shown on the item page"
 msgstr "Kontaktperson som visas på objektets sida"
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Optional. Leave empty to show no contact details."
 msgstr "Valfritt. Lämna tomt om inga kontaktuppgifter ska visas."
 
-#: includes/class-forms.php:662
+#: includes/class-forms.php:667
 msgid "Send for approval"
 msgstr "Skicka för godkännande"
 
@@ -935,16 +935,16 @@ msgstr "Auktionsadministratör"
 msgid "Auctions"
 msgstr "Auktioner"
 
-#: includes/class-install.php:126 includes/class-settings.php:198
+#: includes/class-install.php:126 includes/class-settings.php:203
 msgid "My bids"
 msgstr "Mina bud"
 
-#: includes/class-install.php:127 includes/class-settings.php:199
+#: includes/class-install.php:127 includes/class-settings.php:204
 #: templates/account.php:28
 msgid "Submit an item"
 msgstr "Anmäl ett objekt"
 
-#: includes/class-install.php:129 includes/class-settings.php:201
+#: includes/class-install.php:129 includes/class-settings.php:206
 #: templates/account.php:25
 msgid "My details"
 msgstr "Mina uppgifter"
@@ -1200,7 +1200,7 @@ msgstr "Valutasymbol"
 msgid "Users and submissions"
 msgstr "Användare och anmälningar"
 
-#: includes/class-settings.php:173 includes/class-settings.php:200
+#: includes/class-settings.php:173 includes/class-settings.php:205
 msgid "Registration"
 msgstr "Registrering"
 
@@ -1221,38 +1221,58 @@ msgid "Images per item"
 msgstr "Bilder per objekt"
 
 #: includes/class-settings.php:176
+msgid "Photo metadata"
+msgstr "Bildernas metadata"
+
+#: includes/class-settings.php:178
+msgid ""
+"Removed: EXIF data such as camera details and GPS location is deleted from "
+"photos sellers upload."
+msgstr ""
+"Tas bort: EXIF-data som kamerauppgifter och GPS-position tas bort från "
+"bilder som säljare laddar upp."
+
+#: includes/class-settings.php:179
+msgid ""
+"Kept: the Imagick PHP extension is not available, so photos are stored with "
+"their EXIF data, which may include the GPS location where they were taken."
+msgstr ""
+"Behålls: PHP-tillägget Imagick är inte tillgängligt, så bilderna sparas med "
+"sin EXIF-data, som kan innehålla GPS-positionen där de togs."
+
+#: includes/class-settings.php:181
 msgid "Failed logins before lockout"
 msgstr "Misslyckade inloggningar före spärr"
 
-#: includes/class-settings.php:176
+#: includes/class-settings.php:181
 msgid "Counted per account over two hours. 0 disables."
 msgstr "Räknas per konto under två timmar. 0 stänger av."
 
-#: includes/class-settings.php:178
+#: includes/class-settings.php:183
 msgid "Notification e-mail"
 msgstr "E-post för meddelanden"
 
-#: includes/class-settings.php:180
+#: includes/class-settings.php:185
 msgid "Receives new submissions and ended auctions."
 msgstr "Får meddelanden om nya anmälningar och avslutade auktioner."
 
-#: includes/class-settings.php:183
+#: includes/class-settings.php:188
 msgid "Display"
 msgstr "Visning"
 
-#: includes/class-settings.php:186
+#: includes/class-settings.php:191
 msgid "Items per page"
 msgstr "Objekt per sida"
 
-#: includes/class-settings.php:187
+#: includes/class-settings.php:192
 msgid "Live update interval (seconds)"
 msgstr "Uppdateringsintervall (sekunder)"
 
-#: includes/class-settings.php:189
+#: includes/class-settings.php:194
 msgid "Extra content languages"
 msgstr "Extra innehållsspråk"
 
-#: includes/class-settings.php:191
+#: includes/class-settings.php:196
 msgid ""
 "Two-letter codes. Items get a translated title, description and delivery "
 "text for each; visitors see the one matching the site language."
@@ -1261,15 +1281,15 @@ msgstr ""
 "leveranstext för varje språk; besökaren ser den som motsvarar webbplatsens "
 "språk."
 
-#: includes/class-settings.php:194
+#: includes/class-settings.php:199
 msgid "Pages"
 msgstr "Sidor"
 
-#: includes/class-settings.php:197
+#: includes/class-settings.php:202
 msgid "Auction list"
 msgstr "Objektlista"
 
-#: includes/class-settings.php:202
+#: includes/class-settings.php:207
 msgid "Terms of use"
 msgstr "Användarvillkor"
 

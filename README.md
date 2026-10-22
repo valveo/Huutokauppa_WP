@@ -100,8 +100,12 @@ when "Anyone can register" is off in WordPress settings.
   bid) from the item's edit screen. Blocking a user stops their automatic bids.
 - Bids, winner decisions and closing an auction all take the same per-item
   database lock.
-- Uploaded photos keep their original EXIF data (which may include GPS
-  location). Images of rejected submissions are deleted.
+- When the server has the Imagick PHP extension, EXIF and other metadata
+  (camera, GPS location, time taken) are removed from photos sellers upload;
+  the photo is turned upright first and its colour profile is kept. Without
+  Imagick the photos are stored unchanged; the settings page shows which
+  applies (`hk_strip_image_metadata` filter). Images of rejected submissions
+  are deleted.
 
 ## Development
 

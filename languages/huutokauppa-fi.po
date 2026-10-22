@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Huutokauppa 1.0.0\n"
 "Report-Msgid-Bugs-To: matti.mieskonen@gmail.com\n"
-"POT-Creation-Date: 2026-10-22T19:21:56+00:00\n"
+"POT-Creation-Date: 2026-10-22T19:44:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,11 +70,11 @@ msgstr "Poista"
 msgid "Bids and result"
 msgstr "Huudot ja tulos"
 
-#: includes/class-admin.php:103 includes/class-forms.php:642
+#: includes/class-admin.php:103 includes/class-forms.php:647
 msgid "Auction"
 msgstr "Huutokauppa"
 
-#: includes/class-admin.php:104 includes/class-forms.php:637
+#: includes/class-admin.php:104 includes/class-forms.php:642
 msgid "Images"
 msgstr "Kuvat"
 
@@ -83,7 +83,7 @@ msgid "Translations"
 msgstr "Käännökset"
 
 #: includes/class-admin.php:111 includes/class-admin.php:645
-#: includes/class-forms.php:653
+#: includes/class-forms.php:658
 msgid "Seller"
 msgstr "Myyjä"
 
@@ -133,7 +133,7 @@ msgstr "Lähtöhinta"
 msgid "Minimum raise"
 msgstr "Minimikorotus"
 
-#: includes/class-admin.php:166 includes/class-forms.php:649
+#: includes/class-admin.php:166 includes/class-forms.php:654
 msgid "VAT"
 msgstr "ALV"
 
@@ -150,13 +150,13 @@ msgstr "Hintaan lisätään ALV %s %%"
 msgid "Show nothing"
 msgstr "Ei merkintää"
 
-#: includes/class-admin.php:175 includes/class-forms.php:640
+#: includes/class-admin.php:175 includes/class-forms.php:645
 #: templates/single-item.php:176
 msgid "Location"
 msgstr "Sijainti"
 
 #: includes/class-admin.php:179 includes/class-admin.php:221
-#: includes/class-forms.php:641 templates/single-item.php:182
+#: includes/class-forms.php:646 templates/single-item.php:182
 msgid "Delivery"
 msgstr "Toimitustapa"
 
@@ -184,11 +184,11 @@ msgstr ""
 "Näytetään sivustoa kyseisellä kielellä selaaville. Tyhjien kenttien tilalla "
 "näytetään pääotsikko ja -kuvaus."
 
-#: includes/class-admin.php:217 includes/class-forms.php:635
+#: includes/class-admin.php:217 includes/class-forms.php:640
 msgid "Title"
 msgstr "Otsikko"
 
-#: includes/class-admin.php:219 includes/class-forms.php:636
+#: includes/class-admin.php:219 includes/class-forms.php:641
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -221,7 +221,7 @@ msgstr "Puhelin"
 #: includes/class-admin.php:238 includes/class-admin.php:626
 #: includes/class-admin.php:633 includes/class-admin.php:645
 #: includes/class-admin.php:677 includes/class-forms.php:298
-#: includes/class-forms.php:413 includes/class-forms.php:660
+#: includes/class-forms.php:413 includes/class-forms.php:665
 msgid "E-mail"
 msgstr "Sähköposti"
 
@@ -419,7 +419,7 @@ msgstr "Päättyneet huutokaupat ja voittajat"
 msgid "Newsletter"
 msgstr "Uutiskirje"
 
-#: includes/class-admin.php:645 includes/class-forms.php:634
+#: includes/class-admin.php:645 includes/class-forms.php:639
 #: templates/account.php:39 templates/account.php:65 templates/account.php:101
 msgid "Item"
 msgstr "Kohde"
@@ -594,7 +594,7 @@ msgid "Account"
 msgstr "Tunnus"
 
 #: includes/class-forms.php:297 includes/class-forms.php:412
-#: includes/class-forms.php:654
+#: includes/class-forms.php:659
 msgid "Name or company name"
 msgstr "Nimi tai yrityksen nimi"
 
@@ -749,7 +749,7 @@ msgstr "Toivotun päättymisajan on oltava tulevaisuudessa."
 msgid "Fill in the seller's name, phone and e-mail."
 msgstr "Täytä myyjän nimi, puhelin ja sähköposti."
 
-#: includes/class-forms.php:562
+#: includes/class-forms.php:567
 msgid ""
 "Thank you! Your item has been sent for approval. We will e-mail you when it "
 "is in the auction."
@@ -758,65 +758,65 @@ msgstr ""
 " se on huutokaupassa."
 
 #. translators: %s: file name
-#: includes/class-forms.php:588
+#: includes/class-forms.php:593
 msgid "The image %s could not be uploaded. It may be too large."
 msgstr "Kuvaa %s ei voitu ladata. Se voi olla liian suuri."
 
 #. translators: %s: file name
-#: includes/class-forms.php:593
+#: includes/class-forms.php:598
 msgid "%s is not a JPEG, PNG, WebP or GIF image."
 msgstr "%s ei ole JPEG-, PNG-, WebP- tai GIF-kuva."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:605
+#: includes/class-forms.php:610
 msgid "You can add at most %d images."
 msgstr "Voit lisätä enintään %d kuvaa."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:639
+#: includes/class-forms.php:644
 msgid "Up to %d images. The first one is the main image."
 msgstr "Enintään %d kuvaa. Ensimmäinen on pääkuva."
 
-#: includes/class-forms.php:641
+#: includes/class-forms.php:646
 msgid "For example: pick-up only, or shipping at the buyer's cost."
 msgstr "Esimerkiksi: vain nouto, tai toimitus ostajan kustannuksella."
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:644
+#: includes/class-forms.php:649
 msgid "Start price (%s)"
 msgstr "Lähtöhinta (%s)"
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:646
+#: includes/class-forms.php:651
 msgid "Minimum raise (%s)"
 msgstr "Minimikorotus (%s)"
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Requested end time"
 msgstr "Toivottu päättymisaika"
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Optional. The administrator sets the final schedule."
 msgstr "Vapaaehtoinen. Ylläpito päättää lopullisen aikataulun."
 
-#: includes/class-forms.php:650
+#: includes/class-forms.php:655
 msgid "VAT 0 % (private seller or margin scheme)"
 msgstr "ALV 0 % (yksityinen myyjä tai marginaaliverotus)"
 
 #. translators: %s: VAT rate
-#: includes/class-forms.php:652
+#: includes/class-forms.php:657
 msgid "VAT %s %% is added to the price"
 msgstr "Hintaan lisätään ALV %s %%"
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Contact person shown on the item page"
 msgstr "Kohteen sivulla näytettävä yhteyshenkilö"
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Optional. Leave empty to show no contact details."
 msgstr "Vapaaehtoinen. Jätä tyhjäksi, jos yhteystietoja ei näytetä."
 
-#: includes/class-forms.php:662
+#: includes/class-forms.php:667
 msgid "Send for approval"
 msgstr "Lähetä hyväksyttäväksi"
 
@@ -941,16 +941,16 @@ msgstr "Huutokaupan ylläpitäjä"
 msgid "Auctions"
 msgstr "Huutokauppa"
 
-#: includes/class-install.php:126 includes/class-settings.php:198
+#: includes/class-install.php:126 includes/class-settings.php:203
 msgid "My bids"
 msgstr "Omat huudot"
 
-#: includes/class-install.php:127 includes/class-settings.php:199
+#: includes/class-install.php:127 includes/class-settings.php:204
 #: templates/account.php:28
 msgid "Submit an item"
 msgstr "Jätä ilmoitus"
 
-#: includes/class-install.php:129 includes/class-settings.php:201
+#: includes/class-install.php:129 includes/class-settings.php:206
 #: templates/account.php:25
 msgid "My details"
 msgstr "Omat tiedot"
@@ -1207,7 +1207,7 @@ msgstr "Valuuttamerkki"
 msgid "Users and submissions"
 msgstr "Käyttäjät ja ilmoitukset"
 
-#: includes/class-settings.php:173 includes/class-settings.php:200
+#: includes/class-settings.php:173 includes/class-settings.php:205
 msgid "Registration"
 msgstr "Rekisteröityminen"
 
@@ -1229,38 +1229,58 @@ msgid "Images per item"
 msgstr "Kuvia kohdetta kohden"
 
 #: includes/class-settings.php:176
+msgid "Photo metadata"
+msgstr "Kuvien metatiedot"
+
+#: includes/class-settings.php:178
+msgid ""
+"Removed: EXIF data such as camera details and GPS location is deleted from "
+"photos sellers upload."
+msgstr ""
+"Poistetaan: myyjien lataamista kuvista poistetaan EXIF-tiedot, kuten kameran"
+" tiedot ja GPS-sijainti."
+
+#: includes/class-settings.php:179
+msgid ""
+"Kept: the Imagick PHP extension is not available, so photos are stored with "
+"their EXIF data, which may include the GPS location where they were taken."
+msgstr ""
+"Säilytetään: PHP:n Imagick-laajennus ei ole käytettävissä, joten kuvat "
+"tallennetaan EXIF-tietoineen. Niissä voi olla kuvauspaikan GPS-sijainti."
+
+#: includes/class-settings.php:181
 msgid "Failed logins before lockout"
 msgstr "Epäonnistuneita kirjautumisia ennen lukitusta"
 
-#: includes/class-settings.php:176
+#: includes/class-settings.php:181
 msgid "Counted per account over two hours. 0 disables."
 msgstr "Lasketaan tunnuskohtaisesti kahden tunnin ajalta. 0 poistaa käytöstä."
 
-#: includes/class-settings.php:178
+#: includes/class-settings.php:183
 msgid "Notification e-mail"
 msgstr "Ilmoitusten sähköposti"
 
-#: includes/class-settings.php:180
+#: includes/class-settings.php:185
 msgid "Receives new submissions and ended auctions."
 msgstr "Saa tiedon uusista ilmoituksista ja päättyneistä huutokaupoista."
 
-#: includes/class-settings.php:183
+#: includes/class-settings.php:188
 msgid "Display"
 msgstr "Näkymä"
 
-#: includes/class-settings.php:186
+#: includes/class-settings.php:191
 msgid "Items per page"
 msgstr "Kohteita sivulla"
 
-#: includes/class-settings.php:187
+#: includes/class-settings.php:192
 msgid "Live update interval (seconds)"
 msgstr "Päivitysväli (sekuntia)"
 
-#: includes/class-settings.php:189
+#: includes/class-settings.php:194
 msgid "Extra content languages"
 msgstr "Sisällön lisäkielet"
 
-#: includes/class-settings.php:191
+#: includes/class-settings.php:196
 msgid ""
 "Two-letter codes. Items get a translated title, description and delivery "
 "text for each; visitors see the one matching the site language."
@@ -1268,15 +1288,15 @@ msgstr ""
 "Kaksikirjaimiset koodit. Kohteisiin voi kirjoittaa jokaiselle kielelle oman "
 "otsikon, kuvauksen ja toimitustavan; kävijä näkee sivuston kieltä vastaavan."
 
-#: includes/class-settings.php:194
+#: includes/class-settings.php:199
 msgid "Pages"
 msgstr "Sivut"
 
-#: includes/class-settings.php:197
+#: includes/class-settings.php:202
 msgid "Auction list"
 msgstr "Kohdelista"
 
-#: includes/class-settings.php:202
+#: includes/class-settings.php:207
 msgid "Terms of use"
 msgstr "Käyttöehdot"
 

@@ -173,6 +173,11 @@ class HK_Settings {
 					$check( 'require_activation', __( 'Registration', 'huutokauppa' ), __( 'New users must confirm their e-mail address before they can bid.', 'huutokauppa' ) );
 					$check( 'allow_submissions', __( 'Seller submissions', 'huutokauppa' ), __( 'Logged-in users can submit items for approval.', 'huutokauppa' ) );
 					$num( 'max_images', __( 'Images per item', 'huutokauppa' ) );
+					echo '<tr><th scope="row">' . esc_html__( 'Photo metadata', 'huutokauppa' ) . '</th><td>'
+						. ( HK_Images::can_strip()
+							? esc_html__( 'Removed: EXIF data such as camera details and GPS location is deleted from photos sellers upload.', 'huutokauppa' )
+							: esc_html__( 'Kept: the Imagick PHP extension is not available, so photos are stored with their EXIF data, which may include the GPS location where they were taken.', 'huutokauppa' ) )
+						. '</td></tr>';
 					$num( 'max_failed_logins', __( 'Failed logins before lockout', 'huutokauppa' ), __( 'Counted per account over two hours. 0 disables.', 'huutokauppa' ) );
 					?>
 					<tr><th scope="row"><label for="hk-notify"><?php esc_html_e( 'Notification e-mail', 'huutokauppa' ); ?></label></th>

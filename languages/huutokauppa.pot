@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-22T19:21:56+00:00\n"
+"POT-Creation-Date: 2026-10-22T19:44:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: huutokauppa\n"
@@ -68,12 +68,12 @@ msgid "Bids and result"
 msgstr ""
 
 #: includes/class-admin.php:103
-#: includes/class-forms.php:642
+#: includes/class-forms.php:647
 msgid "Auction"
 msgstr ""
 
 #: includes/class-admin.php:104
-#: includes/class-forms.php:637
+#: includes/class-forms.php:642
 msgid "Images"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 
 #: includes/class-admin.php:111
 #: includes/class-admin.php:645
-#: includes/class-forms.php:653
+#: includes/class-forms.php:658
 msgid "Seller"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgid "Minimum raise"
 msgstr ""
 
 #: includes/class-admin.php:166
-#: includes/class-forms.php:649
+#: includes/class-forms.php:654
 msgid "VAT"
 msgstr ""
 
@@ -146,14 +146,14 @@ msgid "Show nothing"
 msgstr ""
 
 #: includes/class-admin.php:175
-#: includes/class-forms.php:640
+#: includes/class-forms.php:645
 #: templates/single-item.php:176
 msgid "Location"
 msgstr ""
 
 #: includes/class-admin.php:179
 #: includes/class-admin.php:221
-#: includes/class-forms.php:641
+#: includes/class-forms.php:646
 #: templates/single-item.php:182
 msgid "Delivery"
 msgstr ""
@@ -180,12 +180,12 @@ msgid "Shown to visitors browsing the site in that language. Empty fields fall b
 msgstr ""
 
 #: includes/class-admin.php:217
-#: includes/class-forms.php:635
+#: includes/class-forms.php:640
 msgid "Title"
 msgstr ""
 
 #: includes/class-admin.php:219
-#: includes/class-forms.php:636
+#: includes/class-forms.php:641
 msgid "Description"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 #: includes/class-admin.php:677
 #: includes/class-forms.php:298
 #: includes/class-forms.php:413
-#: includes/class-forms.php:660
+#: includes/class-forms.php:665
 msgid "E-mail"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgid "Newsletter"
 msgstr ""
 
 #: includes/class-admin.php:645
-#: includes/class-forms.php:634
+#: includes/class-forms.php:639
 #: templates/account.php:39
 #: templates/account.php:65
 #: templates/account.php:101
@@ -611,7 +611,7 @@ msgstr ""
 
 #: includes/class-forms.php:297
 #: includes/class-forms.php:412
-#: includes/class-forms.php:654
+#: includes/class-forms.php:659
 msgid "Name or company name"
 msgstr ""
 
@@ -756,70 +756,70 @@ msgstr ""
 msgid "Fill in the seller's name, phone and e-mail."
 msgstr ""
 
-#: includes/class-forms.php:562
+#: includes/class-forms.php:567
 msgid "Thank you! Your item has been sent for approval. We will e-mail you when it is in the auction."
 msgstr ""
 
 #. translators: %s: file name
-#: includes/class-forms.php:588
+#: includes/class-forms.php:593
 msgid "The image %s could not be uploaded. It may be too large."
 msgstr ""
 
 #. translators: %s: file name
-#: includes/class-forms.php:593
+#: includes/class-forms.php:598
 msgid "%s is not a JPEG, PNG, WebP or GIF image."
 msgstr ""
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:605
+#: includes/class-forms.php:610
 msgid "You can add at most %d images."
 msgstr ""
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:639
+#: includes/class-forms.php:644
 msgid "Up to %d images. The first one is the main image."
 msgstr ""
 
-#: includes/class-forms.php:641
+#: includes/class-forms.php:646
 msgid "For example: pick-up only, or shipping at the buyer's cost."
 msgstr ""
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:644
+#: includes/class-forms.php:649
 msgid "Start price (%s)"
 msgstr ""
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:646
+#: includes/class-forms.php:651
 msgid "Minimum raise (%s)"
 msgstr ""
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Requested end time"
 msgstr ""
 
-#: includes/class-forms.php:647
+#: includes/class-forms.php:652
 msgid "Optional. The administrator sets the final schedule."
 msgstr ""
 
-#: includes/class-forms.php:650
+#: includes/class-forms.php:655
 msgid "VAT 0 % (private seller or margin scheme)"
 msgstr ""
 
 #. translators: %s: VAT rate
-#: includes/class-forms.php:652
+#: includes/class-forms.php:657
 msgid "VAT %s %% is added to the price"
 msgstr ""
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Contact person shown on the item page"
 msgstr ""
 
-#: includes/class-forms.php:661
+#: includes/class-forms.php:666
 msgid "Optional. Leave empty to show no contact details."
 msgstr ""
 
-#: includes/class-forms.php:662
+#: includes/class-forms.php:667
 msgid "Send for approval"
 msgstr ""
 
@@ -949,18 +949,18 @@ msgid "Auctions"
 msgstr ""
 
 #: includes/class-install.php:126
-#: includes/class-settings.php:198
+#: includes/class-settings.php:203
 msgid "My bids"
 msgstr ""
 
 #: includes/class-install.php:127
-#: includes/class-settings.php:199
+#: includes/class-settings.php:204
 #: templates/account.php:28
 msgid "Submit an item"
 msgstr ""
 
 #: includes/class-install.php:129
-#: includes/class-settings.php:201
+#: includes/class-settings.php:206
 #: templates/account.php:25
 msgid "My details"
 msgstr ""
@@ -1195,7 +1195,7 @@ msgid "Users and submissions"
 msgstr ""
 
 #: includes/class-settings.php:173
-#: includes/class-settings.php:200
+#: includes/class-settings.php:205
 msgid "Registration"
 msgstr ""
 
@@ -1216,50 +1216,62 @@ msgid "Images per item"
 msgstr ""
 
 #: includes/class-settings.php:176
-msgid "Failed logins before lockout"
-msgstr ""
-
-#: includes/class-settings.php:176
-msgid "Counted per account over two hours. 0 disables."
+msgid "Photo metadata"
 msgstr ""
 
 #: includes/class-settings.php:178
-msgid "Notification e-mail"
+msgid "Removed: EXIF data such as camera details and GPS location is deleted from photos sellers upload."
 msgstr ""
 
-#: includes/class-settings.php:180
-msgid "Receives new submissions and ended auctions."
+#: includes/class-settings.php:179
+msgid "Kept: the Imagick PHP extension is not available, so photos are stored with their EXIF data, which may include the GPS location where they were taken."
+msgstr ""
+
+#: includes/class-settings.php:181
+msgid "Failed logins before lockout"
+msgstr ""
+
+#: includes/class-settings.php:181
+msgid "Counted per account over two hours. 0 disables."
 msgstr ""
 
 #: includes/class-settings.php:183
+msgid "Notification e-mail"
+msgstr ""
+
+#: includes/class-settings.php:185
+msgid "Receives new submissions and ended auctions."
+msgstr ""
+
+#: includes/class-settings.php:188
 msgid "Display"
 msgstr ""
 
-#: includes/class-settings.php:186
+#: includes/class-settings.php:191
 msgid "Items per page"
 msgstr ""
 
-#: includes/class-settings.php:187
+#: includes/class-settings.php:192
 msgid "Live update interval (seconds)"
 msgstr ""
 
-#: includes/class-settings.php:189
+#: includes/class-settings.php:194
 msgid "Extra content languages"
 msgstr ""
 
-#: includes/class-settings.php:191
+#: includes/class-settings.php:196
 msgid "Two-letter codes. Items get a translated title, description and delivery text for each; visitors see the one matching the site language."
 msgstr ""
 
-#: includes/class-settings.php:194
+#: includes/class-settings.php:199
 msgid "Pages"
 msgstr ""
 
-#: includes/class-settings.php:197
+#: includes/class-settings.php:202
 msgid "Auction list"
 msgstr ""
 
-#: includes/class-settings.php:202
+#: includes/class-settings.php:207
 msgid "Terms of use"
 msgstr ""
 

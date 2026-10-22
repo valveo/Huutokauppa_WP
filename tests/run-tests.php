@@ -289,6 +289,25 @@ $html = wpautop( wptexturize( wp_kses_post( HK_Item::localized( $i, 'content' ) 
 t_ok( false !== strpos( $html, '[huutokauppa_rekisteroidy]' ) && false === strpos( $html, 'hk-page-form' ), 'shortcodes are not run' );
 t_ok( false === strpos( $html, '<script' ) && false !== strpos( $html, '<b>bold</b>' ), 'scripts removed, basic HTML kept' );
 
+echo "Photo metadata\n";
+// 16x8 JPEG with EXIF orientation 6 (rotate to 8x16), camera make and a GPS position.
+$jpeg = wp_tempnam( 'hk-exif.jpg' );
+file_put_contents( $jpeg, base64_decode( '/9j/4AAQSkZJRgABAQAAAQABAAD/4QCoRXhpZgAATU0AKgAAAAgAAwEPAAIAAAAIAAAAMgESAAMAAAABAAYAAIglAAQAAAABAAAAOgAAAABUZXN0Q2FtAAAEAAEAAgAAAAJOAAAAAAIABQAAAAMAAABwAAMAAgAAAAJFAAAAAAQABQAAAAMAAACIAAAAAAAAADwAAAABAAAAAQAAAAEAAAAeAAAAAQAAABcAAAABAAAAHgAAAAEAAAAAAAAAAf/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAAgAEAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APFKKKK/Nz+1T//Z' ) );
+if ( ! HK_Images::can_strip() ) {
+	echo "  skip Imagick not available\n";
+	t_ok( ! HK_Images::strip_metadata( $jpeg, 'image/jpeg' ), 'without Imagick the file is left unchanged' );
+} else {
+	t_ok( HK_Images::strip_metadata( $jpeg, 'image/jpeg' ), 'metadata stripped' );
+	$im = new Imagick( $jpeg );
+	t_eq( array( 8, 16 ), array( $im->getImageWidth(), $im->getImageHeight() ), 'photo turned upright' );
+	t_eq( array(), $im->getImageProperties( 'exif:*' ), 'no EXIF left (camera, GPS)' );
+	$im->clear();
+	add_filter( 'hk_strip_image_metadata', '__return_false' );
+	t_ok( ! HK_Images::can_strip(), 'filter can turn it off' );
+	remove_filter( 'hk_strip_image_metadata', '__return_false' );
+}
+unlink( $jpeg );
+
 echo "Failed-login lockout\n";
 HK_Settings::update( array( 'max_failed_logins' => 3 ) );
 $login = get_userdata( $a )->user_login;
