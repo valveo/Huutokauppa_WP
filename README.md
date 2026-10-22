@@ -98,4 +98,19 @@ Uninstalling keeps auction data unless `HK_REMOVE_ALL_DATA` is defined as
 - The auction fee calculation in the old item page was not displayed anywhere
   and is not included.
 
-Copyright (C) Matti Mieskonen (Valveo) – All Rights Reserved.
+## License
+
+[PolyForm Shield License 1.0.0](LICENSE), Copyright (c) 2026 Matti Mieskonen
+([@valveo](https://github.com/valveo)).
+
+You may use, modify and share the plugin for any purpose, **including running
+your own auction website, for yourself or a client**, with one exception: you
+may not use it to provide a product or service that competes with it, such as
+selling the plugin or a derivative of it, or offering it as a hosted auction
+platform for others. The precise terms are in the license. When you share the
+software, keep the license text and the `Required Notice:` line in
+[LICENSE](LICENSE).
+
+This is a *source-available* license, not an OSI-approved open source license,
+and it is not GPL-compatible, so the plugin cannot be listed in the
+WordPress.org plugin directory. Security issues: see [SECURITY.md](SECURITY.md).
