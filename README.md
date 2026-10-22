@@ -117,3 +117,4 @@ For a commercial license, contact the author: matti.mieskonen@gmail.com.
 This is a *source-available* license, not an OSI-approved open source license,
 and it is not GPL-compatible, so the plugin cannot be listed in the
 WordPress.org plugin directory. Security issues: see [SECURITY.md](SECURITY.md).
+Contributions: see [CONTRIBUTING.md](CONTRIBUTING.md).
