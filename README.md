@@ -100,16 +100,19 @@ Uninstalling keeps auction data unless `HK_REMOVE_ALL_DATA` is defined as
 
 ## License
 
-[PolyForm Shield License 1.0.0](LICENSE), Copyright (c) 2026 Matti Mieskonen
+[PolyForm Noncommercial License 1.0.0](LICENSE), Copyright (c) 2026 Matti Mieskonen
 ([@valveo](https://github.com/valveo)).
 
-You may use, modify and share the plugin for any purpose, **including running
-your own auction website, for yourself or a client**, with one exception: you
-may not use it to provide a product or service that competes with it, such as
-selling the plugin or a derivative of it, or offering it as a hosted auction
-platform for others. The precise terms are in the license. When you share the
-software, keep the license text and the `Required Notice:` line in
+You may use, modify and share the plugin **for noncommercial purposes only**:
+personal use, hobby projects, study and testing, and use by charities,
+schools, public research organisations and government institutions.
+**Any commercial use is not allowed** under this license, for example running
+a business's auction website, building sites for paying clients, or selling
+or hosting the plugin. The precise terms are in the license. When you share
+the software, keep the license text and the `Required Notice:` line in
 [LICENSE](LICENSE).
+
+For a commercial license, contact the author: matti.mieskonen@gmail.com.
 
 This is a *source-available* license, not an OSI-approved open source license,
 and it is not GPL-compatible, so the plugin cannot be listed in the

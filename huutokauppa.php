@@ -7,12 +7,12 @@
  * Requires PHP:      8.1
  * Author:            Matti Mieskonen (Valveo)
  * Plugin URI:        https://github.com/valveo/Huutokauppa_WP
- * License:           PolyForm-Shield-1.0.0
- * License URI:       https://polyformproject.org/licenses/shield/1.0.0
+ * License:           PolyForm-Noncommercial-1.0.0
+ * License URI:       https://polyformproject.org/licenses/noncommercial/1.0.0
  * Text Domain:       huutokauppa
  * Domain Path:       /languages
  *
- * Copyright (c) 2026 Matti Mieskonen. Licensed under the PolyForm Shield License 1.0.0, see LICENSE.
+ * Copyright (c) 2026 Matti Mieskonen. Licensed under the PolyForm Noncommercial License 1.0.0, see LICENSE.
  */
 
 defined( 'ABSPATH' ) || exit;
