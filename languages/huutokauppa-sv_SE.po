@@ -1,0 +1,1382 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Huutokauppa 1.0.0\n"
+"Report-Msgid-Bugs-To: matti.mieskonen@gmail.com\n"
+"POT-Creation-Date: 2026-10-22T07:18:43+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: huutokauppa\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#. Plugin Name of the plugin
+#: huutokauppa.php
+msgid "Huutokauppa"
+msgstr "Huutokauppa"
+
+#. Description of the plugin
+#: huutokauppa.php
+msgid ""
+"Stand-alone online auctions: seller submissions, bidding with automatic "
+"(proxy) bids, anti-sniping, watch list and winner handling. No WooCommerce "
+"required."
+msgstr ""
+"Fristående nätauktion: säljarnas anmälningar, budgivning med automatiska "
+"bud, förlängd budtid, bevakningslista och hantering av vinnare. Kräver inte "
+"WooCommerce."
+
+#. Author of the plugin
+#: huutokauppa.php
+msgid "Matti Mieskonen (Valveo)"
+msgstr "Matti Mieskonen (Valveo)"
+
+#: includes/class-admin.php:32 includes/class-admin.php:545
+msgid "Export"
+msgstr "Export"
+
+#: includes/class-admin.php:33 includes/class-settings.php:154
+msgid "Auction settings"
+msgstr "Auktionsinställningar"
+
+#: includes/class-admin.php:33
+msgid "Settings"
+msgstr "Inställningar"
+
+#: includes/class-admin.php:85
+msgid "Item images"
+msgstr "Bilder på objektet"
+
+#: includes/class-admin.php:86
+msgid "Use these images"
+msgstr "Använd dessa bilder"
+
+#: includes/class-admin.php:87 includes/class-admin.php:195
+#: templates/single-item.php:141
+msgid "Remove"
+msgstr "Ta bort"
+
+#: includes/class-admin.php:100 includes/class-admin.php:108
+msgid "Bids and result"
+msgstr "Bud och resultat"
+
+#: includes/class-admin.php:102 includes/class-forms.php:572
+msgid "Auction"
+msgstr "Auktion"
+
+#: includes/class-admin.php:103 includes/class-forms.php:567
+msgid "Images"
+msgstr "Bilder"
+
+#: includes/class-admin.php:105
+msgid "Translations"
+msgstr "Översättningar"
+
+#: includes/class-admin.php:110 includes/class-admin.php:584
+#: includes/class-forms.php:583
+msgid "Seller"
+msgstr "Säljare"
+
+#. translators: 1: start price, 2: minimum raise, 3: end time
+#: includes/class-admin.php:131
+msgid ""
+"The seller requested: start price %1$s, minimum raise %2$s, end %3$s. Check "
+"the values below and publish to open the auction."
+msgstr ""
+"Säljaren önskade: utropspris %1$s, minsta höjning %2$s, slut %3$s. "
+"Kontrollera värdena nedan och publicera för att öppna auktionen."
+
+#: includes/class-admin.php:134
+msgid "not given"
+msgstr "inte angivet"
+
+#: includes/class-admin.php:140
+msgid ""
+"This item already has bids. Changing the price fields does not change "
+"existing bids."
+msgstr ""
+"Objektet har redan bud. Att ändra prisfälten ändrar inte befintliga bud."
+
+#: includes/class-admin.php:144 templates/single-item.php:75
+msgid "Bidding starts"
+msgstr "Budgivningen börjar"
+
+#: includes/class-admin.php:146
+msgid "Empty = when the item is published."
+msgstr "Tomt = när objektet publiceras."
+
+#: includes/class-admin.php:149
+msgid "Bidding ends"
+msgstr "Budgivningen slutar"
+
+#. translators: %d: number of days
+#: includes/class-admin.php:152
+msgid "Empty = %d days after the start."
+msgstr "Tomt = %d dagar efter start."
+
+#: includes/class-admin.php:155 templates/single-item.php:68
+msgid "Start price"
+msgstr "Utropspris"
+
+#: includes/class-admin.php:159
+msgid "Minimum raise"
+msgstr "Minsta höjning"
+
+#: includes/class-admin.php:163 includes/class-forms.php:579
+msgid "VAT"
+msgstr "Moms"
+
+#: includes/class-admin.php:165
+msgid "VAT 0 % / margin scheme"
+msgstr "Moms 0 % / marginalbeskattning"
+
+#. translators: %s: VAT rate
+#: includes/class-admin.php:167
+msgid "VAT %s %% is added"
+msgstr "Moms %s %% tillkommer"
+
+#: includes/class-admin.php:168
+msgid "Show nothing"
+msgstr "Visa inget"
+
+#: includes/class-admin.php:172 includes/class-forms.php:570
+#: templates/single-item.php:176
+msgid "Location"
+msgstr "Plats"
+
+#: includes/class-admin.php:176 includes/class-admin.php:218
+#: includes/class-forms.php:571 templates/single-item.php:182
+msgid "Delivery"
+msgstr "Leverans"
+
+#: includes/class-admin.php:180 templates/single-item.php:188
+msgid "Contact person"
+msgstr "Kontaktperson"
+
+#: includes/class-admin.php:182
+msgid "Shown publicly on the item page."
+msgstr "Visas offentligt på objektets sida."
+
+#: includes/class-admin.php:200
+msgid "Add images"
+msgstr "Lägg till bilder"
+
+#: includes/class-admin.php:201
+msgid "Drag to reorder. The first image is the main image."
+msgstr "Dra för att ändra ordning. Den första bilden är huvudbilden."
+
+#: includes/class-admin.php:208
+msgid ""
+"Shown to visitors browsing the site in that language. Empty fields fall back"
+" to the main title and description."
+msgstr ""
+"Visas för besökare som använder webbplatsen på det språket. Tomma fält "
+"ersätts med huvudrubriken och -beskrivningen."
+
+#: includes/class-admin.php:214 includes/class-forms.php:565
+msgid "Title"
+msgstr "Rubrik"
+
+#: includes/class-admin.php:216 includes/class-forms.php:566
+msgid "Description"
+msgstr "Beskrivning"
+
+#: includes/class-admin.php:229 includes/class-admin.php:565
+#: includes/class-admin.php:572
+msgid "Name"
+msgstr "Namn"
+
+#: includes/class-admin.php:230 includes/class-users.php:20
+msgid "Business ID"
+msgstr "FO-nummer"
+
+#: includes/class-admin.php:231 includes/class-users.php:17
+msgid "Street address"
+msgstr "Gatuadress"
+
+#: includes/class-admin.php:232 includes/class-users.php:18
+msgid "Postcode"
+msgstr "Postnummer"
+
+#: includes/class-admin.php:233 includes/class-users.php:19
+msgid "City"
+msgstr "Postanstalt"
+
+#: includes/class-admin.php:234 includes/class-admin.php:584
+#: includes/class-admin.php:616 includes/class-users.php:16
+msgid "Phone"
+msgstr "Telefon"
+
+#: includes/class-admin.php:235 includes/class-admin.php:565
+#: includes/class-admin.php:572 includes/class-admin.php:584
+#: includes/class-admin.php:616 includes/class-forms.php:278
+#: includes/class-forms.php:368 includes/class-forms.php:590
+msgid "E-mail"
+msgstr "E-post"
+
+#: includes/class-admin.php:238
+msgid "Submitted by"
+msgstr "Anmäld av"
+
+#: includes/class-admin.php:249
+msgid "Not shown publicly."
+msgstr "Visas inte offentligt."
+
+#: includes/class-admin.php:257
+msgid "Status:"
+msgstr "Status:"
+
+#: includes/class-admin.php:257
+msgid "Not published"
+msgstr "Inte publicerad"
+
+#: includes/class-admin.php:260
+msgid "Highest bid:"
+msgstr "Högsta bud:"
+
+#: includes/class-admin.php:269
+msgid "Accept highest bid and notify winner"
+msgstr "Godkänn högsta budet och meddela vinnaren"
+
+#: includes/class-admin.php:270
+msgid "Reject (lowest price not reached) and notify bidder"
+msgstr "Avvisa (lägsta pris nåddes inte) och meddela budgivaren"
+
+#: includes/class-admin.php:272
+msgid "Undo decision"
+msgstr "Ångra beslut"
+
+#: includes/class-admin.php:272
+msgid "E-mails already sent are not withdrawn."
+msgstr "Redan skickade e-postmeddelanden återkallas inte."
+
+#: includes/class-admin.php:276 includes/class-frontend.php:68
+#: templates/single-item.php:198
+msgid "No bids yet."
+msgstr "Inga bud ännu."
+
+#: includes/class-admin.php:278 includes/class-admin.php:584
+#: includes/class-admin.php:616
+msgid "Bidder"
+msgstr "Budgivare"
+
+#: includes/class-admin.php:278 includes/class-admin.php:616
+msgid "Amount"
+msgstr "Belopp"
+
+#: includes/class-admin.php:278 includes/class-admin.php:616
+msgid "Time"
+msgstr "Tid"
+
+#: includes/class-admin.php:282 includes/class-frontend.php:66
+#: templates/single-item.php:203
+msgid "automatic"
+msgstr "automatiskt"
+
+#: includes/class-admin.php:287
+msgid "Download bids as CSV"
+msgstr "Ladda ner bud som CSV"
+
+#: includes/class-admin.php:294 templates/account.php:59
+msgid "Automatic bids"
+msgstr "Automatiska bud"
+
+#: includes/class-admin.php:325
+msgid ""
+"The end time must be after the start time. The end time was not changed."
+msgstr "Sluttiden måste vara efter starttiden. Sluttiden ändrades inte."
+
+#: includes/class-admin.php:370
+msgid "Reject this submission?"
+msgstr "Avvisa denna anmälan?"
+
+#: includes/class-admin.php:370
+msgid "Reject submission"
+msgstr "Avvisa anmälan"
+
+#: includes/class-admin.php:377 includes/class-admin.php:393
+#: includes/class-admin.php:530 includes/class-admin.php:557
+msgid "You are not allowed to do this."
+msgstr "Du har inte behörighet till detta."
+
+#: includes/class-admin.php:380
+msgid "Submission rejected."
+msgstr "Anmälan avvisad."
+
+#: includes/class-admin.php:400
+msgid "Highest bid accepted and the winner notified."
+msgstr "Högsta budet godkänt och vinnaren meddelad."
+
+#: includes/class-admin.php:404
+msgid "Highest bid rejected and the bidder notified."
+msgstr "Högsta budet avvisat och budgivaren meddelad."
+
+#: includes/class-admin.php:409
+msgid "Decision undone."
+msgstr "Beslutet ångrat."
+
+#: includes/class-admin.php:414
+msgid "The auction is not waiting for a decision."
+msgstr "Auktionen väntar inte på beslut."
+
+#: includes/class-admin.php:443 includes/class-admin.php:584
+#: templates/account.php:41 templates/account.php:67
+#: templates/item-card.php:27 templates/single-item.php:65
+msgid "Highest bid"
+msgstr "Högsta bud"
+
+#: includes/class-admin.php:444 templates/single-item.php:71
+msgid "Bids"
+msgstr "Bud"
+
+#: includes/class-admin.php:445 templates/single-item.php:82
+msgid "Ends"
+msgstr "Slutar"
+
+#: includes/class-admin.php:446 includes/class-admin.php:584
+msgid "Status"
+msgstr "Status"
+
+#: includes/class-admin.php:474 includes/class-admin.php:513
+msgid "Waiting for decision"
+msgstr "Väntar på beslut"
+
+#: includes/class-admin.php:476
+msgid "Waiting for approval"
+msgstr "Väntar på godkännande"
+
+#: includes/class-admin.php:521
+msgid "Duplicate"
+msgstr "Duplicera"
+
+#: includes/class-admin.php:546
+msgid "CSV files open in Excel and LibreOffice (semicolon separated, UTF-8)."
+msgstr ""
+"CSV-filerna öppnas i Excel och LibreOffice (semikolonseparerade, UTF-8)."
+
+#: includes/class-admin.php:547
+msgid "Newsletter subscribers"
+msgstr "Prenumeranter på nyhetsbrevet"
+
+#: includes/class-admin.php:548
+msgid "All bidders with contact details"
+msgstr "Alla användare med kontaktuppgifter"
+
+#: includes/class-admin.php:549
+msgid "Ended auctions and winners"
+msgstr "Avslutade auktioner och vinnare"
+
+#: includes/class-admin.php:572 includes/class-users.php:106
+#: includes/class-users.php:157
+msgid "Newsletter"
+msgstr "Nyhetsbrev"
+
+#: includes/class-admin.php:572 includes/class-users.php:151
+msgid "Blocked"
+msgstr "Spärrad"
+
+#: includes/class-admin.php:584 includes/class-forms.php:564
+#: templates/account.php:39 templates/account.php:65 templates/account.php:101
+msgid "Item"
+msgstr "Objekt"
+
+#: includes/class-admin.php:584 includes/class-frontend.php:55
+#: includes/class-frontend.php:151 templates/account.php:119
+msgid "Ended"
+msgstr "Avslutad"
+
+#: includes/class-admin.php:616
+msgid "Automatic"
+msgstr "Automatiskt"
+
+#: includes/class-admin.php:630
+msgid "Unknown export."
+msgstr "Okänd export."
+
+#: includes/class-bidding.php:95 templates/single-item.php:146
+msgid "Log in to bid on this item."
+msgstr "Logga in för att bjuda på objektet."
+
+#: includes/class-bidding.php:98
+msgid "Your account has been blocked from bidding."
+msgstr "Ditt konto har spärrats från budgivning."
+
+#: includes/class-bidding.php:101
+msgid ""
+"Confirm your e-mail address before bidding. Check your inbox for the "
+"activation link."
+msgstr ""
+"Bekräfta din e-postadress innan du bjuder. Aktiveringslänken har skickats "
+"till din e-post."
+
+#: includes/class-bidding.php:104
+msgid "You cannot bid on your own item."
+msgstr "Du kan inte bjuda på ditt eget objekt."
+
+#: includes/class-bidding.php:107
+msgid "Bidding on this item is not open."
+msgstr "Budgivningen på objektet är inte öppen."
+
+#. translators: %s: smallest accepted bid
+#: includes/class-bidding.php:134
+msgid "The bid is too small. The smallest accepted bid is %s."
+msgstr "Budet är för lågt. Lägsta godtagbara bud är %s."
+
+#: includes/class-bidding.php:145
+msgid "Your bid was accepted. You are the highest bidder."
+msgstr "Ditt bud godkändes. Du har det högsta budet."
+
+#: includes/class-bidding.php:146
+msgid "Your bid was accepted, but another bidder's automatic bid outbid it."
+msgstr ""
+"Ditt bud godkändes, men en annan budgivares automatiska bud överträffade "
+"det."
+
+#. translators: %s: smallest accepted maximum
+#: includes/class-bidding.php:176
+msgid "The maximum is too small. It must be at least %s."
+msgstr "Maxbeloppet är för lågt. Det måste vara minst %s."
+
+#: includes/class-bidding.php:208
+msgid "Automatic bid updated. You are the highest bidder."
+msgstr "Automatiskt bud uppdaterat. Du har det högsta budet."
+
+#: includes/class-bidding.php:208
+msgid "Automatic bid activated. You are the highest bidder."
+msgstr "Automatiskt bud aktiverat. Du har det högsta budet."
+
+#: includes/class-bidding.php:210
+msgid "Automatic bid saved, but another bidder's maximum is higher."
+msgstr "Automatiskt bud sparat, men en annan budgivares maxbelopp är högre."
+
+#: includes/class-bidding.php:331
+msgid "The item is busy. Please try again."
+msgstr "Objektet är upptaget. Försök igen."
+
+#: includes/class-cron.php:28
+msgid "Every five minutes"
+msgstr "Var femte minut"
+
+#: includes/class-forms.php:81 includes/class-forms.php:125
+msgid "The form has expired. Please try again."
+msgstr "Formuläret har gått ut. Försök igen."
+
+#: includes/class-forms.php:91 includes/class-rest.php:134
+msgid "Enter the bid as a number, for example 150."
+msgstr "Ange budet som ett tal, till exempel 150."
+
+#: includes/class-forms.php:97 includes/class-rest.php:146
+msgid "Enter the maximum as a number, for example 500."
+msgstr "Ange maxbeloppet som ett tal, till exempel 500."
+
+#: includes/class-forms.php:102 includes/class-rest.php:154
+msgid "Automatic bid removed."
+msgstr "Automatiskt bud borttaget."
+
+#: includes/class-forms.php:106 includes/class-rest.php:167
+msgid "Added to your watch list."
+msgstr "Tillagt i bevakningslistan."
+
+#: includes/class-forms.php:106 includes/class-rest.php:167
+msgid "Removed from your watch list."
+msgstr "Borttaget från bevakningslistan."
+
+#: includes/class-forms.php:109
+msgid "Unknown action."
+msgstr "Okänd åtgärd."
+
+#: includes/class-forms.php:204 includes/class-forms.php:315
+msgid "Enter your name."
+msgstr "Ange ditt namn."
+
+#: includes/class-forms.php:207 includes/class-forms.php:318
+msgid "Enter a valid e-mail address."
+msgstr "Ange en giltig e-postadress."
+
+#: includes/class-forms.php:209
+msgid ""
+"An account with this e-mail address already exists. Log in or reset your "
+"password."
+msgstr ""
+"Det finns redan ett konto med denna e-postadress. Logga in eller återställ "
+"lösenordet."
+
+#: includes/class-forms.php:212 includes/class-forms.php:324
+msgid "The password must be at least 8 characters."
+msgstr "Lösenordet måste vara minst 8 tecken."
+
+#: includes/class-forms.php:214 includes/class-forms.php:326
+msgid "The passwords do not match."
+msgstr "Lösenorden stämmer inte överens."
+
+#: includes/class-forms.php:218
+msgid "Fill in all required fields."
+msgstr "Fyll i alla obligatoriska fält."
+
+#: includes/class-forms.php:223
+msgid "You must accept the terms of use."
+msgstr "Du måste godkänna användarvillkoren."
+
+#: includes/class-forms.php:255
+msgid ""
+"Thank you for registering! We sent you an e-mail. Open the link in it to "
+"activate your account."
+msgstr ""
+"Tack för din registrering! Vi har skickat ett e-postmeddelande. Öppna länken"
+" i det för att aktivera ditt konto."
+
+#: includes/class-forms.php:259
+msgid "Thank you for registering! You can now bid."
+msgstr "Tack för din registrering! Du kan nu bjuda."
+
+#: includes/class-forms.php:272
+msgid "You are already logged in."
+msgstr "Du är redan inloggad."
+
+#: includes/class-forms.php:276
+msgid "Account"
+msgstr "Konto"
+
+#: includes/class-forms.php:277 includes/class-forms.php:367
+#: includes/class-forms.php:584
+msgid "Name or company name"
+msgstr "Namn eller företagsnamn"
+
+#: includes/class-forms.php:278
+msgid "You log in with your e-mail address."
+msgstr "Du loggar in med din e-postadress."
+
+#: includes/class-forms.php:279
+msgid "Password"
+msgstr "Lösenord"
+
+#: includes/class-forms.php:279
+msgid "At least 8 characters."
+msgstr "Minst 8 tecken."
+
+#: includes/class-forms.php:280
+msgid "Password again"
+msgstr "Lösenord igen"
+
+#: includes/class-forms.php:281
+msgid "Contact details"
+msgstr "Kontaktuppgifter"
+
+#: includes/class-forms.php:286
+msgid "Only for companies."
+msgstr "Endast för företag."
+
+#: includes/class-forms.php:288 includes/class-forms.php:373
+msgid "Send me the newsletter"
+msgstr "Skicka mig nyhetsbrevet"
+
+#. translators: %s: link to the terms of use
+#: includes/class-forms.php:293
+msgid "I accept the %s"
+msgstr "Jag godkänner %s"
+
+#: includes/class-forms.php:294
+msgid "terms of use"
+msgstr "användarvillkoren"
+
+#: includes/class-forms.php:298 includes/class-install.php:127
+msgid "Register"
+msgstr "Registrera dig"
+
+#: includes/class-forms.php:320
+msgid "Another account already uses this e-mail address."
+msgstr "E-postadressen används redan av ett annat konto."
+
+#: includes/class-forms.php:353
+msgid "Your details have been saved."
+msgstr "Dina uppgifter har sparats."
+
+#: includes/class-forms.php:360
+msgid "Log in to edit your details."
+msgstr "Logga in för att redigera dina uppgifter."
+
+#: includes/class-forms.php:374
+msgid "Change password"
+msgstr "Byt lösenord"
+
+#: includes/class-forms.php:375
+msgid "New password"
+msgstr "Nytt lösenord"
+
+#: includes/class-forms.php:375
+msgid "Leave empty to keep the current password."
+msgstr "Lämna tomt för att behålla det nuvarande lösenordet."
+
+#: includes/class-forms.php:376
+msgid "New password again"
+msgstr "Nytt lösenord igen"
+
+#: includes/class-forms.php:377 templates/single-item.php:131
+msgid "Save"
+msgstr "Spara"
+
+#: includes/class-forms.php:387
+msgid "Item submissions are closed."
+msgstr "Anmälan av objekt är stängd."
+
+#: includes/class-forms.php:390
+msgid "Log in to submit an item."
+msgstr "Logga in för att anmäla ett objekt."
+
+#: includes/class-forms.php:393
+msgid "Your account has been blocked."
+msgstr "Ditt konto har spärrats."
+
+#: includes/class-forms.php:396
+msgid "Confirm your e-mail address before submitting items."
+msgstr "Bekräfta din e-postadress innan du anmäler objekt."
+
+#: includes/class-forms.php:414
+msgid "Enter a title."
+msgstr "Ange en rubrik."
+
+#: includes/class-forms.php:417
+msgid "Enter a description."
+msgstr "Ange en beskrivning."
+
+#: includes/class-forms.php:420
+msgid "Enter the start price as a number."
+msgstr "Ange utropspriset som ett tal."
+
+#: includes/class-forms.php:423
+msgid "Enter the minimum raise as a number."
+msgstr "Ange minsta höjning som ett tal."
+
+#: includes/class-forms.php:426
+msgid "The requested end time must be in the future."
+msgstr "Den önskade sluttiden måste vara i framtiden."
+
+#: includes/class-forms.php:433
+msgid "Fill in the seller's name, phone and e-mail."
+msgstr "Fyll i säljarens namn, telefon och e-post."
+
+#: includes/class-forms.php:498
+msgid ""
+"Thank you! Your item has been sent for approval. We will e-mail you when it "
+"is in the auction."
+msgstr ""
+"Tack! Ditt objekt har skickats för godkännande. Vi meddelar dig per e-post "
+"när det är med i auktionen."
+
+#. translators: %s: file name
+#: includes/class-forms.php:518
+msgid "The image %s could not be uploaded. It may be too large."
+msgstr "Bilden %s kunde inte laddas upp. Den kan vara för stor."
+
+#. translators: %s: file name
+#: includes/class-forms.php:523
+msgid "%s is not a JPEG, PNG, WebP or GIF image."
+msgstr "%s är inte en JPEG-, PNG-, WebP- eller GIF-bild."
+
+#. translators: %d: maximum number of images
+#: includes/class-forms.php:535
+msgid "You can add at most %d images."
+msgstr "Du kan lägga till högst %d bilder."
+
+#. translators: %d: maximum number of images
+#: includes/class-forms.php:569
+msgid "Up to %d images. The first one is the main image."
+msgstr "Högst %d bilder. Den första är huvudbilden."
+
+#: includes/class-forms.php:571
+msgid "For example: pick-up only, or shipping at the buyer's cost."
+msgstr "Till exempel: endast avhämtning, eller frakt på köparens bekostnad."
+
+#. translators: %s: currency symbol
+#: includes/class-forms.php:574
+msgid "Start price (%s)"
+msgstr "Utropspris (%s)"
+
+#. translators: %s: currency symbol
+#: includes/class-forms.php:576
+msgid "Minimum raise (%s)"
+msgstr "Minsta höjning (%s)"
+
+#: includes/class-forms.php:577
+msgid "Requested end time"
+msgstr "Önskad sluttid"
+
+#: includes/class-forms.php:577
+msgid "Optional. The administrator sets the final schedule."
+msgstr "Valfritt. Administratören bestämmer den slutliga tidtabellen."
+
+#: includes/class-forms.php:580
+msgid "VAT 0 % (private seller or margin scheme)"
+msgstr "Moms 0 % (privat säljare eller marginalbeskattning)"
+
+#. translators: %s: VAT rate
+#: includes/class-forms.php:582
+msgid "VAT %s %% is added to the price"
+msgstr "Moms %s %% tillkommer på priset"
+
+#: includes/class-forms.php:591
+msgid "Contact person shown on the item page"
+msgstr "Kontaktperson som visas på objektets sida"
+
+#: includes/class-forms.php:591
+msgid "Optional. Leave empty to show no contact details."
+msgstr "Valfritt. Lämna tomt om inga kontaktuppgifter ska visas."
+
+#: includes/class-forms.php:592
+msgid "Send for approval"
+msgstr "Skicka för godkännande"
+
+#: includes/class-frontend.php:54
+msgid "d"
+msgstr "d"
+
+#: includes/class-frontend.php:56
+msgid "Starts in"
+msgstr "Börjar om"
+
+#. translators: %s: bid amount
+#: includes/class-frontend.php:58
+msgid "Place a bid of %s?"
+msgstr "Lägga ett bud på %s?"
+
+#. translators: %s: maximum amount
+#: includes/class-frontend.php:60
+msgid "Bid automatically up to %s?"
+msgstr "Bjuda automatiskt upp till %s?"
+
+#: includes/class-frontend.php:61
+msgid "Something went wrong. Reload the page and try again."
+msgstr "Något gick fel. Ladda om sidan och försök igen."
+
+#: includes/class-frontend.php:62 templates/account.php:48
+#: templates/item-card.php:32 templates/single-item.php:99
+msgid "You are the highest bidder"
+msgstr "Du har det högsta budet"
+
+#: includes/class-frontend.php:63 templates/account.php:49
+msgid "You have been outbid"
+msgstr "Ditt bud har överträffats"
+
+#: includes/class-frontend.php:64 templates/single-item.php:162
+msgid "Add to watch list"
+msgstr "Lägg till i bevakningslistan"
+
+#: includes/class-frontend.php:65 templates/single-item.php:162
+msgid "Remove from watch list"
+msgstr "Ta bort från bevakningslistan"
+
+#: includes/class-frontend.php:67 templates/single-item.php:202
+msgid "you"
+msgstr "du"
+
+#. translators: %s: VAT rate
+#: includes/class-frontend.php:140
+msgid "VAT %s %% is added to the price."
+msgstr "Moms %s %% tillkommer på priset."
+
+#: includes/class-frontend.php:142
+msgid "VAT 0 %, margin scheme applies."
+msgstr "Moms 0 %, marginalbeskattning tillämpas."
+
+#: includes/class-frontend.php:149
+msgid "Starting soon"
+msgstr "Börjar snart"
+
+#: includes/class-frontend.php:150
+msgid "Open"
+msgstr "Pågår"
+
+#: includes/class-frontend.php:152
+msgid "Sold"
+msgstr "Såld"
+
+#: includes/class-frontend.php:153
+msgid "Ended, not sold"
+msgstr "Avslutad, inte såld"
+
+#: includes/class-frontend.php:161
+msgid "Log in to bid on items."
+msgstr "Logga in för att bjuda på objekt."
+
+#: includes/class-frontend.php:171
+msgid "Create an account"
+msgstr "Skapa konto"
+
+#: includes/class-frontend.php:173
+msgid "Forgot your password?"
+msgstr "Glömt lösenordet?"
+
+#: includes/class-frontend.php:276 includes/class-post-types.php:32
+msgid "All items"
+msgstr "Alla objekt"
+
+#: includes/class-frontend.php:291
+msgid "Log in to see your bids."
+msgstr "Logga in för att se dina bud."
+
+#: includes/class-frontend.php:347
+msgid "Your e-mail address is confirmed. You can now log in and bid."
+msgstr "Din e-postadress är bekräftad. Du kan nu logga in och bjuda."
+
+#: includes/class-frontend.php:349
+msgid "This account is already activated."
+msgstr "Kontot är redan aktiverat."
+
+#: includes/class-frontend.php:351
+msgid "The activation link is invalid or has already been used."
+msgstr "Aktiveringslänken är ogiltig eller redan använd."
+
+#: includes/class-install.php:116
+msgid "Auction manager"
+msgstr "Auktionsadministratör"
+
+#: includes/class-install.php:124 includes/class-post-types.php:24
+#: includes/class-users.php:141
+msgid "Auctions"
+msgstr "Auktioner"
+
+#: includes/class-install.php:125 includes/class-settings.php:198
+msgid "My bids"
+msgstr "Mina bud"
+
+#: includes/class-install.php:126 includes/class-settings.php:199
+#: templates/account.php:28
+msgid "Submit an item"
+msgstr "Anmäl ett objekt"
+
+#: includes/class-install.php:128 includes/class-settings.php:201
+#: templates/account.php:25
+msgid "My details"
+msgstr "Mina uppgifter"
+
+#. translators: %s: recipient name
+#: includes/class-mailer.php:50
+msgid "Hello %s,"
+msgstr "Hej %s,"
+
+#: includes/class-mailer.php:51
+msgid "Hello,"
+msgstr "Hej,"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:61
+msgid "[%s] Confirm your e-mail address"
+msgstr "[%s] Bekräfta din e-postadress"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:64
+msgid ""
+"Thank you for registering at %s. Confirm your e-mail address by opening this"
+" link:"
+msgstr ""
+"Tack för att du registrerade dig på %s. Bekräfta din e-postadress genom att "
+"öppna denna länk:"
+
+#: includes/class-mailer.php:66
+msgid "If you did not register, you can ignore this message."
+msgstr "Om du inte registrerade dig kan du ignorera detta meddelande."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:72
+msgid "You won the auction: %s"
+msgstr "Du vann auktionen: %s"
+
+#. translators: 1: item title, 2: winning bid
+#: includes/class-mailer.php:75
+msgid ""
+"The auction for %1$s has ended and your bid of %2$s was the highest. Your "
+"bid has been accepted."
+msgstr ""
+"Auktionen för %1$s har avslutats och ditt bud på %2$s var det högsta. Ditt "
+"bud har godkänts."
+
+#: includes/class-mailer.php:76
+msgid "We will contact you about payment and delivery within 24 hours."
+msgstr "Vi kontaktar dig om betalning och leverans inom 24 timmar."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:83
+msgid "Auction ended: %s"
+msgstr "Auktionen avslutad: %s"
+
+#. translators: 1: item title, 2: highest bid
+#: includes/class-mailer.php:86
+msgid "The auction for %1$s has ended and your bid of %2$s was the highest."
+msgstr "Auktionen för %1$s har avslutats och ditt bud på %2$s var det högsta."
+
+#: includes/class-mailer.php:87
+msgid ""
+"Unfortunately the bid did not reach the lowest price the seller accepts, so "
+"the item was not sold."
+msgstr ""
+"Tyvärr nådde budet inte säljarens lägsta pris, så objektet såldes inte."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:94
+msgid "New item waiting for approval: %s"
+msgstr "Nytt objekt väntar på godkännande: %s"
+
+#. translators: %s: seller name
+#: includes/class-mailer.php:96
+msgid "A new item has been submitted by %s."
+msgstr "Ett nytt objekt har anmälts av %s."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:103
+msgid "Your item is now in the auction: %s"
+msgstr "Ditt objekt är nu med i auktionen: %s"
+
+#. translators: 1: item title, 2: end time
+#: includes/class-mailer.php:106
+msgid "Your item %1$s has been approved. The auction ends %2$s."
+msgstr "Ditt objekt %1$s har godkänts. Auktionen slutar %2$s."
+
+#: includes/class-mailer.php:115
+msgid "no bids"
+msgstr "inga bud"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:120
+msgid "[%s] Auctions waiting for a decision"
+msgstr "[%s] Auktioner väntar på beslut"
+
+#: includes/class-mailer.php:121
+msgid "These auctions have ended. Accept or reject the highest bid:"
+msgstr "Dessa auktioner har avslutats. Godkänn eller avvisa det högsta budet:"
+
+#: includes/class-post-types.php:22
+msgid "Auction items"
+msgstr "Auktionsobjekt"
+
+#: includes/class-post-types.php:23
+msgid "Auction item"
+msgstr "Auktionsobjekt"
+
+#: includes/class-post-types.php:25
+msgid "Add item"
+msgstr "Lägg till objekt"
+
+#: includes/class-post-types.php:26
+msgid "Add auction item"
+msgstr "Lägg till auktionsobjekt"
+
+#: includes/class-post-types.php:27
+msgid "Edit auction item"
+msgstr "Redigera objekt"
+
+#: includes/class-post-types.php:28
+msgid "View auction item"
+msgstr "Visa objekt"
+
+#: includes/class-post-types.php:29 templates/list.php:31
+msgid "Search items"
+msgstr "Sök objekt"
+
+#: includes/class-post-types.php:30
+msgid "No items found."
+msgstr "Inga objekt hittades."
+
+#: includes/class-post-types.php:31
+msgid "No items found in trash."
+msgstr "Inga objekt i papperskorgen."
+
+#. translators: URL slug for auction items
+#: includes/class-post-types.php:42
+msgctxt "URL slug"
+msgid "item"
+msgstr "objekt"
+
+#: includes/class-post-types.php:55
+msgid "Categories"
+msgstr "Kategorier"
+
+#: includes/class-post-types.php:56 templates/list.php:22
+msgid "Category"
+msgstr "Kategori"
+
+#: includes/class-post-types.php:57
+msgid "Add category"
+msgstr "Lägg till kategori"
+
+#: includes/class-post-types.php:58
+msgid "Edit category"
+msgstr "Redigera kategori"
+
+#. translators: URL slug for auction categories
+#: includes/class-post-types.php:65
+msgctxt "URL slug"
+msgid "auction-category"
+msgstr "kategori"
+
+#: includes/class-post-types.php:80
+msgid "Rejected"
+msgstr "Avvisad"
+
+#. translators: %s: number of rejected items
+#: includes/class-post-types.php:87
+msgid "Rejected <span class=\"count\">(%s)</span>"
+msgid_plural "Rejected <span class=\"count\">(%s)</span>"
+msgstr[0] "Avvisad <span class=\"count\">(%s)</span>"
+msgstr[1] "Avvisade <span class=\"count\">(%s)</span>"
+
+#: includes/class-rest.php:77 templates/account.php:75
+msgid "No bids"
+msgstr "Inga bud"
+
+#: includes/class-rest.php:131 includes/class-rest.php:143
+msgid "Item not found."
+msgstr "Objektet hittades inte."
+
+#: includes/class-settings.php:146
+msgid "— None —"
+msgstr "— Ingen —"
+
+#: includes/class-settings.php:157 includes/class-users.php:111
+msgid "Bidding"
+msgstr "Budgivning"
+
+#: includes/class-settings.php:160
+msgid "Default minimum raise"
+msgstr "Standard för minsta höjning"
+
+#: includes/class-settings.php:161
+msgid "Default auction length (days)"
+msgstr "Auktionens standardlängd (dagar)"
+
+#: includes/class-settings.php:162
+msgid "Extension after late bid (seconds)"
+msgstr "Förlängning efter sent bud (sekunder)"
+
+#: includes/class-settings.php:162
+msgid ""
+"A bid placed this close to the end moves the end time this far from the bid."
+" 0 disables."
+msgstr ""
+"Ett bud så här nära slutet flyttar sluttiden så här långt från budet. 0 "
+"stänger av."
+
+#: includes/class-settings.php:163
+msgid "Winner"
+msgstr "Vinnare"
+
+#: includes/class-settings.php:163
+msgid ""
+"Accept the highest bid automatically when an auction ends (otherwise an "
+"administrator accepts or rejects it)."
+msgstr ""
+"Godkänn högsta budet automatiskt när auktionen slutar (annars godkänner "
+"eller avvisar administratören det)."
+
+#: includes/class-settings.php:164
+msgid "VAT rate (%)"
+msgstr "Momssats (%)"
+
+#: includes/class-settings.php:164
+msgid "Shown on items whose price excludes VAT."
+msgstr "Visas på objekt vars pris är exklusive moms."
+
+#: includes/class-settings.php:166
+msgid "Currency symbol"
+msgstr "Valutasymbol"
+
+#: includes/class-settings.php:170
+msgid "Users and submissions"
+msgstr "Användare och anmälningar"
+
+#: includes/class-settings.php:173 includes/class-settings.php:200
+msgid "Registration"
+msgstr "Registrering"
+
+#: includes/class-settings.php:173
+msgid "New users must confirm their e-mail address before they can bid."
+msgstr "Nya användare måste bekräfta sin e-postadress innan de kan bjuda."
+
+#: includes/class-settings.php:174
+msgid "Seller submissions"
+msgstr "Säljarnas anmälningar"
+
+#: includes/class-settings.php:174
+msgid "Logged-in users can submit items for approval."
+msgstr "Inloggade användare kan anmäla objekt för godkännande."
+
+#: includes/class-settings.php:175
+msgid "Images per item"
+msgstr "Bilder per objekt"
+
+#: includes/class-settings.php:176
+msgid "Failed logins before lockout"
+msgstr "Misslyckade inloggningar före spärr"
+
+#: includes/class-settings.php:176
+msgid "Counted per account over two hours. 0 disables."
+msgstr "Räknas per konto under två timmar. 0 stänger av."
+
+#: includes/class-settings.php:178
+msgid "Notification e-mail"
+msgstr "E-post för meddelanden"
+
+#: includes/class-settings.php:180
+msgid "Receives new submissions and ended auctions."
+msgstr "Får meddelanden om nya anmälningar och avslutade auktioner."
+
+#: includes/class-settings.php:183
+msgid "Display"
+msgstr "Visning"
+
+#: includes/class-settings.php:186
+msgid "Items per page"
+msgstr "Objekt per sida"
+
+#: includes/class-settings.php:187
+msgid "Live update interval (seconds)"
+msgstr "Uppdateringsintervall (sekunder)"
+
+#: includes/class-settings.php:189
+msgid "Extra content languages"
+msgstr "Extra innehållsspråk"
+
+#: includes/class-settings.php:191
+msgid ""
+"Two-letter codes. Items get a translated title, description and delivery "
+"text for each; visitors see the one matching the site language."
+msgstr ""
+"Koder med två bokstäver. Objekten får en egen rubrik, beskrivning och "
+"leveranstext för varje språk; besökaren ser den som motsvarar webbplatsens "
+"språk."
+
+#: includes/class-settings.php:194
+msgid "Pages"
+msgstr "Sidor"
+
+#: includes/class-settings.php:197
+msgid "Auction list"
+msgstr "Objektlista"
+
+#: includes/class-settings.php:202
+msgid "Terms of use"
+msgstr "Användarvillkor"
+
+#: includes/class-users.php:96
+msgid "Auction details"
+msgstr "Auktionsuppgifter"
+
+#: includes/class-users.php:107
+msgid "Subscribed"
+msgstr "Prenumererar"
+
+#: includes/class-users.php:113
+msgid "Blocked from bidding"
+msgstr "Spärrad från budgivning"
+
+#: includes/class-users.php:115
+msgid "E-mail not confirmed yet — activate now"
+msgstr "E-posten har inte bekräftats — aktivera nu"
+
+#: includes/class-users.php:154
+msgid "Not activated"
+msgstr "Inte aktiverad"
+
+#: includes/class-users.php:183
+msgid ""
+"Too many failed login attempts. Try again in two hours or reset your "
+"password."
+msgstr ""
+"För många misslyckade inloggningsförsök. Försök igen om två timmar eller "
+"återställ lösenordet."
+
+#. translators: date format for auction end times, see
+#. https://www.php.net/date
+#: includes/functions.php:55
+msgid "l j.n.Y H:i:s"
+msgstr "l j.n.Y \\k\\l H:i:s"
+
+#. translators: date format for auction end times, see
+#. https://www.php.net/date
+#: includes/functions.php:55
+msgid "j.n.Y H:i:s"
+msgstr "j.n.Y H:i:s"
+
+#. translators: %d: anonymous bidder number
+#: includes/functions.php:97
+msgid "Bidder %d"
+msgstr "Budgivare %d"
+
+#: templates/account.php:30
+msgid "Log out"
+msgstr "Logga ut"
+
+#: templates/account.php:33
+msgid "Open auctions"
+msgstr "Öppna auktioner"
+
+#: templates/account.php:35
+msgid "You have no bids on open auctions."
+msgstr "Du har inga bud på öppna auktioner."
+
+#: templates/account.php:40 templates/account.php:102
+msgid "My highest bid"
+msgstr "Mitt högsta bud"
+
+#: templates/account.php:42 templates/item-card.php:29
+#: templates/single-item.php:79
+msgid "Time left"
+msgstr "Tid kvar"
+
+#: templates/account.php:61
+msgid "You have no active automatic bids."
+msgstr "Du har inga aktiva automatiska bud."
+
+#: templates/account.php:66
+msgid "My maximum"
+msgstr "Mitt maxbelopp"
+
+#: templates/account.php:82
+msgid "Watch list"
+msgstr "Bevakningslista"
+
+#: templates/account.php:84
+msgid "Your watch list is empty. Use “Add to watch list” on an item page."
+msgstr ""
+"Din bevakningslista är tom. Använd ”Lägg till i bevakningslistan” på en "
+"objektsida."
+
+#: templates/account.php:95
+msgid "Ended auctions"
+msgstr "Avslutade auktioner"
+
+#: templates/account.php:97
+msgid "No ended auctions yet."
+msgstr "Inga avslutade auktioner ännu."
+
+#: templates/account.php:103
+msgid "Final bid"
+msgstr "Slutbud"
+
+#: templates/account.php:104
+msgid "Result"
+msgstr "Resultat"
+
+#: templates/account.php:115
+msgid "You won"
+msgstr "Du vann"
+
+#: templates/account.php:117
+msgid "Highest bid, waiting for confirmation"
+msgstr "Högsta bud, väntar på bekräftelse"
+
+#: templates/account.php:121
+msgid "Not sold"
+msgstr "Inte såld"
+
+#: templates/account.php:123
+msgid "Outbid"
+msgstr "Överbjuden"
+
+#: templates/list.php:24
+msgid "All categories"
+msgstr "Alla kategorier"
+
+#: templates/list.php:30 templates/list.php:32
+msgid "Search"
+msgstr "Sök"
+
+#: templates/list.php:40
+msgid "No items match your search."
+msgstr "Inga objekt matchar din sökning."
+
+#: templates/list.php:42
+msgid "No upcoming auctions."
+msgstr "Inga kommande auktioner."
+
+#: templates/list.php:44
+msgid "No ended auctions."
+msgstr "Inga avslutade auktioner."
+
+#: templates/list.php:46
+msgid "There are no open auctions right now."
+msgstr "Det finns inga öppna auktioner just nu."
+
+#: templates/list.php:65
+msgid "« Previous"
+msgstr "« Föregående"
+
+#: templates/list.php:66
+msgid "Next »"
+msgstr "Nästa »"
+
+#. translators: %d: image number
+#: templates/single-item.php:49
+msgid "Show image %d"
+msgstr "Visa bild %d"
+
+#: templates/single-item.php:57
+msgid "No image"
+msgstr "Ingen bild"
+
+#. translators: %d: minutes
+#: templates/single-item.php:89
+msgid "or %d minute after the latest bid"
+msgid_plural "or %d minutes after the latest bid"
+msgstr[0] "eller %d minut efter det senaste budet"
+msgstr[1] "eller %d minuter efter det senaste budet"
+
+#: templates/single-item.php:107
+msgid "Your bid"
+msgstr "Ditt bud"
+
+#: templates/single-item.php:111
+msgid "Place bid"
+msgstr "Lägg bud"
+
+#: templates/single-item.php:114
+msgid "Smallest accepted bid:"
+msgstr "Lägsta godtagbara bud:"
+
+#: templates/single-item.php:115
+msgid "Minimum raise:"
+msgstr "Minsta höjning:"
+
+#: templates/single-item.php:120
+msgid "Automatic bidding"
+msgstr "Automatisk budgivning"
+
+#: templates/single-item.php:121
+msgid ""
+"Enter the most you are willing to pay. We bid for you, one minimum raise at "
+"a time, only as much as needed to keep you in the lead."
+msgstr ""
+"Ange det högsta pris du är beredd att betala. Vi bjuder åt dig, en minsta "
+"höjning i taget, bara så mycket som behövs för att du ska leda."
+
+#: templates/single-item.php:127
+msgid "Your maximum"
+msgstr "Ditt maxbelopp"
+
+#: templates/single-item.php:135
+msgid "Your current maximum:"
+msgstr "Ditt nuvarande maxbelopp:"
+
+#: templates/single-item.php:150
+msgid "The highest bid for this item has been accepted."
+msgstr "Det högsta budet på objektet har godkänts."
+
+#: templates/single-item.php:152
+msgid "This auction has ended."
+msgstr "Auktionen har avslutats."
+
+#: templates/single-item.php:171
+msgid "Item details"
+msgstr "Objektets uppgifter"
+
+#: templates/single-item.php:194
+msgid "Bid history"
+msgstr "Budhistorik"
+
+#: templates/single-item.php:194
+msgid "(latest 10)"
+msgstr "(10 senaste)"

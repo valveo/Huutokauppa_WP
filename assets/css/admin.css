@@ -1,0 +1,16 @@
+.hk-admin-gallery { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.hk-admin-gallery li { position: relative; margin: 0; cursor: move; line-height: 0; }
+.hk-admin-gallery img { width: 96px; height: 96px; object-fit: cover; border: 1px solid #c3c4c7; border-radius: 3px; }
+.hk-admin-gallery li:first-child img { border: 2px solid #2271b1; }
+.hk-admin-gallery__remove {
+	position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; line-height: 18px;
+	border-radius: 50%; border: 1px solid #c3c4c7; background: #fff; color: #b32d2e; cursor: pointer; padding: 0;
+}
+.hk-admin-table th { width: 180px; }
+.hk-i18n { border: 1px solid #dcdcde; padding: 8px 12px; margin: 0 0 12px; }
+.hk-i18n legend { font-weight: 600; padding: 0 4px; }
+.hk-needs-decision { color: #b32d2e; }
+.column-hk_thumb { width: 56px; }
+.column-hk_thumb img { border-radius: 3px; }
+.hk-decide .button { margin: 0 6px 6px 0; }
+.hk-admin-table input.small-text { width: 9em; }

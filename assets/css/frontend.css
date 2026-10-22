@@ -1,0 +1,287 @@
+/*
+ * Huutokauppa front end.
+ * Inherits the theme's fonts and text colour. Adjust the variables in your
+ * theme to match its look, e.g. .hk-item { --hk-accent: #0a7d39; }
+ */
+
+:where(.hk-item, .hk-list-wrap, .hk-account, .hk-page-form, .hk-login, .hk-categories, .hk-notice) {
+	--hk-accent: #1d5fa8;
+	--hk-accent-text: #fff;
+	--hk-good: #1e7b34;
+	--hk-warn: #9a6200;
+	--hk-bad: #b32d2e;
+	--hk-line: color-mix(in srgb, currentColor 18%, transparent);
+	--hk-soft: color-mix(in srgb, currentColor 5%, transparent);
+	--hk-radius: 6px;
+	box-sizing: border-box;
+}
+
+.hk-item *,
+.hk-list-wrap *,
+.hk-account *,
+.hk-page-form * {
+	box-sizing: border-box;
+}
+
+/* Notices ---------------------------------------------------------------- */
+
+.hk-notice {
+	border-left: 4px solid var(--hk-accent);
+	background: var(--hk-soft);
+	padding: .75em 1em;
+	margin: 0 0 1em;
+	border-radius: var(--hk-radius);
+}
+.hk-notice ul { margin: 0; padding-left: 1.2em; }
+.hk-notice--success { border-color: var(--hk-good); }
+.hk-notice--warning { border-color: var(--hk-warn); }
+.hk-notice--error { border-color: var(--hk-bad); }
+
+.hk-hint {
+	display: block;
+	font-size: .875em;
+	opacity: .8;
+	margin-top: .25em;
+}
+
+/* Buttons and inputs ----------------------------------------------------- */
+
+.hk-button {
+	display: inline-block;
+	background: var(--hk-accent);
+	color: var(--hk-accent-text);
+	border: 0;
+	border-radius: var(--hk-radius);
+	padding: .6em 1.1em;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.hk-button:hover { filter: brightness(1.1); }
+.hk-button:disabled { opacity: .6; cursor: wait; }
+.hk-button--secondary {
+	background: transparent;
+	color: inherit;
+	box-shadow: inset 0 0 0 2px var(--hk-accent);
+}
+
+.hk-link {
+	background: none;
+	border: 0;
+	padding: 0;
+	color: var(--hk-accent);
+	text-decoration: underline;
+	cursor: pointer;
+	font: inherit;
+}
+
+.hk-input {
+	display: flex;
+	gap: .5em;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+.hk-input .hk-button { flex: 0 0 auto; }
+.hk-input input {
+	flex: 1 1 8em;
+	min-width: 0;
+	font-size: 1.15em;
+	padding: .45em .6em;
+}
+.hk-input__unit { margin-left: -.25em; }
+
+.hk-inline-form { display: inline; margin: 0; }
+
+/* Item page ---------------------------------------------------------------- */
+
+.hk-item__top {
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+.hk-item { container-type: inline-size; }
+@container (max-width: 720px) {
+	.hk-item__top { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
+.hk-gallery__main { display: block; }
+.hk-gallery__img,
+.hk-gallery__main img {
+	width: 100%;
+	height: auto;
+	max-height: 70vh;
+	object-fit: contain;
+	border-radius: var(--hk-radius);
+	background: var(--hk-soft);
+}
+.hk-gallery__thumbs {
+	list-style: none;
+	margin: .5rem 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+.hk-gallery__thumb {
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: var(--hk-radius);
+	background: none;
+	cursor: pointer;
+	line-height: 0;
+}
+.hk-gallery__thumb img { width: 64px; height: 64px; object-fit: cover; border-radius: 4px; }
+.hk-gallery__thumb.is-active { border-color: var(--hk-accent); }
+.hk-gallery__empty {
+	aspect-ratio: 4 / 3;
+	display: grid;
+	place-items: center;
+	background: var(--hk-soft);
+	border-radius: var(--hk-radius);
+	opacity: .7;
+}
+
+.hk-box {
+	border: 1px solid var(--hk-line);
+	border-radius: var(--hk-radius);
+	padding: 1.25rem;
+	align-self: start;
+}
+.hk-box form { margin: 1rem 0 0; }
+.hk-box label { display: block; font-weight: 600; margin-bottom: .3em; }
+
+.hk-state {
+	display: inline-block;
+	margin: 0 0 .75rem;
+	padding: .15em .6em;
+	border-radius: 999px;
+	font-size: .85em;
+	font-weight: 600;
+	background: var(--hk-soft);
+}
+.hk-state--live { background: color-mix(in srgb, var(--hk-good) 15%, transparent); color: var(--hk-good); }
+.hk-state--upcoming { color: var(--hk-accent); }
+.hk-state--sold, .hk-state--ended, .hk-state--unsold { opacity: .8; }
+
+.hk-facts {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: .35rem 1rem;
+	margin: 0;
+}
+.hk-facts dt { opacity: .8; }
+.hk-facts dd { margin: 0; font-weight: 600; text-align: right; }
+.hk-price { font-size: 1.35em; }
+.hk-card .hk-price { font-size: 1.1em; }
+.hk-countdown { font-variant-numeric: tabular-nums; }
+.hk-countdown.is-urgent { color: var(--hk-bad); }
+
+.hk-leading {
+	margin: 1rem 0 0;
+	padding: .5em .75em;
+	border-radius: var(--hk-radius);
+	background: color-mix(in srgb, var(--hk-good) 14%, transparent);
+	color: var(--hk-good);
+	font-weight: 600;
+}
+.hk-leading[hidden] { display: none; }
+
+.hk-auto { margin-top: 1rem; border-top: 1px solid var(--hk-line); padding-top: .75rem; }
+.hk-auto summary { cursor: pointer; font-weight: 600; }
+.hk-mymax { margin-top: .5rem; }
+.hk-mymax[hidden] { display: none; }
+.hk-watch { display: block; margin-top: 1rem; text-align: left; }
+.hk-result { margin: 1rem 0 0; font-weight: 600; }
+
+.hk-section { margin: 0 0 1.75rem; }
+.hk-section h2 { font-size: 1.2em; margin: 0 0 .5rem; }
+
+@keyframes hk-flash {
+	from { background: color-mix(in srgb, var(--hk-accent) 30%, transparent); }
+	to { background: transparent; }
+}
+.hk-flash { animation: hk-flash 1.5s ease-out; border-radius: 4px; }
+
+/* Tables --------------------------------------------------------------------- */
+
+.hk-table { width: 100%; border-collapse: collapse; }
+.hk-table th, .hk-table td {
+	text-align: left;
+	padding: .45em .5em;
+	border-bottom: 1px solid var(--hk-line);
+	vertical-align: top;
+}
+.hk-table .hk-num { text-align: right; white-space: nowrap; }
+.hk-table tr.is-mine td { font-weight: 600; }
+.hk-account .is-outbid small { color: var(--hk-bad); }
+.hk-account .is-leading small { color: var(--hk-good); }
+@media (max-width: 600px) {
+	.hk-table thead { display: none; }
+	.hk-table tr { display: block; border-bottom: 1px solid var(--hk-line); padding: .4em 0; }
+	.hk-table td { display: block; border: 0; padding: .1em 0; text-align: left !important; }
+}
+
+/* List ------------------------------------------------------------------------ */
+
+.hk-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+	margin: 0 0 1.25rem;
+}
+.hk-filter input[type="search"] { flex: 1 1 12em; min-width: 0; }
+
+.hk-list {
+	list-style: none;
+	margin: 0 0 1.5rem;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1.25rem;
+}
+.hk-card {
+	border: 1px solid var(--hk-line);
+	border-radius: var(--hk-radius);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.hk-card__image { display: block; aspect-ratio: 4 / 3; background: var(--hk-soft); }
+.hk-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hk-card__body { padding: .75rem .9rem 1rem; }
+.hk-card__title { font-size: 1.05em; margin: 0 0 .5rem; line-height: 1.3; }
+.hk-card__title a { text-decoration: none; }
+.hk-card__facts { display: grid; grid-template-columns: auto 1fr; gap: .2rem .75rem; margin: 0; font-size: .95em; }
+.hk-card__facts dt { opacity: .75; }
+.hk-card__facts dd { margin: 0; text-align: right; font-weight: 600; }
+.hk-card .hk-leading { font-size: .85em; margin-top: .6rem; }
+
+.hk-pagination { display: flex; flex-wrap: wrap; gap: .4rem; }
+.hk-pagination .page-numbers { padding: .3em .7em; border: 1px solid var(--hk-line); border-radius: var(--hk-radius); text-decoration: none; }
+.hk-pagination .current { background: var(--hk-accent); color: var(--hk-accent-text); border-color: var(--hk-accent); }
+
+.hk-categories { list-style: none; padding: 0; }
+.hk-count { opacity: .7; font-size: .9em; }
+
+/* Page forms ------------------------------------------------------------------ */
+
+.hk-page-form { max-width: 40rem; }
+.hk-page-form fieldset { border: 1px solid var(--hk-line); border-radius: var(--hk-radius); padding: 1rem 1.25rem; margin: 0 0 1.25rem; }
+.hk-page-form legend { font-weight: 700; padding: 0 .4em; }
+.hk-field { margin: 0 0 1rem; }
+.hk-field > label, .hk-label { display: block; font-weight: 600; margin-bottom: .3em; }
+.hk-field input[type="text"],
+.hk-field input[type="email"],
+.hk-field input[type="tel"],
+.hk-field input[type="password"],
+.hk-field input[type="datetime-local"],
+.hk-field textarea { width: 100%; padding: .5em .6em; font: inherit; }
+.hk-check label, .hk-radio { font-weight: normal; display: block; }
+.hk-req { color: var(--hk-bad); }
+.hk-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.hk-login { border: 1px solid var(--hk-line); border-radius: var(--hk-radius); padding: 1rem 1.25rem; margin-top: 1rem; }
+.hk-login__lead { font-weight: 600; margin-top: 0; }
+.hk-login input[type="text"], .hk-login input[type="password"] { width: 100%; }

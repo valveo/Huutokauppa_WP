@@ -1,0 +1,1388 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Huutokauppa 1.0.0\n"
+"Report-Msgid-Bugs-To: matti.mieskonen@gmail.com\n"
+"POT-Creation-Date: 2026-10-22T07:18:43+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: huutokauppa\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#. Plugin Name of the plugin
+#: huutokauppa.php
+msgid "Huutokauppa"
+msgstr "Huutokauppa"
+
+#. Description of the plugin
+#: huutokauppa.php
+msgid ""
+"Stand-alone online auctions: seller submissions, bidding with automatic "
+"(proxy) bids, anti-sniping, watch list and winner handling. No WooCommerce "
+"required."
+msgstr ""
+"Itsenäinen verkkohuutokauppa: myyjien ilmoitukset, huutaminen "
+"korotusautomaatilla, huutoajan jatko, seurantalista ja voittajan käsittely. "
+"Ei vaadi WooCommercea."
+
+#. Author of the plugin
+#: huutokauppa.php
+msgid "Matti Mieskonen (Valveo)"
+msgstr "Matti Mieskonen (Valveo)"
+
+#: includes/class-admin.php:32 includes/class-admin.php:545
+msgid "Export"
+msgstr "Vienti"
+
+#: includes/class-admin.php:33 includes/class-settings.php:154
+msgid "Auction settings"
+msgstr "Huutokaupan asetukset"
+
+#: includes/class-admin.php:33
+msgid "Settings"
+msgstr "Asetukset"
+
+#: includes/class-admin.php:85
+msgid "Item images"
+msgstr "Kohteen kuvat"
+
+#: includes/class-admin.php:86
+msgid "Use these images"
+msgstr "Käytä näitä kuvia"
+
+#: includes/class-admin.php:87 includes/class-admin.php:195
+#: templates/single-item.php:141
+msgid "Remove"
+msgstr "Poista"
+
+#: includes/class-admin.php:100 includes/class-admin.php:108
+msgid "Bids and result"
+msgstr "Huudot ja tulos"
+
+#: includes/class-admin.php:102 includes/class-forms.php:572
+msgid "Auction"
+msgstr "Huutokauppa"
+
+#: includes/class-admin.php:103 includes/class-forms.php:567
+msgid "Images"
+msgstr "Kuvat"
+
+#: includes/class-admin.php:105
+msgid "Translations"
+msgstr "Käännökset"
+
+#: includes/class-admin.php:110 includes/class-admin.php:584
+#: includes/class-forms.php:583
+msgid "Seller"
+msgstr "Myyjä"
+
+#. translators: 1: start price, 2: minimum raise, 3: end time
+#: includes/class-admin.php:131
+msgid ""
+"The seller requested: start price %1$s, minimum raise %2$s, end %3$s. Check "
+"the values below and publish to open the auction."
+msgstr ""
+"Myyjän toiveet: lähtöhinta %1$s, minimikorotus %2$s, päättyminen %3$s. "
+"Tarkista alla olevat arvot ja avaa huutokauppa julkaisemalla kohde."
+
+#: includes/class-admin.php:134
+msgid "not given"
+msgstr "ei annettu"
+
+#: includes/class-admin.php:140
+msgid ""
+"This item already has bids. Changing the price fields does not change "
+"existing bids."
+msgstr ""
+"Kohteeseen on jo tehty huutoja. Hintakenttien muuttaminen ei muuta jo "
+"tehtyjä huutoja."
+
+#: includes/class-admin.php:144 templates/single-item.php:75
+msgid "Bidding starts"
+msgstr "Huutaminen alkaa"
+
+#: includes/class-admin.php:146
+msgid "Empty = when the item is published."
+msgstr "Tyhjä = kun kohde julkaistaan."
+
+#: includes/class-admin.php:149
+msgid "Bidding ends"
+msgstr "Huutaminen päättyy"
+
+#. translators: %d: number of days
+#: includes/class-admin.php:152
+msgid "Empty = %d days after the start."
+msgstr "Tyhjä = %d päivää alkamisesta."
+
+#: includes/class-admin.php:155 templates/single-item.php:68
+msgid "Start price"
+msgstr "Lähtöhinta"
+
+#: includes/class-admin.php:159
+msgid "Minimum raise"
+msgstr "Minimikorotus"
+
+#: includes/class-admin.php:163 includes/class-forms.php:579
+msgid "VAT"
+msgstr "ALV"
+
+#: includes/class-admin.php:165
+msgid "VAT 0 % / margin scheme"
+msgstr "ALV 0 % / marginaaliverotus"
+
+#. translators: %s: VAT rate
+#: includes/class-admin.php:167
+msgid "VAT %s %% is added"
+msgstr "Hintaan lisätään ALV %s %%"
+
+#: includes/class-admin.php:168
+msgid "Show nothing"
+msgstr "Ei merkintää"
+
+#: includes/class-admin.php:172 includes/class-forms.php:570
+#: templates/single-item.php:176
+msgid "Location"
+msgstr "Sijainti"
+
+#: includes/class-admin.php:176 includes/class-admin.php:218
+#: includes/class-forms.php:571 templates/single-item.php:182
+msgid "Delivery"
+msgstr "Toimitustapa"
+
+#: includes/class-admin.php:180 templates/single-item.php:188
+msgid "Contact person"
+msgstr "Yhteyshenkilö"
+
+#: includes/class-admin.php:182
+msgid "Shown publicly on the item page."
+msgstr "Näytetään julkisesti kohteen sivulla."
+
+#: includes/class-admin.php:200
+msgid "Add images"
+msgstr "Lisää kuvia"
+
+#: includes/class-admin.php:201
+msgid "Drag to reorder. The first image is the main image."
+msgstr "Järjestä vetämällä. Ensimmäinen kuva on pääkuva."
+
+#: includes/class-admin.php:208
+msgid ""
+"Shown to visitors browsing the site in that language. Empty fields fall back"
+" to the main title and description."
+msgstr ""
+"Näytetään sivustoa kyseisellä kielellä selaaville. Tyhjien kenttien tilalla "
+"näytetään pääotsikko ja -kuvaus."
+
+#: includes/class-admin.php:214 includes/class-forms.php:565
+msgid "Title"
+msgstr "Otsikko"
+
+#: includes/class-admin.php:216 includes/class-forms.php:566
+msgid "Description"
+msgstr "Kuvaus"
+
+#: includes/class-admin.php:229 includes/class-admin.php:565
+#: includes/class-admin.php:572
+msgid "Name"
+msgstr "Nimi"
+
+#: includes/class-admin.php:230 includes/class-users.php:20
+msgid "Business ID"
+msgstr "Y-tunnus"
+
+#: includes/class-admin.php:231 includes/class-users.php:17
+msgid "Street address"
+msgstr "Katuosoite"
+
+#: includes/class-admin.php:232 includes/class-users.php:18
+msgid "Postcode"
+msgstr "Postinumero"
+
+#: includes/class-admin.php:233 includes/class-users.php:19
+msgid "City"
+msgstr "Postitoimipaikka"
+
+#: includes/class-admin.php:234 includes/class-admin.php:584
+#: includes/class-admin.php:616 includes/class-users.php:16
+msgid "Phone"
+msgstr "Puhelin"
+
+#: includes/class-admin.php:235 includes/class-admin.php:565
+#: includes/class-admin.php:572 includes/class-admin.php:584
+#: includes/class-admin.php:616 includes/class-forms.php:278
+#: includes/class-forms.php:368 includes/class-forms.php:590
+msgid "E-mail"
+msgstr "Sähköposti"
+
+#: includes/class-admin.php:238
+msgid "Submitted by"
+msgstr "Ilmoittaja"
+
+#: includes/class-admin.php:249
+msgid "Not shown publicly."
+msgstr "Ei näytetä julkisesti."
+
+#: includes/class-admin.php:257
+msgid "Status:"
+msgstr "Tila:"
+
+#: includes/class-admin.php:257
+msgid "Not published"
+msgstr "Ei julkaistu"
+
+#: includes/class-admin.php:260
+msgid "Highest bid:"
+msgstr "Korkein huuto:"
+
+#: includes/class-admin.php:269
+msgid "Accept highest bid and notify winner"
+msgstr "Hyväksy korkein huuto ja ilmoita voittajalle"
+
+#: includes/class-admin.php:270
+msgid "Reject (lowest price not reached) and notify bidder"
+msgstr "Hylkää (alin myyntihinta ei täyttynyt) ja ilmoita huutajalle"
+
+#: includes/class-admin.php:272
+msgid "Undo decision"
+msgstr "Peru päätös"
+
+#: includes/class-admin.php:272
+msgid "E-mails already sent are not withdrawn."
+msgstr "Jo lähetettyjä sähköposteja ei peruta."
+
+#: includes/class-admin.php:276 includes/class-frontend.php:68
+#: templates/single-item.php:198
+msgid "No bids yet."
+msgstr "Ei vielä huutoja."
+
+#: includes/class-admin.php:278 includes/class-admin.php:584
+#: includes/class-admin.php:616
+msgid "Bidder"
+msgstr "Huutaja"
+
+#: includes/class-admin.php:278 includes/class-admin.php:616
+msgid "Amount"
+msgstr "Summa"
+
+#: includes/class-admin.php:278 includes/class-admin.php:616
+msgid "Time"
+msgstr "Aika"
+
+#: includes/class-admin.php:282 includes/class-frontend.php:66
+#: templates/single-item.php:203
+msgid "automatic"
+msgstr "automaatti"
+
+#: includes/class-admin.php:287
+msgid "Download bids as CSV"
+msgstr "Lataa huudot CSV-tiedostona"
+
+#: includes/class-admin.php:294 templates/account.php:59
+msgid "Automatic bids"
+msgstr "Korotusautomaatit"
+
+#: includes/class-admin.php:325
+msgid ""
+"The end time must be after the start time. The end time was not changed."
+msgstr ""
+"Päättymisajan on oltava alkamisajan jälkeen. Päättymisaikaa ei muutettu."
+
+#: includes/class-admin.php:370
+msgid "Reject this submission?"
+msgstr "Hylätäänkö tämä ilmoitus?"
+
+#: includes/class-admin.php:370
+msgid "Reject submission"
+msgstr "Hylkää ilmoitus"
+
+#: includes/class-admin.php:377 includes/class-admin.php:393
+#: includes/class-admin.php:530 includes/class-admin.php:557
+msgid "You are not allowed to do this."
+msgstr "Sinulla ei ole oikeutta tähän."
+
+#: includes/class-admin.php:380
+msgid "Submission rejected."
+msgstr "Ilmoitus hylätty."
+
+#: includes/class-admin.php:400
+msgid "Highest bid accepted and the winner notified."
+msgstr "Korkein huuto hyväksytty ja voittajalle ilmoitettu."
+
+#: includes/class-admin.php:404
+msgid "Highest bid rejected and the bidder notified."
+msgstr "Korkein huuto hylätty ja huutajalle ilmoitettu."
+
+#: includes/class-admin.php:409
+msgid "Decision undone."
+msgstr "Päätös peruttu."
+
+#: includes/class-admin.php:414
+msgid "The auction is not waiting for a decision."
+msgstr "Huutokauppa ei odota päätöstä."
+
+#: includes/class-admin.php:443 includes/class-admin.php:584
+#: templates/account.php:41 templates/account.php:67
+#: templates/item-card.php:27 templates/single-item.php:65
+msgid "Highest bid"
+msgstr "Korkein huuto"
+
+#: includes/class-admin.php:444 templates/single-item.php:71
+msgid "Bids"
+msgstr "Huudot"
+
+#: includes/class-admin.php:445 templates/single-item.php:82
+msgid "Ends"
+msgstr "Päättyy"
+
+#: includes/class-admin.php:446 includes/class-admin.php:584
+msgid "Status"
+msgstr "Tila"
+
+#: includes/class-admin.php:474 includes/class-admin.php:513
+msgid "Waiting for decision"
+msgstr "Odottaa päätöstä"
+
+#: includes/class-admin.php:476
+msgid "Waiting for approval"
+msgstr "Odottaa hyväksyntää"
+
+#: includes/class-admin.php:521
+msgid "Duplicate"
+msgstr "Monista"
+
+#: includes/class-admin.php:546
+msgid "CSV files open in Excel and LibreOffice (semicolon separated, UTF-8)."
+msgstr ""
+"CSV-tiedostot aukeavat Excelissä ja LibreOfficessa (puolipiste-erotin, "
+"UTF-8)."
+
+#: includes/class-admin.php:547
+msgid "Newsletter subscribers"
+msgstr "Uutiskirjeen tilaajat"
+
+#: includes/class-admin.php:548
+msgid "All bidders with contact details"
+msgstr "Kaikki käyttäjät yhteystietoineen"
+
+#: includes/class-admin.php:549
+msgid "Ended auctions and winners"
+msgstr "Päättyneet huutokaupat ja voittajat"
+
+#: includes/class-admin.php:572 includes/class-users.php:106
+#: includes/class-users.php:157
+msgid "Newsletter"
+msgstr "Uutiskirje"
+
+#: includes/class-admin.php:572 includes/class-users.php:151
+msgid "Blocked"
+msgstr "Estetty"
+
+#: includes/class-admin.php:584 includes/class-forms.php:564
+#: templates/account.php:39 templates/account.php:65 templates/account.php:101
+msgid "Item"
+msgstr "Kohde"
+
+#: includes/class-admin.php:584 includes/class-frontend.php:55
+#: includes/class-frontend.php:151 templates/account.php:119
+msgid "Ended"
+msgstr "Päättynyt"
+
+#: includes/class-admin.php:616
+msgid "Automatic"
+msgstr "Automaatti"
+
+#: includes/class-admin.php:630
+msgid "Unknown export."
+msgstr "Tuntematon vienti."
+
+#: includes/class-bidding.php:95 templates/single-item.php:146
+msgid "Log in to bid on this item."
+msgstr "Kirjaudu sisään huutaaksesi kohdetta."
+
+#: includes/class-bidding.php:98
+msgid "Your account has been blocked from bidding."
+msgstr "Tunnuksesi on estetty huutamasta."
+
+#: includes/class-bidding.php:101
+msgid ""
+"Confirm your e-mail address before bidding. Check your inbox for the "
+"activation link."
+msgstr ""
+"Vahvista sähköpostiosoitteesi ennen huutamista. Aktivointilinkki on "
+"lähetetty sähköpostiisi."
+
+#: includes/class-bidding.php:104
+msgid "You cannot bid on your own item."
+msgstr "Et voi huutaa omaa kohdettasi."
+
+#: includes/class-bidding.php:107
+msgid "Bidding on this item is not open."
+msgstr "Kohteen huutaminen ei ole auki."
+
+#. translators: %s: smallest accepted bid
+#: includes/class-bidding.php:134
+msgid "The bid is too small. The smallest accepted bid is %s."
+msgstr "Huuto on liian pieni. Pienin hyväksyttävä huuto on %s."
+
+#: includes/class-bidding.php:145
+msgid "Your bid was accepted. You are the highest bidder."
+msgstr "Huutosi hyväksyttiin. Olet korkein huutaja."
+
+#: includes/class-bidding.php:146
+msgid "Your bid was accepted, but another bidder's automatic bid outbid it."
+msgstr ""
+"Huutosi hyväksyttiin, mutta toisen huutajan korotusautomaatti ylitti sen."
+
+#. translators: %s: smallest accepted maximum
+#: includes/class-bidding.php:176
+msgid "The maximum is too small. It must be at least %s."
+msgstr "Enimmäishinta on liian pieni. Sen on oltava vähintään %s."
+
+#: includes/class-bidding.php:208
+msgid "Automatic bid updated. You are the highest bidder."
+msgstr "Korotusautomaatti päivitetty. Olet korkein huutaja."
+
+#: includes/class-bidding.php:208
+msgid "Automatic bid activated. You are the highest bidder."
+msgstr "Korotusautomaatti aktivoitu. Olet korkein huutaja."
+
+#: includes/class-bidding.php:210
+msgid "Automatic bid saved, but another bidder's maximum is higher."
+msgstr ""
+"Korotusautomaatti tallennettu, mutta toisen huutajan enimmäishinta on "
+"korkeampi."
+
+#: includes/class-bidding.php:331
+msgid "The item is busy. Please try again."
+msgstr "Kohde on varattu. Yritä uudelleen."
+
+#: includes/class-cron.php:28
+msgid "Every five minutes"
+msgstr "Viiden minuutin välein"
+
+#: includes/class-forms.php:81 includes/class-forms.php:125
+msgid "The form has expired. Please try again."
+msgstr "Lomake on vanhentunut. Yritä uudelleen."
+
+#: includes/class-forms.php:91 includes/class-rest.php:134
+msgid "Enter the bid as a number, for example 150."
+msgstr "Anna huuto numerona, esimerkiksi 150."
+
+#: includes/class-forms.php:97 includes/class-rest.php:146
+msgid "Enter the maximum as a number, for example 500."
+msgstr "Anna enimmäishinta numerona, esimerkiksi 500."
+
+#: includes/class-forms.php:102 includes/class-rest.php:154
+msgid "Automatic bid removed."
+msgstr "Korotusautomaatti poistettu."
+
+#: includes/class-forms.php:106 includes/class-rest.php:167
+msgid "Added to your watch list."
+msgstr "Lisätty seurantalistalle."
+
+#: includes/class-forms.php:106 includes/class-rest.php:167
+msgid "Removed from your watch list."
+msgstr "Poistettu seurantalistalta."
+
+#: includes/class-forms.php:109
+msgid "Unknown action."
+msgstr "Tuntematon toiminto."
+
+#: includes/class-forms.php:204 includes/class-forms.php:315
+msgid "Enter your name."
+msgstr "Anna nimesi."
+
+#: includes/class-forms.php:207 includes/class-forms.php:318
+msgid "Enter a valid e-mail address."
+msgstr "Anna kelvollinen sähköpostiosoite."
+
+#: includes/class-forms.php:209
+msgid ""
+"An account with this e-mail address already exists. Log in or reset your "
+"password."
+msgstr ""
+"Tällä sähköpostiosoitteella on jo tunnus. Kirjaudu sisään tai palauta "
+"salasana."
+
+#: includes/class-forms.php:212 includes/class-forms.php:324
+msgid "The password must be at least 8 characters."
+msgstr "Salasanan on oltava vähintään 8 merkkiä."
+
+#: includes/class-forms.php:214 includes/class-forms.php:326
+msgid "The passwords do not match."
+msgstr "Salasanat eivät täsmää."
+
+#: includes/class-forms.php:218
+msgid "Fill in all required fields."
+msgstr "Täytä kaikki pakolliset kentät."
+
+#: includes/class-forms.php:223
+msgid "You must accept the terms of use."
+msgstr "Sinun on hyväksyttävä käyttöehdot."
+
+#: includes/class-forms.php:255
+msgid ""
+"Thank you for registering! We sent you an e-mail. Open the link in it to "
+"activate your account."
+msgstr ""
+"Kiitos rekisteröitymisestä! Lähetimme sinulle sähköpostin. Aktivoi "
+"tunnuksesi avaamalla siinä oleva linkki."
+
+#: includes/class-forms.php:259
+msgid "Thank you for registering! You can now bid."
+msgstr "Kiitos rekisteröitymisestä! Voit nyt huutaa."
+
+#: includes/class-forms.php:272
+msgid "You are already logged in."
+msgstr "Olet jo kirjautunut sisään."
+
+#: includes/class-forms.php:276
+msgid "Account"
+msgstr "Tunnus"
+
+#: includes/class-forms.php:277 includes/class-forms.php:367
+#: includes/class-forms.php:584
+msgid "Name or company name"
+msgstr "Nimi tai yrityksen nimi"
+
+#: includes/class-forms.php:278
+msgid "You log in with your e-mail address."
+msgstr "Kirjaudut sisään sähköpostiosoitteellasi."
+
+#: includes/class-forms.php:279
+msgid "Password"
+msgstr "Salasana"
+
+#: includes/class-forms.php:279
+msgid "At least 8 characters."
+msgstr "Vähintään 8 merkkiä."
+
+#: includes/class-forms.php:280
+msgid "Password again"
+msgstr "Salasana uudelleen"
+
+#: includes/class-forms.php:281
+msgid "Contact details"
+msgstr "Yhteystiedot"
+
+#: includes/class-forms.php:286
+msgid "Only for companies."
+msgstr "Vain yrityksille."
+
+#: includes/class-forms.php:288 includes/class-forms.php:373
+msgid "Send me the newsletter"
+msgstr "Haluan uutiskirjeen"
+
+#. translators: %s: link to the terms of use
+#: includes/class-forms.php:293
+msgid "I accept the %s"
+msgstr "Hyväksyn %s"
+
+#: includes/class-forms.php:294
+msgid "terms of use"
+msgstr "käyttöehdot"
+
+#: includes/class-forms.php:298 includes/class-install.php:127
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: includes/class-forms.php:320
+msgid "Another account already uses this e-mail address."
+msgstr "Sähköpostiosoite on jo toisen tunnuksen käytössä."
+
+#: includes/class-forms.php:353
+msgid "Your details have been saved."
+msgstr "Tietosi on tallennettu."
+
+#: includes/class-forms.php:360
+msgid "Log in to edit your details."
+msgstr "Kirjaudu sisään muokataksesi tietojasi."
+
+#: includes/class-forms.php:374
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+#: includes/class-forms.php:375
+msgid "New password"
+msgstr "Uusi salasana"
+
+#: includes/class-forms.php:375
+msgid "Leave empty to keep the current password."
+msgstr "Jätä tyhjäksi, jos et halua vaihtaa salasanaa."
+
+#: includes/class-forms.php:376
+msgid "New password again"
+msgstr "Uusi salasana uudelleen"
+
+#: includes/class-forms.php:377 templates/single-item.php:131
+msgid "Save"
+msgstr "Tallenna"
+
+#: includes/class-forms.php:387
+msgid "Item submissions are closed."
+msgstr "Kohteiden ilmoittaminen on suljettu."
+
+#: includes/class-forms.php:390
+msgid "Log in to submit an item."
+msgstr "Kirjaudu sisään ilmoittaaksesi kohteen."
+
+#: includes/class-forms.php:393
+msgid "Your account has been blocked."
+msgstr "Tunnuksesi on estetty."
+
+#: includes/class-forms.php:396
+msgid "Confirm your e-mail address before submitting items."
+msgstr "Vahvista sähköpostiosoitteesi ennen kohteiden ilmoittamista."
+
+#: includes/class-forms.php:414
+msgid "Enter a title."
+msgstr "Anna otsikko."
+
+#: includes/class-forms.php:417
+msgid "Enter a description."
+msgstr "Anna kuvaus."
+
+#: includes/class-forms.php:420
+msgid "Enter the start price as a number."
+msgstr "Anna lähtöhinta numerona."
+
+#: includes/class-forms.php:423
+msgid "Enter the minimum raise as a number."
+msgstr "Anna minimikorotus numerona."
+
+#: includes/class-forms.php:426
+msgid "The requested end time must be in the future."
+msgstr "Toivotun päättymisajan on oltava tulevaisuudessa."
+
+#: includes/class-forms.php:433
+msgid "Fill in the seller's name, phone and e-mail."
+msgstr "Täytä myyjän nimi, puhelin ja sähköposti."
+
+#: includes/class-forms.php:498
+msgid ""
+"Thank you! Your item has been sent for approval. We will e-mail you when it "
+"is in the auction."
+msgstr ""
+"Kiitos! Kohteesi on lähetetty hyväksyttäväksi. Ilmoitamme sähköpostilla, kun"
+" se on huutokaupassa."
+
+#. translators: %s: file name
+#: includes/class-forms.php:518
+msgid "The image %s could not be uploaded. It may be too large."
+msgstr "Kuvaa %s ei voitu ladata. Se voi olla liian suuri."
+
+#. translators: %s: file name
+#: includes/class-forms.php:523
+msgid "%s is not a JPEG, PNG, WebP or GIF image."
+msgstr "%s ei ole JPEG-, PNG-, WebP- tai GIF-kuva."
+
+#. translators: %d: maximum number of images
+#: includes/class-forms.php:535
+msgid "You can add at most %d images."
+msgstr "Voit lisätä enintään %d kuvaa."
+
+#. translators: %d: maximum number of images
+#: includes/class-forms.php:569
+msgid "Up to %d images. The first one is the main image."
+msgstr "Enintään %d kuvaa. Ensimmäinen on pääkuva."
+
+#: includes/class-forms.php:571
+msgid "For example: pick-up only, or shipping at the buyer's cost."
+msgstr "Esimerkiksi: vain nouto, tai toimitus ostajan kustannuksella."
+
+#. translators: %s: currency symbol
+#: includes/class-forms.php:574
+msgid "Start price (%s)"
+msgstr "Lähtöhinta (%s)"
+
+#. translators: %s: currency symbol
+#: includes/class-forms.php:576
+msgid "Minimum raise (%s)"
+msgstr "Minimikorotus (%s)"
+
+#: includes/class-forms.php:577
+msgid "Requested end time"
+msgstr "Toivottu päättymisaika"
+
+#: includes/class-forms.php:577
+msgid "Optional. The administrator sets the final schedule."
+msgstr "Vapaaehtoinen. Ylläpito päättää lopullisen aikataulun."
+
+#: includes/class-forms.php:580
+msgid "VAT 0 % (private seller or margin scheme)"
+msgstr "ALV 0 % (yksityinen myyjä tai marginaaliverotus)"
+
+#. translators: %s: VAT rate
+#: includes/class-forms.php:582
+msgid "VAT %s %% is added to the price"
+msgstr "Hintaan lisätään ALV %s %%"
+
+#: includes/class-forms.php:591
+msgid "Contact person shown on the item page"
+msgstr "Kohteen sivulla näytettävä yhteyshenkilö"
+
+#: includes/class-forms.php:591
+msgid "Optional. Leave empty to show no contact details."
+msgstr "Vapaaehtoinen. Jätä tyhjäksi, jos yhteystietoja ei näytetä."
+
+#: includes/class-forms.php:592
+msgid "Send for approval"
+msgstr "Lähetä hyväksyttäväksi"
+
+#: includes/class-frontend.php:54
+msgid "d"
+msgstr "pv"
+
+#: includes/class-frontend.php:56
+msgid "Starts in"
+msgstr "Alkaa"
+
+#. translators: %s: bid amount
+#: includes/class-frontend.php:58
+msgid "Place a bid of %s?"
+msgstr "Tehdäänkö huuto %s?"
+
+#. translators: %s: maximum amount
+#: includes/class-frontend.php:60
+msgid "Bid automatically up to %s?"
+msgstr "Huudetaanko automaattisesti enintään %s?"
+
+#: includes/class-frontend.php:61
+msgid "Something went wrong. Reload the page and try again."
+msgstr "Jokin meni pieleen. Lataa sivu uudelleen ja yritä uudestaan."
+
+#: includes/class-frontend.php:62 templates/account.php:48
+#: templates/item-card.php:32 templates/single-item.php:99
+msgid "You are the highest bidder"
+msgstr "Olet korkein huutaja"
+
+#: includes/class-frontend.php:63 templates/account.php:49
+msgid "You have been outbid"
+msgstr "Huutosi on ylitetty"
+
+#: includes/class-frontend.php:64 templates/single-item.php:162
+msgid "Add to watch list"
+msgstr "Lisää seurantalistalle"
+
+#: includes/class-frontend.php:65 templates/single-item.php:162
+msgid "Remove from watch list"
+msgstr "Poista seurantalistalta"
+
+#: includes/class-frontend.php:67 templates/single-item.php:202
+msgid "you"
+msgstr "sinä"
+
+#. translators: %s: VAT rate
+#: includes/class-frontend.php:140
+msgid "VAT %s %% is added to the price."
+msgstr "Hintaan lisätään ALV %s %%."
+
+#: includes/class-frontend.php:142
+msgid "VAT 0 %, margin scheme applies."
+msgstr "ALV 0 %, sovelletaan marginaaliverotusta."
+
+#: includes/class-frontend.php:149
+msgid "Starting soon"
+msgstr "Alkaa pian"
+
+#: includes/class-frontend.php:150
+msgid "Open"
+msgstr "Huuto käynnissä"
+
+#: includes/class-frontend.php:152
+msgid "Sold"
+msgstr "Myyty"
+
+#: includes/class-frontend.php:153
+msgid "Ended, not sold"
+msgstr "Päättynyt, ei myyty"
+
+#: includes/class-frontend.php:161
+msgid "Log in to bid on items."
+msgstr "Kirjaudu sisään huutaaksesi kohteita."
+
+#: includes/class-frontend.php:171
+msgid "Create an account"
+msgstr "Luo tunnus"
+
+#: includes/class-frontend.php:173
+msgid "Forgot your password?"
+msgstr "Unohtuiko salasana?"
+
+#: includes/class-frontend.php:276 includes/class-post-types.php:32
+msgid "All items"
+msgstr "Kaikki kohteet"
+
+#: includes/class-frontend.php:291
+msgid "Log in to see your bids."
+msgstr "Kirjaudu sisään nähdäksesi huutosi."
+
+#: includes/class-frontend.php:347
+msgid "Your e-mail address is confirmed. You can now log in and bid."
+msgstr ""
+"Sähköpostiosoitteesi on vahvistettu. Voit nyt kirjautua sisään ja huutaa."
+
+#: includes/class-frontend.php:349
+msgid "This account is already activated."
+msgstr "Tunnus on jo aktivoitu."
+
+#: includes/class-frontend.php:351
+msgid "The activation link is invalid or has already been used."
+msgstr "Aktivointilinkki on virheellinen tai jo käytetty."
+
+#: includes/class-install.php:116
+msgid "Auction manager"
+msgstr "Huutokaupan ylläpitäjä"
+
+#: includes/class-install.php:124 includes/class-post-types.php:24
+#: includes/class-users.php:141
+msgid "Auctions"
+msgstr "Huutokauppa"
+
+#: includes/class-install.php:125 includes/class-settings.php:198
+msgid "My bids"
+msgstr "Omat huudot"
+
+#: includes/class-install.php:126 includes/class-settings.php:199
+#: templates/account.php:28
+msgid "Submit an item"
+msgstr "Jätä ilmoitus"
+
+#: includes/class-install.php:128 includes/class-settings.php:201
+#: templates/account.php:25
+msgid "My details"
+msgstr "Omat tiedot"
+
+#. translators: %s: recipient name
+#: includes/class-mailer.php:50
+msgid "Hello %s,"
+msgstr "Hei %s,"
+
+#: includes/class-mailer.php:51
+msgid "Hello,"
+msgstr "Hei,"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:61
+msgid "[%s] Confirm your e-mail address"
+msgstr "[%s] Vahvista sähköpostiosoitteesi"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:64
+msgid ""
+"Thank you for registering at %s. Confirm your e-mail address by opening this"
+" link:"
+msgstr ""
+"Kiitos rekisteröitymisestä palveluun %s. Vahvista sähköpostiosoitteesi "
+"avaamalla tämä linkki:"
+
+#: includes/class-mailer.php:66
+msgid "If you did not register, you can ignore this message."
+msgstr "Jos et rekisteröitynyt, voit jättää tämän viestin huomiotta."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:72
+msgid "You won the auction: %s"
+msgstr "Voitit huutokaupan: %s"
+
+#. translators: 1: item title, 2: winning bid
+#: includes/class-mailer.php:75
+msgid ""
+"The auction for %1$s has ended and your bid of %2$s was the highest. Your "
+"bid has been accepted."
+msgstr ""
+"Kohteen %1$s huutokauppa on päättynyt ja huutosi %2$s oli korkein. Huutosi "
+"on hyväksytty."
+
+#: includes/class-mailer.php:76
+msgid "We will contact you about payment and delivery within 24 hours."
+msgstr "Otamme sinuun yhteyttä maksusta ja toimituksesta 24 tunnin kuluessa."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:83
+msgid "Auction ended: %s"
+msgstr "Huutokauppa päättynyt: %s"
+
+#. translators: 1: item title, 2: highest bid
+#: includes/class-mailer.php:86
+msgid "The auction for %1$s has ended and your bid of %2$s was the highest."
+msgstr "Kohteen %1$s huutokauppa on päättynyt ja huutosi %2$s oli korkein."
+
+#: includes/class-mailer.php:87
+msgid ""
+"Unfortunately the bid did not reach the lowest price the seller accepts, so "
+"the item was not sold."
+msgstr ""
+"Valitettavasti huuto ei ylittänyt myyjän asettamaa alinta myyntihintaa, "
+"joten kohdetta ei myyty."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:94
+msgid "New item waiting for approval: %s"
+msgstr "Uusi kohde odottaa hyväksyntää: %s"
+
+#. translators: %s: seller name
+#: includes/class-mailer.php:96
+msgid "A new item has been submitted by %s."
+msgstr "Uuden kohteen ilmoitti %s."
+
+#. translators: %s: item title
+#: includes/class-mailer.php:103
+msgid "Your item is now in the auction: %s"
+msgstr "Kohteesi on nyt huutokaupassa: %s"
+
+#. translators: 1: item title, 2: end time
+#: includes/class-mailer.php:106
+msgid "Your item %1$s has been approved. The auction ends %2$s."
+msgstr "Kohteesi %1$s on hyväksytty. Huutokauppa päättyy %2$s."
+
+#: includes/class-mailer.php:115
+msgid "no bids"
+msgstr "ei huutoja"
+
+#. translators: %s: site name
+#: includes/class-mailer.php:120
+msgid "[%s] Auctions waiting for a decision"
+msgstr "[%s] Huutokaupat odottavat päätöstä"
+
+#: includes/class-mailer.php:121
+msgid "These auctions have ended. Accept or reject the highest bid:"
+msgstr "Nämä huutokaupat ovat päättyneet. Hyväksy tai hylkää korkein huuto:"
+
+#: includes/class-post-types.php:22
+msgid "Auction items"
+msgstr "Huutokauppakohteet"
+
+#: includes/class-post-types.php:23
+msgid "Auction item"
+msgstr "Huutokauppakohde"
+
+#: includes/class-post-types.php:25
+msgid "Add item"
+msgstr "Lisää kohde"
+
+#: includes/class-post-types.php:26
+msgid "Add auction item"
+msgstr "Lisää huutokauppakohde"
+
+#: includes/class-post-types.php:27
+msgid "Edit auction item"
+msgstr "Muokkaa kohdetta"
+
+#: includes/class-post-types.php:28
+msgid "View auction item"
+msgstr "Näytä kohde"
+
+#: includes/class-post-types.php:29 templates/list.php:31
+msgid "Search items"
+msgstr "Hae kohteita"
+
+#: includes/class-post-types.php:30
+msgid "No items found."
+msgstr "Kohteita ei löytynyt."
+
+#: includes/class-post-types.php:31
+msgid "No items found in trash."
+msgstr "Roskakorissa ei ole kohteita."
+
+#. translators: URL slug for auction items
+#: includes/class-post-types.php:42
+msgctxt "URL slug"
+msgid "item"
+msgstr "kohde"
+
+#: includes/class-post-types.php:55
+msgid "Categories"
+msgstr "Kategoriat"
+
+#: includes/class-post-types.php:56 templates/list.php:22
+msgid "Category"
+msgstr "Kategoria"
+
+#: includes/class-post-types.php:57
+msgid "Add category"
+msgstr "Lisää kategoria"
+
+#: includes/class-post-types.php:58
+msgid "Edit category"
+msgstr "Muokkaa kategoriaa"
+
+#. translators: URL slug for auction categories
+#: includes/class-post-types.php:65
+msgctxt "URL slug"
+msgid "auction-category"
+msgstr "kategoria"
+
+#: includes/class-post-types.php:80
+msgid "Rejected"
+msgstr "Hylätty"
+
+#. translators: %s: number of rejected items
+#: includes/class-post-types.php:87
+msgid "Rejected <span class=\"count\">(%s)</span>"
+msgid_plural "Rejected <span class=\"count\">(%s)</span>"
+msgstr[0] "Hylätty <span class=\"count\">(%s)</span>"
+msgstr[1] "Hylätty <span class=\"count\">(%s)</span>"
+
+#: includes/class-rest.php:77 templates/account.php:75
+msgid "No bids"
+msgstr "Ei huutoja"
+
+#: includes/class-rest.php:131 includes/class-rest.php:143
+msgid "Item not found."
+msgstr "Kohdetta ei löytynyt."
+
+#: includes/class-settings.php:146
+msgid "— None —"
+msgstr "— Ei mitään —"
+
+#: includes/class-settings.php:157 includes/class-users.php:111
+msgid "Bidding"
+msgstr "Huutaminen"
+
+#: includes/class-settings.php:160
+msgid "Default minimum raise"
+msgstr "Oletusminimikorotus"
+
+#: includes/class-settings.php:161
+msgid "Default auction length (days)"
+msgstr "Huutokaupan oletuskesto (päivää)"
+
+#: includes/class-settings.php:162
+msgid "Extension after late bid (seconds)"
+msgstr "Jatkoaika myöhäisen huudon jälkeen (sekuntia)"
+
+#: includes/class-settings.php:162
+msgid ""
+"A bid placed this close to the end moves the end time this far from the bid."
+" 0 disables."
+msgstr ""
+"Näin lähellä loppua tehty huuto siirtää päättymisen näin kauas huudosta. 0 "
+"poistaa käytöstä."
+
+#: includes/class-settings.php:163
+msgid "Winner"
+msgstr "Voittaja"
+
+#: includes/class-settings.php:163
+msgid ""
+"Accept the highest bid automatically when an auction ends (otherwise an "
+"administrator accepts or rejects it)."
+msgstr ""
+"Hyväksy korkein huuto automaattisesti huutokaupan päättyessä (muuten "
+"ylläpito hyväksyy tai hylkää sen)."
+
+#: includes/class-settings.php:164
+msgid "VAT rate (%)"
+msgstr "ALV-kanta (%)"
+
+#: includes/class-settings.php:164
+msgid "Shown on items whose price excludes VAT."
+msgstr "Näytetään kohteissa, joiden hintaan lisätään ALV."
+
+#: includes/class-settings.php:166
+msgid "Currency symbol"
+msgstr "Valuuttamerkki"
+
+#: includes/class-settings.php:170
+msgid "Users and submissions"
+msgstr "Käyttäjät ja ilmoitukset"
+
+#: includes/class-settings.php:173 includes/class-settings.php:200
+msgid "Registration"
+msgstr "Rekisteröityminen"
+
+#: includes/class-settings.php:173
+msgid "New users must confirm their e-mail address before they can bid."
+msgstr ""
+"Uusien käyttäjien on vahvistettava sähköpostiosoitteensa ennen huutamista."
+
+#: includes/class-settings.php:174
+msgid "Seller submissions"
+msgstr "Myyjien ilmoitukset"
+
+#: includes/class-settings.php:174
+msgid "Logged-in users can submit items for approval."
+msgstr "Kirjautuneet käyttäjät voivat ilmoittaa kohteita hyväksyttäväksi."
+
+#: includes/class-settings.php:175
+msgid "Images per item"
+msgstr "Kuvia kohdetta kohden"
+
+#: includes/class-settings.php:176
+msgid "Failed logins before lockout"
+msgstr "Epäonnistuneita kirjautumisia ennen lukitusta"
+
+#: includes/class-settings.php:176
+msgid "Counted per account over two hours. 0 disables."
+msgstr "Lasketaan tunnuskohtaisesti kahden tunnin ajalta. 0 poistaa käytöstä."
+
+#: includes/class-settings.php:178
+msgid "Notification e-mail"
+msgstr "Ilmoitusten sähköposti"
+
+#: includes/class-settings.php:180
+msgid "Receives new submissions and ended auctions."
+msgstr "Saa tiedon uusista ilmoituksista ja päättyneistä huutokaupoista."
+
+#: includes/class-settings.php:183
+msgid "Display"
+msgstr "Näkymä"
+
+#: includes/class-settings.php:186
+msgid "Items per page"
+msgstr "Kohteita sivulla"
+
+#: includes/class-settings.php:187
+msgid "Live update interval (seconds)"
+msgstr "Päivitysväli (sekuntia)"
+
+#: includes/class-settings.php:189
+msgid "Extra content languages"
+msgstr "Sisällön lisäkielet"
+
+#: includes/class-settings.php:191
+msgid ""
+"Two-letter codes. Items get a translated title, description and delivery "
+"text for each; visitors see the one matching the site language."
+msgstr ""
+"Kaksikirjaimiset koodit. Kohteisiin voi kirjoittaa jokaiselle kielelle oman "
+"otsikon, kuvauksen ja toimitustavan; kävijä näkee sivuston kieltä vastaavan."
+
+#: includes/class-settings.php:194
+msgid "Pages"
+msgstr "Sivut"
+
+#: includes/class-settings.php:197
+msgid "Auction list"
+msgstr "Kohdelista"
+
+#: includes/class-settings.php:202
+msgid "Terms of use"
+msgstr "Käyttöehdot"
+
+#: includes/class-users.php:96
+msgid "Auction details"
+msgstr "Huutokaupan tiedot"
+
+#: includes/class-users.php:107
+msgid "Subscribed"
+msgstr "Tilattu"
+
+#: includes/class-users.php:113
+msgid "Blocked from bidding"
+msgstr "Estetty huutamasta"
+
+#: includes/class-users.php:115
+msgid "E-mail not confirmed yet — activate now"
+msgstr "Sähköpostia ei ole vahvistettu — aktivoi nyt"
+
+#: includes/class-users.php:154
+msgid "Not activated"
+msgstr "Ei aktivoitu"
+
+#: includes/class-users.php:183
+msgid ""
+"Too many failed login attempts. Try again in two hours or reset your "
+"password."
+msgstr ""
+"Liian monta epäonnistunutta kirjautumista. Yritä uudelleen kahden tunnin "
+"kuluttua tai palauta salasana."
+
+#. translators: date format for auction end times, see
+#. https://www.php.net/date
+#: includes/functions.php:55
+msgid "l j.n.Y H:i:s"
+msgstr "l j.n.Y \\k\\l\\o H:i:s"
+
+#. translators: date format for auction end times, see
+#. https://www.php.net/date
+#: includes/functions.php:55
+msgid "j.n.Y H:i:s"
+msgstr "j.n.Y H:i:s"
+
+#. translators: %d: anonymous bidder number
+#: includes/functions.php:97
+msgid "Bidder %d"
+msgstr "Huutaja %d"
+
+#: templates/account.php:30
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: templates/account.php:33
+msgid "Open auctions"
+msgstr "Avoimet kohteet"
+
+#: templates/account.php:35
+msgid "You have no bids on open auctions."
+msgstr "Sinulla ei ole huutoja avoimissa kohteissa."
+
+#: templates/account.php:40 templates/account.php:102
+msgid "My highest bid"
+msgstr "Oma korkein huuto"
+
+#: templates/account.php:42 templates/item-card.php:29
+#: templates/single-item.php:79
+msgid "Time left"
+msgstr "Aikaa jäljellä"
+
+#: templates/account.php:61
+msgid "You have no active automatic bids."
+msgstr "Sinulla ei ole aktiivisia korotusautomaatteja."
+
+#: templates/account.php:66
+msgid "My maximum"
+msgstr "Oma enimmäishinta"
+
+#: templates/account.php:82
+msgid "Watch list"
+msgstr "Seurantalista"
+
+#: templates/account.php:84
+msgid "Your watch list is empty. Use “Add to watch list” on an item page."
+msgstr ""
+"Seurantalistasi on tyhjä. Käytä kohteen sivulla linkkiä ”Lisää "
+"seurantalistalle”."
+
+#: templates/account.php:95
+msgid "Ended auctions"
+msgstr "Päättyneet kohteet"
+
+#: templates/account.php:97
+msgid "No ended auctions yet."
+msgstr "Ei vielä päättyneitä kohteita."
+
+#: templates/account.php:103
+msgid "Final bid"
+msgstr "Loppuhuuto"
+
+#: templates/account.php:104
+msgid "Result"
+msgstr "Tulos"
+
+#: templates/account.php:115
+msgid "You won"
+msgstr "Voitit"
+
+#: templates/account.php:117
+msgid "Highest bid, waiting for confirmation"
+msgstr "Korkein huuto, odottaa vahvistusta"
+
+#: templates/account.php:121
+msgid "Not sold"
+msgstr "Ei myyty"
+
+#: templates/account.php:123
+msgid "Outbid"
+msgstr "Ylitetty"
+
+#: templates/list.php:24
+msgid "All categories"
+msgstr "Kaikki kategoriat"
+
+#: templates/list.php:30 templates/list.php:32
+msgid "Search"
+msgstr "Hae"
+
+#: templates/list.php:40
+msgid "No items match your search."
+msgstr "Haullasi ei löytynyt kohteita."
+
+#: templates/list.php:42
+msgid "No upcoming auctions."
+msgstr "Ei tulevia huutokauppoja."
+
+#: templates/list.php:44
+msgid "No ended auctions."
+msgstr "Ei päättyneitä huutokauppoja."
+
+#: templates/list.php:46
+msgid "There are no open auctions right now."
+msgstr "Avoimia huutokauppoja ei ole juuri nyt."
+
+#: templates/list.php:65
+msgid "« Previous"
+msgstr "« Edellinen"
+
+#: templates/list.php:66
+msgid "Next »"
+msgstr "Seuraava »"
+
+#. translators: %d: image number
+#: templates/single-item.php:49
+msgid "Show image %d"
+msgstr "Näytä kuva %d"
+
+#: templates/single-item.php:57
+msgid "No image"
+msgstr "Ei kuvaa"
+
+#. translators: %d: minutes
+#: templates/single-item.php:89
+msgid "or %d minute after the latest bid"
+msgid_plural "or %d minutes after the latest bid"
+msgstr[0] "tai %d minuutti viimeisen huudon jälkeen"
+msgstr[1] "tai %d minuuttia viimeisen huudon jälkeen"
+
+#: templates/single-item.php:107
+msgid "Your bid"
+msgstr "Huutosi"
+
+#: templates/single-item.php:111
+msgid "Place bid"
+msgstr "Huuda"
+
+#: templates/single-item.php:114
+msgid "Smallest accepted bid:"
+msgstr "Pienin mahdollinen huuto:"
+
+#: templates/single-item.php:115
+msgid "Minimum raise:"
+msgstr "Minimikorotus:"
+
+#: templates/single-item.php:120
+msgid "Automatic bidding"
+msgstr "Korotusautomaatti"
+
+#: templates/single-item.php:121
+msgid ""
+"Enter the most you are willing to pay. We bid for you, one minimum raise at "
+"a time, only as much as needed to keep you in the lead."
+msgstr ""
+"Anna korkein hinta, jonka olet valmis maksamaan. Huudamme puolestasi "
+"minimikorotuksin vain sen verran kuin tarvitaan, jotta pysyt johdossa."
+
+#: templates/single-item.php:127
+msgid "Your maximum"
+msgstr "Enimmäishintasi"
+
+#: templates/single-item.php:135
+msgid "Your current maximum:"
+msgstr "Nykyinen enimmäishintasi:"
+
+#: templates/single-item.php:150
+msgid "The highest bid for this item has been accepted."
+msgstr "Kohteen korkein huuto on hyväksytty."
+
+#: templates/single-item.php:152
+msgid "This auction has ended."
+msgstr "Huutokauppa on päättynyt."
+
+#: templates/single-item.php:171
+msgid "Item details"
+msgstr "Tuotteen tiedot"
+
+#: templates/single-item.php:194
+msgid "Bid history"
+msgstr "Huutohistoria"
+
+#: templates/single-item.php:194
+msgid "(latest 10)"
+msgstr "(10 uusinta)"
