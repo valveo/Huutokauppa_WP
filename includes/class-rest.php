@@ -105,7 +105,7 @@ class HK_Rest {
 	}
 
 	public static function status( WP_REST_Request $r ): WP_REST_Response {
-		$ids = array_slice( array_unique( array_filter( array_map( 'absint', explode( ',', (string) $r['ids'] ) ) ) ), 0, 100 );
+		$ids = array_slice( array_unique( array_filter( array_map( 'absint', explode( ',', (string) $r['ids'] ) ) ) ), 0, 50 );
 		$out = array();
 		foreach ( $ids as $id ) {
 			if ( self::visible_item( $id ) ) {
@@ -150,6 +150,9 @@ class HK_Rest {
 
 	public static function remove_autobid( WP_REST_Request $r ): WP_REST_Response {
 		$id = (int) $r['id'];
+		if ( ! self::visible_item( $id ) ) {
+			return new WP_REST_Response( array( 'ok' => false, 'code' => 'hk_not_found', 'message' => __( 'Item not found.', 'huutokauppa' ) ), 404 );
+		}
 		HK_Bidding::remove_autobid( $id, get_current_user_id() );
 		return self::result( array( 'ok' => true, 'code' => 'hk_removed', 'message' => __( 'Automatic bid removed.', 'huutokauppa' ) ), $id );
 	}

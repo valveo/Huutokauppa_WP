@@ -22,6 +22,7 @@ define( 'HK_DB_VERSION', '1' );
 define( 'HK_FILE', __FILE__ );
 define( 'HK_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HK_URL', plugin_dir_url( __FILE__ ) );
+define( 'HK_MAX_AMOUNT', 99999999.99 ); // Largest accepted price or bid.
 
 require_once HK_DIR . 'includes/functions.php';
 require_once HK_DIR . 'includes/class-settings.php';

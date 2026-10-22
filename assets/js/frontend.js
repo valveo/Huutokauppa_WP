@@ -109,12 +109,15 @@
 			return;
 		}
 		var history = document.querySelector( '[data-hk-history]' ) ? '&history=1' : '';
-		request( 'GET', 'status?ids=' + ids.join( ',' ) + history ).then( function ( data ) {
-			if ( data && data.now ) {
-				offset = data.now * 1000 - Date.now();
-			}
-			( data.items || [] ).forEach( apply );
-		} ).catch( function () {} );
+		// The endpoint accepts at most 50 ids per request.
+		for ( var i = 0; i < ids.length; i += 50 ) {
+			request( 'GET', 'status?ids=' + ids.slice( i, i + 50 ).join( ',' ) + history ).then( function ( data ) {
+				if ( data && data.now ) {
+					offset = data.now * 1000 - Date.now();
+				}
+				( data.items || [] ).forEach( apply );
+			} ).catch( function () {} );
+		}
 	}
 
 	function escapeHtml( s ) {

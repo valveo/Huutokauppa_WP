@@ -102,6 +102,10 @@ class HK_Forms {
 				$r = array( 'ok' => true, 'message' => __( 'Automatic bid removed.', 'huutokauppa' ) );
 				break;
 			case 'hk_watch':
+				if ( HK_Post_Types::ITEM !== get_post_type( $item ) || 'publish' !== get_post_status( $item ) ) {
+					$r = array( 'ok' => false, 'message' => __( 'Item not found.', 'huutokauppa' ) );
+					break;
+				}
 				$on = HK_Users::toggle_watch( $item, $uid );
 				$r  = array( 'ok' => true, 'message' => $on ? __( 'Added to your watch list.', 'huutokauppa' ) : __( 'Removed from your watch list.', 'huutokauppa' ) );
 				break;
@@ -195,6 +199,14 @@ class HK_Forms {
 		if ( '' !== self::old( 'hk_website' ) ) { // Honeypot.
 			self::redirect( home_url( '/' ) );
 		}
+		// At most a few registrations per address per hour, so the form cannot be used to
+		// flood mailboxes with activation e-mails. Only a hash of the IP is kept, for an hour.
+		$ip_key = 'hk_reg_' . md5( wp_salt( 'nonce' ) . ( $_SERVER['REMOTE_ADDR'] ?? '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$count  = (int) get_transient( $ip_key );
+		if ( $count >= (int) apply_filters( 'hk_registrations_per_hour', 5 ) ) {
+			self::$errors[] = __( 'Too many registrations from your network. Please try again later.', 'huutokauppa' );
+			return;
+		}
 		$name  = sanitize_text_field( self::old( 'name' ) );
 		$email = sanitize_email( self::old( 'email' ) );
 		$pass  = self::old( 'password' );
@@ -226,14 +238,21 @@ class HK_Forms {
 			return;
 		}
 
+		// The login name and URL slug are random: deriving them from the e-mail address would
+		// publish the address in author URLs (e.g. /author/name-example-com/ for sellers).
+		// Users log in with their e-mail address.
+		$login = 'hk' . strtolower( wp_generate_password( 12, false ) );
 		$user_id = wp_insert_user(
 			array(
-				'user_login'   => $email,
-				'user_email'   => $email,
-				'user_pass'    => $pass,
-				'display_name' => $name,
-				'first_name'   => $name,
-				'role'         => get_option( 'default_role', 'subscriber' ),
+				'user_login'    => $login,
+				'user_nicename' => $login,
+				'user_email'    => $email,
+				'user_pass'     => $pass,
+				'display_name'  => $name,
+				'first_name'    => $name,
+				// Never the site's default_role: a misconfigured default would hand out
+				// elevated rights to anyone who registers.
+				'role'          => (string) apply_filters( 'hk_new_user_role', 'subscriber' ),
 			)
 		);
 		if ( is_wp_error( $user_id ) ) {
@@ -258,6 +277,7 @@ class HK_Forms {
 			wp_set_auth_cookie( $user_id );
 			self::set_flash( 'success', __( 'Thank you for registering! You can now bid.', 'huutokauppa' ) );
 		}
+		set_transient( $ip_key, $count + 1, HOUR_IN_SECONDS );
 		do_action( 'hk_user_registered', $user_id );
 		self::redirect( get_permalink() );
 	}
@@ -308,9 +328,11 @@ class HK_Forms {
 		if ( ! $uid ) {
 			return;
 		}
-		$name  = sanitize_text_field( self::old( 'name' ) );
-		$email = sanitize_email( self::old( 'email' ) );
-		$pass  = self::old( 'password' );
+		$user          = get_userdata( $uid );
+		$name          = sanitize_text_field( self::old( 'name' ) );
+		$email         = sanitize_email( self::old( 'email' ) );
+		$pass          = self::old( 'password' );
+		$email_changed = strtolower( $email ) !== strtolower( $user->user_email );
 		if ( '' === $name ) {
 			self::$errors[] = __( 'Enter your name.', 'huutokauppa' );
 		}
@@ -318,6 +340,11 @@ class HK_Forms {
 			self::$errors[] = __( 'Enter a valid e-mail address.', 'huutokauppa' );
 		} elseif ( ( $other = email_exists( $email ) ) && (int) $other !== $uid ) {
 			self::$errors[] = __( 'Another account already uses this e-mail address.', 'huutokauppa' );
+		}
+		// Changing the e-mail address or password needs the current password, so a
+		// session left open on a shared computer cannot be used to take over the account.
+		if ( ( $email_changed || '' !== $pass ) && ! wp_check_password( self::old( 'current_password' ), $user->user_pass, $uid ) ) {
+			self::$errors[] = __( 'Enter your current password to change your e-mail address or password.', 'huutokauppa' );
 		}
 		if ( '' !== $pass ) {
 			if ( strlen( $pass ) < 8 ) {
@@ -350,6 +377,13 @@ class HK_Forms {
 		if ( '' !== $pass ) {
 			wp_set_auth_cookie( $uid );
 		}
+		if ( $email_changed && HK_Settings::get( 'require_activation' ) ) {
+			// The new address must be confirmed before the account can bid again.
+			$url = HK_Users::start_activation( $uid );
+			HK_Mailer::send( 'activation', $uid, array( 'url' => $url ) );
+			self::set_flash( 'success', __( 'Your details have been saved. We sent a confirmation link to your new e-mail address; open it before bidding again.', 'huutokauppa' ) );
+			self::redirect( get_permalink() );
+		}
 		self::set_flash( 'success', __( 'Your details have been saved.', 'huutokauppa' ) );
 		self::redirect( get_permalink() );
 	}
@@ -374,6 +408,7 @@ class HK_Forms {
 		$html .= '<fieldset><legend>' . esc_html__( 'Change password', 'huutokauppa' ) . '</legend>';
 		$html .= self::field( 'password', __( 'New password', 'huutokauppa' ), array( 'type' => 'password', 'value' => '', 'attrs' => 'autocomplete="new-password" minlength="8"', 'help' => __( 'Leave empty to keep the current password.', 'huutokauppa' ) ) );
 		$html .= self::field( 'password2', __( 'New password again', 'huutokauppa' ), array( 'type' => 'password', 'value' => '', 'attrs' => 'autocomplete="new-password"' ) );
+		$html .= self::field( 'current_password', __( 'Current password', 'huutokauppa' ), array( 'type' => 'password', 'value' => '', 'attrs' => 'autocomplete="current-password"', 'help' => __( 'Required when you change your e-mail address or password.', 'huutokauppa' ) ) );
 		$html .= '</fieldset><p><button type="submit" class="hk-button">' . esc_html__( 'Save', 'huutokauppa' ) . '</button></p></form>';
 		return $html;
 	}
@@ -401,6 +436,21 @@ class HK_Forms {
 	private static function process_submit(): void {
 		$uid = get_current_user_id();
 		if ( true !== self::can_submit( $uid ) ) {
+			return;
+		}
+		$waiting = count(
+			get_posts(
+				array(
+					'post_type'      => HK_Post_Types::ITEM,
+					'post_status'    => 'pending',
+					'author'         => $uid,
+					'fields'         => 'ids',
+					'posts_per_page' => 100,
+				)
+			)
+		);
+		if ( $waiting >= (int) apply_filters( 'hk_max_pending_submissions', 10 ) ) {
+			self::$errors[] = __( 'You already have many items waiting for approval. Please wait until they have been handled.', 'huutokauppa' );
 			return;
 		}
 		$title       = sanitize_text_field( self::old( 'title' ) );

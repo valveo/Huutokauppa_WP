@@ -249,6 +249,7 @@ class HK_Bidding {
 				static fn( $a ) => (float) $a->max_amount + 0.0001 >= $next
 					&& (int) $a->user_id !== $seller
 					&& ! HK_Users::is_blocked( (int) $a->user_id )
+					&& HK_Users::is_activated( (int) $a->user_id )
 			)
 		);
 		if ( ! $eligible ) {

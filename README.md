@@ -74,6 +74,21 @@ when "Anyone can register" is off in WordPress settings.
   and exports, but not site settings.
 - Bidders and sellers are ordinary subscribers.
 
+## Security notes
+
+- Accounts registered through the plugin get a random login name; users log in
+  with their e-mail address, which is never used in public URLs.
+- Changing the e-mail address or password on the *My details* page requires
+  the current password, and a new e-mail address must be confirmed again
+  before the account can bid.
+- Registrations are limited to 5 per IP address per hour
+  (`hk_registrations_per_hour` filter) and pending submissions to 10 per user
+  (`hk_max_pending_submissions`). New accounts always get the `subscriber`
+  role (`hk_new_user_role`), never the site's default role.
+- The failed-login lockout is per account, so someone who knows an e-mail
+  address can lock that account for two hours by guessing wrong. Set the limit
+  to 0 if you use a separate login-protection plugin instead.
+
 ## Development
 
 Tests run against a disposable WordPress site with the plugin active:

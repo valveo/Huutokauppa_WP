@@ -27,8 +27,11 @@ function hk_money( $amount ): string {
  * Returns null when the input is not a positive number.
  */
 function hk_parse_amount( $raw ): ?float {
+	if ( ! is_scalar( $raw ) ) {
+		return null;
+	}
 	if ( is_int( $raw ) || is_float( $raw ) ) {
-		return $raw > 0 ? round( (float) $raw, 2 ) : null;
+		return ( $raw > 0 && $raw <= HK_MAX_AMOUNT ) ? round( (float) $raw, 2 ) : null;
 	}
 	$s = trim( (string) $raw );
 	$s = preg_replace( '/[\s\x{00A0}€]/u', '', $s );
@@ -40,11 +43,11 @@ function hk_parse_amount( $raw ): ?float {
 		$s = str_replace( '.', '', $s );
 	}
 	$s = str_replace( ',', '.', $s );
-	if ( ! preg_match( '/^\d+(\.\d{1,2})?$/', $s ) ) {
+	if ( ! preg_match( '/^\d{1,12}(\.\d{1,2})?$/', $s ) ) {
 		return null;
 	}
 	$v = round( (float) $s, 2 );
-	return $v > 0 ? $v : null;
+	return ( $v > 0 && $v <= HK_MAX_AMOUNT ) ? $v : null;
 }
 
 /**

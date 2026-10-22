@@ -1,5 +1,5 @@
 # Copyright (C) 2026 Matti Mieskonen (Valveo)
-# This file is distributed under the same license as the Huutokauppa plugin.
+# This file is distributed under the PolyForm-Noncommercial-1.0.0.
 msgid ""
 msgstr ""
 "Project-Id-Version: Huutokauppa 1.0.0\n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-22T07:18:43+00:00\n"
+"POT-Creation-Date: 2026-10-22T14:32:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: huutokauppa\n"
@@ -17,6 +17,11 @@ msgstr ""
 #. Plugin Name of the plugin
 #: huutokauppa.php
 msgid "Huutokauppa"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: huutokauppa.php
+msgid "https://github.com/valveo/Huutokauppa_WP"
 msgstr ""
 
 #. Description of the plugin
@@ -30,7 +35,7 @@ msgid "Matti Mieskonen (Valveo)"
 msgstr ""
 
 #: includes/class-admin.php:32
-#: includes/class-admin.php:545
+#: includes/class-admin.php:552
 msgid "Export"
 msgstr ""
 
@@ -63,12 +68,12 @@ msgid "Bids and result"
 msgstr ""
 
 #: includes/class-admin.php:102
-#: includes/class-forms.php:572
+#: includes/class-forms.php:622
 msgid "Auction"
 msgstr ""
 
 #: includes/class-admin.php:103
-#: includes/class-forms.php:567
+#: includes/class-forms.php:617
 msgid "Images"
 msgstr ""
 
@@ -77,8 +82,8 @@ msgid "Translations"
 msgstr ""
 
 #: includes/class-admin.php:110
-#: includes/class-admin.php:584
-#: includes/class-forms.php:583
+#: includes/class-admin.php:591
+#: includes/class-forms.php:633
 msgid "Seller"
 msgstr ""
 
@@ -123,7 +128,7 @@ msgid "Minimum raise"
 msgstr ""
 
 #: includes/class-admin.php:163
-#: includes/class-forms.php:579
+#: includes/class-forms.php:629
 msgid "VAT"
 msgstr ""
 
@@ -141,14 +146,14 @@ msgid "Show nothing"
 msgstr ""
 
 #: includes/class-admin.php:172
-#: includes/class-forms.php:570
+#: includes/class-forms.php:620
 #: templates/single-item.php:176
 msgid "Location"
 msgstr ""
 
 #: includes/class-admin.php:176
 #: includes/class-admin.php:218
-#: includes/class-forms.php:571
+#: includes/class-forms.php:621
 #: templates/single-item.php:182
 msgid "Delivery"
 msgstr ""
@@ -175,18 +180,18 @@ msgid "Shown to visitors browsing the site in that language. Empty fields fall b
 msgstr ""
 
 #: includes/class-admin.php:214
-#: includes/class-forms.php:565
+#: includes/class-forms.php:615
 msgid "Title"
 msgstr ""
 
 #: includes/class-admin.php:216
-#: includes/class-forms.php:566
+#: includes/class-forms.php:616
 msgid "Description"
 msgstr ""
 
 #: includes/class-admin.php:229
-#: includes/class-admin.php:565
 #: includes/class-admin.php:572
+#: includes/class-admin.php:579
 msgid "Name"
 msgstr ""
 
@@ -211,20 +216,20 @@ msgid "City"
 msgstr ""
 
 #: includes/class-admin.php:234
-#: includes/class-admin.php:584
-#: includes/class-admin.php:616
+#: includes/class-admin.php:591
+#: includes/class-admin.php:623
 #: includes/class-users.php:16
 msgid "Phone"
 msgstr ""
 
 #: includes/class-admin.php:235
-#: includes/class-admin.php:565
 #: includes/class-admin.php:572
-#: includes/class-admin.php:584
-#: includes/class-admin.php:616
-#: includes/class-forms.php:278
-#: includes/class-forms.php:368
-#: includes/class-forms.php:590
+#: includes/class-admin.php:579
+#: includes/class-admin.php:591
+#: includes/class-admin.php:623
+#: includes/class-forms.php:298
+#: includes/class-forms.php:402
+#: includes/class-forms.php:640
 msgid "E-mail"
 msgstr ""
 
@@ -271,18 +276,18 @@ msgid "No bids yet."
 msgstr ""
 
 #: includes/class-admin.php:278
-#: includes/class-admin.php:584
-#: includes/class-admin.php:616
+#: includes/class-admin.php:591
+#: includes/class-admin.php:623
 msgid "Bidder"
 msgstr ""
 
 #: includes/class-admin.php:278
-#: includes/class-admin.php:616
+#: includes/class-admin.php:623
 msgid "Amount"
 msgstr ""
 
 #: includes/class-admin.php:278
-#: includes/class-admin.php:616
+#: includes/class-admin.php:623
 msgid "Time"
 msgstr ""
 
@@ -305,43 +310,43 @@ msgstr ""
 msgid "The end time must be after the start time. The end time was not changed."
 msgstr ""
 
-#: includes/class-admin.php:370
+#: includes/class-admin.php:377
 msgid "Reject this submission?"
 msgstr ""
 
-#: includes/class-admin.php:370
+#: includes/class-admin.php:377
 msgid "Reject submission"
 msgstr ""
 
-#: includes/class-admin.php:377
-#: includes/class-admin.php:393
-#: includes/class-admin.php:530
-#: includes/class-admin.php:557
+#: includes/class-admin.php:384
+#: includes/class-admin.php:400
+#: includes/class-admin.php:537
+#: includes/class-admin.php:564
 msgid "You are not allowed to do this."
 msgstr ""
 
-#: includes/class-admin.php:380
+#: includes/class-admin.php:387
 msgid "Submission rejected."
 msgstr ""
 
-#: includes/class-admin.php:400
+#: includes/class-admin.php:407
 msgid "Highest bid accepted and the winner notified."
 msgstr ""
 
-#: includes/class-admin.php:404
+#: includes/class-admin.php:411
 msgid "Highest bid rejected and the bidder notified."
 msgstr ""
 
-#: includes/class-admin.php:409
+#: includes/class-admin.php:416
 msgid "Decision undone."
 msgstr ""
 
-#: includes/class-admin.php:414
+#: includes/class-admin.php:421
 msgid "The auction is not waiting for a decision."
 msgstr ""
 
-#: includes/class-admin.php:443
-#: includes/class-admin.php:584
+#: includes/class-admin.php:450
+#: includes/class-admin.php:591
 #: templates/account.php:41
 #: templates/account.php:67
 #: templates/item-card.php:27
@@ -349,81 +354,81 @@ msgstr ""
 msgid "Highest bid"
 msgstr ""
 
-#: includes/class-admin.php:444
+#: includes/class-admin.php:451
 #: templates/single-item.php:71
 msgid "Bids"
 msgstr ""
 
-#: includes/class-admin.php:445
+#: includes/class-admin.php:452
 #: templates/single-item.php:82
 msgid "Ends"
 msgstr ""
 
-#: includes/class-admin.php:446
-#: includes/class-admin.php:584
+#: includes/class-admin.php:453
+#: includes/class-admin.php:591
 msgid "Status"
 msgstr ""
 
-#: includes/class-admin.php:474
-#: includes/class-admin.php:513
+#: includes/class-admin.php:481
+#: includes/class-admin.php:520
 msgid "Waiting for decision"
 msgstr ""
 
-#: includes/class-admin.php:476
+#: includes/class-admin.php:483
 msgid "Waiting for approval"
 msgstr ""
 
-#: includes/class-admin.php:521
+#: includes/class-admin.php:528
 msgid "Duplicate"
 msgstr ""
 
-#: includes/class-admin.php:546
+#: includes/class-admin.php:553
 msgid "CSV files open in Excel and LibreOffice (semicolon separated, UTF-8)."
 msgstr ""
 
-#: includes/class-admin.php:547
+#: includes/class-admin.php:554
 msgid "Newsletter subscribers"
 msgstr ""
 
-#: includes/class-admin.php:548
+#: includes/class-admin.php:555
 msgid "All bidders with contact details"
 msgstr ""
 
-#: includes/class-admin.php:549
+#: includes/class-admin.php:556
 msgid "Ended auctions and winners"
 msgstr ""
 
-#: includes/class-admin.php:572
+#: includes/class-admin.php:579
 #: includes/class-users.php:106
 #: includes/class-users.php:157
 msgid "Newsletter"
 msgstr ""
 
-#: includes/class-admin.php:572
+#: includes/class-admin.php:579
 #: includes/class-users.php:151
 msgid "Blocked"
 msgstr ""
 
-#: includes/class-admin.php:584
-#: includes/class-forms.php:564
+#: includes/class-admin.php:591
+#: includes/class-forms.php:614
 #: templates/account.php:39
 #: templates/account.php:65
 #: templates/account.php:101
 msgid "Item"
 msgstr ""
 
-#: includes/class-admin.php:584
+#: includes/class-admin.php:591
 #: includes/class-frontend.php:55
 #: includes/class-frontend.php:151
 #: templates/account.php:119
 msgid "Ended"
 msgstr ""
 
-#: includes/class-admin.php:616
+#: includes/class-admin.php:623
 msgid "Automatic"
 msgstr ""
 
-#: includes/class-admin.php:630
+#: includes/class-admin.php:637
 msgid "Unknown export."
 msgstr ""
 
@@ -478,7 +483,7 @@ msgstr ""
 msgid "Automatic bid saved, but another bidder's maximum is higher."
 msgstr ""
 
-#: includes/class-bidding.php:331
+#: includes/class-bidding.php:332
 msgid "The item is busy. Please try again."
 msgstr ""
 
@@ -487,7 +492,7 @@ msgid "Every five minutes"
 msgstr ""
 
 #: includes/class-forms.php:81
-#: includes/class-forms.php:125
+#: includes/class-forms.php:129
 msgid "The form has expired. Please try again."
 msgstr ""
 
@@ -502,258 +507,289 @@ msgid "Enter the maximum as a number, for example 500."
 msgstr ""
 
 #: includes/class-forms.php:102
-#: includes/class-rest.php:154
+#: includes/class-rest.php:157
 msgid "Automatic bid removed."
 msgstr ""
 
 #: includes/class-forms.php:106
-#: includes/class-rest.php:167
+#: includes/class-rest.php:131
+#: includes/class-rest.php:143
+#: includes/class-rest.php:154
+msgid "Item not found."
+msgstr ""
+
+#: includes/class-forms.php:110
+#: includes/class-rest.php:170
 msgid "Added to your watch list."
 msgstr ""
 
-#: includes/class-forms.php:106
-#: includes/class-rest.php:167
+#: includes/class-forms.php:110
+#: includes/class-rest.php:170
 msgid "Removed from your watch list."
 msgstr ""
 
-#: includes/class-forms.php:109
+#: includes/class-forms.php:113
 msgid "Unknown action."
 msgstr ""
 
-#: includes/class-forms.php:204
-#: includes/class-forms.php:315
+#: includes/class-forms.php:207
+msgid "Too many registrations from your network. Please try again later."
+msgstr ""
+
+#: includes/class-forms.php:216
+#: includes/class-forms.php:337
 msgid "Enter your name."
 msgstr ""
 
-#: includes/class-forms.php:207
-#: includes/class-forms.php:318
+#: includes/class-forms.php:219
+#: includes/class-forms.php:340
 msgid "Enter a valid e-mail address."
 msgstr ""
 
-#: includes/class-forms.php:209
+#: includes/class-forms.php:221
 msgid "An account with this e-mail address already exists. Log in or reset your password."
 msgstr ""
 
-#: includes/class-forms.php:212
-#: includes/class-forms.php:324
+#: includes/class-forms.php:224
+#: includes/class-forms.php:351
 msgid "The password must be at least 8 characters."
 msgstr ""
 
-#: includes/class-forms.php:214
-#: includes/class-forms.php:326
+#: includes/class-forms.php:226
+#: includes/class-forms.php:353
 msgid "The passwords do not match."
 msgstr ""
 
-#: includes/class-forms.php:218
+#: includes/class-forms.php:230
 msgid "Fill in all required fields."
 msgstr ""
 
-#: includes/class-forms.php:223
+#: includes/class-forms.php:235
 msgid "You must accept the terms of use."
 msgstr ""
 
-#: includes/class-forms.php:255
+#: includes/class-forms.php:274
 msgid "Thank you for registering! We sent you an e-mail. Open the link in it to activate your account."
 msgstr ""
 
-#: includes/class-forms.php:259
+#: includes/class-forms.php:278
 msgid "Thank you for registering! You can now bid."
 msgstr ""
 
-#: includes/class-forms.php:272
+#: includes/class-forms.php:292
 msgid "You are already logged in."
 msgstr ""
 
-#: includes/class-forms.php:276
+#: includes/class-forms.php:296
 msgid "Account"
 msgstr ""
 
-#: includes/class-forms.php:277
-#: includes/class-forms.php:367
-#: includes/class-forms.php:584
+#: includes/class-forms.php:297
+#: includes/class-forms.php:401
+#: includes/class-forms.php:634
 msgid "Name or company name"
 msgstr ""
 
-#: includes/class-forms.php:278
+#: includes/class-forms.php:298
 msgid "You log in with your e-mail address."
 msgstr ""
 
-#: includes/class-forms.php:279
+#: includes/class-forms.php:299
 msgid "Password"
 msgstr ""
 
-#: includes/class-forms.php:279
+#: includes/class-forms.php:299
 msgid "At least 8 characters."
 msgstr ""
 
-#: includes/class-forms.php:280
+#: includes/class-forms.php:300
 msgid "Password again"
 msgstr ""
 
-#: includes/class-forms.php:281
+#: includes/class-forms.php:301
 msgid "Contact details"
 msgstr ""
 
-#: includes/class-forms.php:286
+#: includes/class-forms.php:306
 msgid "Only for companies."
 msgstr ""
 
-#: includes/class-forms.php:288
-#: includes/class-forms.php:373
+#: includes/class-forms.php:308
+#: includes/class-forms.php:407
 msgid "Send me the newsletter"
 msgstr ""
 
 #. translators: %s: link to the terms of use
-#: includes/class-forms.php:293
+#: includes/class-forms.php:313
 msgid "I accept the %s"
 msgstr ""
 
-#: includes/class-forms.php:294
+#: includes/class-forms.php:314
 msgid "terms of use"
 msgstr ""
 
-#: includes/class-forms.php:298
+#: includes/class-forms.php:318
 #: includes/class-install.php:127
 msgid "Register"
 msgstr ""
 
-#: includes/class-forms.php:320
+#: includes/class-forms.php:342
 msgid "Another account already uses this e-mail address."
 msgstr ""
 
-#: includes/class-forms.php:353
+#: includes/class-forms.php:347
+msgid "Enter your current password to change your e-mail address or password."
+msgstr ""
+
+#: includes/class-forms.php:384
+msgid "Your details have been saved. We sent a confirmation link to your new e-mail address; open it before bidding again."
+msgstr ""
+
+#: includes/class-forms.php:387
 msgid "Your details have been saved."
 msgstr ""
 
-#: includes/class-forms.php:360
+#: includes/class-forms.php:394
 msgid "Log in to edit your details."
 msgstr ""
 
-#: includes/class-forms.php:374
+#: includes/class-forms.php:408
 msgid "Change password"
 msgstr ""
 
-#: includes/class-forms.php:375
+#: includes/class-forms.php:409
 msgid "New password"
 msgstr ""
 
-#: includes/class-forms.php:375
+#: includes/class-forms.php:409
 msgid "Leave empty to keep the current password."
 msgstr ""
 
-#: includes/class-forms.php:376
+#: includes/class-forms.php:410
 msgid "New password again"
 msgstr ""
 
-#: includes/class-forms.php:377
+#: includes/class-forms.php:411
+msgid "Current password"
+msgstr ""
+
+#: includes/class-forms.php:411
+msgid "Required when you change your e-mail address or password."
+msgstr ""
+
+#: includes/class-forms.php:412
 #: templates/single-item.php:131
 msgid "Save"
 msgstr ""
 
-#: includes/class-forms.php:387
+#: includes/class-forms.php:422
 msgid "Item submissions are closed."
 msgstr ""
 
-#: includes/class-forms.php:390
+#: includes/class-forms.php:425
 msgid "Log in to submit an item."
 msgstr ""
 
-#: includes/class-forms.php:393
+#: includes/class-forms.php:428
 msgid "Your account has been blocked."
 msgstr ""
 
-#: includes/class-forms.php:396
+#: includes/class-forms.php:431
 msgid "Confirm your e-mail address before submitting items."
 msgstr ""
 
-#: includes/class-forms.php:414
+#: includes/class-forms.php:453
+msgid "You already have many items waiting for approval. Please wait until they have been handled."
+msgstr ""
+
+#: includes/class-forms.php:464
 msgid "Enter a title."
 msgstr ""
 
-#: includes/class-forms.php:417
+#: includes/class-forms.php:467
 msgid "Enter a description."
 msgstr ""
 
-#: includes/class-forms.php:420
+#: includes/class-forms.php:470
 msgid "Enter the start price as a number."
 msgstr ""
 
-#: includes/class-forms.php:423
+#: includes/class-forms.php:473
 msgid "Enter the minimum raise as a number."
 msgstr ""
 
-#: includes/class-forms.php:426
+#: includes/class-forms.php:476
 msgid "The requested end time must be in the future."
 msgstr ""
 
-#: includes/class-forms.php:433
+#: includes/class-forms.php:483
 msgid "Fill in the seller's name, phone and e-mail."
 msgstr ""
 
-#: includes/class-forms.php:498
+#: includes/class-forms.php:548
 msgid "Thank you! Your item has been sent for approval. We will e-mail you when it is in the auction."
 msgstr ""
 
 #. translators: %s: file name
-#: includes/class-forms.php:518
+#: includes/class-forms.php:568
 msgid "The image %s could not be uploaded. It may be too large."
 msgstr ""
 
 #. translators: %s: file name
-#: includes/class-forms.php:523
+#: includes/class-forms.php:573
 msgid "%s is not a JPEG, PNG, WebP or GIF image."
 msgstr ""
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:535
+#: includes/class-forms.php:585
 msgid "You can add at most %d images."
 msgstr ""
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:569
+#: includes/class-forms.php:619
 msgid "Up to %d images. The first one is the main image."
 msgstr ""
 
-#: includes/class-forms.php:571
+#: includes/class-forms.php:621
 msgid "For example: pick-up only, or shipping at the buyer's cost."
 msgstr ""
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:574
+#: includes/class-forms.php:624
 msgid "Start price (%s)"
 msgstr ""
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:576
+#: includes/class-forms.php:626
 msgid "Minimum raise (%s)"
 msgstr ""
 
-#: includes/class-forms.php:577
+#: includes/class-forms.php:627
 msgid "Requested end time"
 msgstr ""
 
-#: includes/class-forms.php:577
+#: includes/class-forms.php:627
 msgid "Optional. The administrator sets the final schedule."
 msgstr ""
 
-#: includes/class-forms.php:580
+#: includes/class-forms.php:630
 msgid "VAT 0 % (private seller or margin scheme)"
 msgstr ""
 
 #. translators: %s: VAT rate
-#: includes/class-forms.php:582
+#: includes/class-forms.php:632
 msgid "VAT %s %% is added to the price"
 msgstr ""
 
-#: includes/class-forms.php:591
+#: includes/class-forms.php:641
 msgid "Contact person shown on the item page"
 msgstr ""
 
-#: includes/class-forms.php:591
+#: includes/class-forms.php:641
 msgid "Optional. Leave empty to show no contact details."
 msgstr ""
 
-#: includes/class-forms.php:592
+#: includes/class-forms.php:642
 msgid "Send for approval"
 msgstr ""
 
@@ -835,32 +871,32 @@ msgstr ""
 msgid "Log in to bid on items."
 msgstr ""
 
-#: includes/class-frontend.php:171
+#: includes/class-frontend.php:173
 msgid "Create an account"
 msgstr ""
 
-#: includes/class-frontend.php:173
+#: includes/class-frontend.php:175
 msgid "Forgot your password?"
 msgstr ""
 
-#: includes/class-frontend.php:276
+#: includes/class-frontend.php:278
 #: includes/class-post-types.php:32
 msgid "All items"
 msgstr ""
 
-#: includes/class-frontend.php:291
+#: includes/class-frontend.php:293
 msgid "Log in to see your bids."
 msgstr ""
 
-#: includes/class-frontend.php:347
+#: includes/class-frontend.php:349
 msgid "Your e-mail address is confirmed. You can now log in and bid."
 msgstr ""
 
-#: includes/class-frontend.php:349
+#: includes/class-frontend.php:351
 msgid "This account is already activated."
 msgstr ""
 
-#: includes/class-frontend.php:351
+#: includes/class-frontend.php:353
 msgid "The activation link is invalid or has already been used."
 msgstr ""
 
@@ -1057,11 +1093,6 @@ msgstr[1] ""
 msgid "No bids"
 msgstr ""
 
-#: includes/class-rest.php:131
-#: includes/class-rest.php:143
-msgid "Item not found."
-msgstr ""
-
 #: includes/class-settings.php:146
 msgid "— None —"
 msgstr ""
@@ -1205,17 +1236,17 @@ msgid "Too many failed login attempts. Try again in two hours or reset your pass
 msgstr ""
 
 #. translators: date format for auction end times, see https://www.php.net/date
-#: includes/functions.php:55
+#: includes/functions.php:58
 msgid "l j.n.Y H:i:s"
 msgstr ""
 
 #. translators: date format for auction end times, see https://www.php.net/date
-#: includes/functions.php:55
+#: includes/functions.php:58
 msgid "j.n.Y H:i:s"
 msgstr ""
 
 #. translators: %d: anonymous bidder number
-#: includes/functions.php:97
+#: includes/functions.php:100
 msgid "Bidder %d"
 msgstr ""
 

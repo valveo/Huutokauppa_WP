@@ -162,7 +162,9 @@ class HK_Frontend {
 		$html .= wp_login_form(
 			array(
 				'echo'     => false,
-				'redirect' => esc_url_raw( home_url( add_query_arg( array() ) ) ),
+				// Back to the current page. Built from the queried object rather than the raw
+				// request URI, which also keeps sub-directory installs working.
+				'redirect' => esc_url_raw( is_singular() ? (string) get_permalink( get_queried_object_id() ) : home_url( '/' ) ),
 				'form_id'  => 'hk-loginform-' . wp_rand(),
 			)
 		);

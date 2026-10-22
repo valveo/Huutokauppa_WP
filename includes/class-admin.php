@@ -315,8 +315,8 @@ class HK_Admin {
 			return;
 		}
 
-		$start = hk_local_input_to_ts( (string) ( $in['start'] ?? '' ) );
-		$end   = hk_local_input_to_ts( (string) ( $in['end'] ?? '' ) );
+		$start = hk_local_input_to_ts( self::scalar( $in, 'start' ) );
+		$end   = hk_local_input_to_ts( self::scalar( $in, 'end' ) );
 		if ( 'publish' === $post->post_status ) {
 			$start = $start ?: ( HK_Item::start( $post_id ) ?: hk_now() );
 			$end   = $end ?: $start + DAY_IN_SECONDS * (int) HK_Settings::get( 'default_duration' );
@@ -326,31 +326,34 @@ class HK_Admin {
 			$end = HK_Item::end( $post_id ) ?: $start + DAY_IN_SECONDS * (int) HK_Settings::get( 'default_duration' );
 		}
 
-		$seller = array();
+		$seller_in = is_array( $in['seller'] ?? null ) ? $in['seller'] : array();
+		$i18n_in   = is_array( $in['i18n'] ?? null ) ? $in['i18n'] : array();
+		$seller    = array();
 		foreach ( HK_Item::SELLER_FIELDS as $f ) {
-			$v            = (string) ( $in['seller'][ $f ] ?? '' );
+			$v            = is_scalar( $seller_in[ $f ] ?? '' ) ? (string) ( $seller_in[ $f ] ?? '' ) : '';
 			$seller[ $f ] = 'email' === $f ? sanitize_email( $v ) : sanitize_text_field( $v );
 		}
 
 		$i18n = array();
 		foreach ( HK_Settings::extra_languages() as $lang ) {
+			$v             = is_array( $i18n_in[ $lang ] ?? null ) ? array_map( static fn( $x ) => is_scalar( $x ) ? (string) $x : '', $i18n_in[ $lang ] ) : array();
 			$i18n[ $lang ] = array(
-				'title'    => sanitize_text_field( (string) ( $in['i18n'][ $lang ]['title'] ?? '' ) ),
-				'content'  => wp_kses_post( (string) ( $in['i18n'][ $lang ]['content'] ?? '' ) ),
-				'delivery' => sanitize_textarea_field( (string) ( $in['i18n'][ $lang ]['delivery'] ?? '' ) ),
+				'title'    => sanitize_text_field( $v['title'] ?? '' ),
+				'content'  => wp_kses_post( $v['content'] ?? '' ),
+				'delivery' => sanitize_textarea_field( $v['delivery'] ?? '' ),
 			);
 		}
 
-		$gallery = array_values( array_filter( array_map( 'absint', explode( ',', (string) ( $in['gallery'] ?? '' ) ) ) ) );
+		$gallery = array_values( array_filter( array_map( 'absint', explode( ',', self::scalar( $in, 'gallery' ) ) ) ) );
 		$fields  = array(
 			'start'       => $start ?: 0,
 			'end'         => $end ?: 0,
 			'start_price' => hk_parse_amount( $in['start_price'] ?? '' ) ?? 0,
 			'min_raise'   => hk_parse_amount( $in['min_raise'] ?? '' ) ?? 0,
 			'vat'         => in_array( $in['vat'] ?? '', array( 'plus', 'margin', 'none' ), true ) ? $in['vat'] : 'none',
-			'location'    => sanitize_text_field( (string) ( $in['location'] ?? '' ) ),
-			'delivery'    => sanitize_textarea_field( (string) ( $in['delivery'] ?? '' ) ),
-			'contact'     => sanitize_textarea_field( (string) ( $in['contact'] ?? '' ) ),
+			'location'    => sanitize_text_field( self::scalar( $in, 'location' ) ),
+			'delivery'    => sanitize_textarea_field( self::scalar( $in, 'delivery' ) ),
+			'contact'     => sanitize_textarea_field( self::scalar( $in, 'contact' ) ),
 			'seller'      => $seller,
 			'gallery'     => $gallery,
 		);
@@ -359,6 +362,10 @@ class HK_Admin {
 		}
 		HK_Item::save_fields( $post_id, $fields );
 		HK_Bidding::refresh_cache( $post_id );
+	}
+
+	private static function scalar( array $in, string $key ): string {
+		return isset( $in[ $key ] ) && is_scalar( $in[ $key ] ) ? (string) $in[ $key ] : '';
 	}
 
 	/** "Reject submission" link in the publish box for pending items. */

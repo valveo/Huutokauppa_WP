@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Huutokauppa 1.0.0\n"
 "Report-Msgid-Bugs-To: matti.mieskonen@gmail.com\n"
-"POT-Creation-Date: 2026-10-22T07:18:43+00:00\n"
+"POT-Creation-Date: 2026-10-22T14:32:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,11 @@ msgstr ""
 #: huutokauppa.php
 msgid "Huutokauppa"
 msgstr "Huutokauppa"
+
+#. Plugin URI of the plugin
+#: huutokauppa.php
+msgid "https://github.com/valveo/Huutokauppa_WP"
+msgstr "https://github.com/valveo/Huutokauppa_WP"
 
 #. Description of the plugin
 #: huutokauppa.php
@@ -36,7 +41,7 @@ msgstr ""
 msgid "Matti Mieskonen (Valveo)"
 msgstr "Matti Mieskonen (Valveo)"
 
-#: includes/class-admin.php:32 includes/class-admin.php:545
+#: includes/class-admin.php:32 includes/class-admin.php:552
 msgid "Export"
 msgstr "Export"
 
@@ -65,11 +70,11 @@ msgstr "Ta bort"
 msgid "Bids and result"
 msgstr "Bud och resultat"
 
-#: includes/class-admin.php:102 includes/class-forms.php:572
+#: includes/class-admin.php:102 includes/class-forms.php:622
 msgid "Auction"
 msgstr "Auktion"
 
-#: includes/class-admin.php:103 includes/class-forms.php:567
+#: includes/class-admin.php:103 includes/class-forms.php:617
 msgid "Images"
 msgstr "Bilder"
 
@@ -77,8 +82,8 @@ msgstr "Bilder"
 msgid "Translations"
 msgstr "Översättningar"
 
-#: includes/class-admin.php:110 includes/class-admin.php:584
-#: includes/class-forms.php:583
+#: includes/class-admin.php:110 includes/class-admin.php:591
+#: includes/class-forms.php:633
 msgid "Seller"
 msgstr "Säljare"
 
@@ -127,7 +132,7 @@ msgstr "Utropspris"
 msgid "Minimum raise"
 msgstr "Minsta höjning"
 
-#: includes/class-admin.php:163 includes/class-forms.php:579
+#: includes/class-admin.php:163 includes/class-forms.php:629
 msgid "VAT"
 msgstr "Moms"
 
@@ -144,13 +149,13 @@ msgstr "Moms %s %% tillkommer"
 msgid "Show nothing"
 msgstr "Visa inget"
 
-#: includes/class-admin.php:172 includes/class-forms.php:570
+#: includes/class-admin.php:172 includes/class-forms.php:620
 #: templates/single-item.php:176
 msgid "Location"
 msgstr "Plats"
 
 #: includes/class-admin.php:176 includes/class-admin.php:218
-#: includes/class-forms.php:571 templates/single-item.php:182
+#: includes/class-forms.php:621 templates/single-item.php:182
 msgid "Delivery"
 msgstr "Leverans"
 
@@ -178,16 +183,16 @@ msgstr ""
 "Visas för besökare som använder webbplatsen på det språket. Tomma fält "
 "ersätts med huvudrubriken och -beskrivningen."
 
-#: includes/class-admin.php:214 includes/class-forms.php:565
+#: includes/class-admin.php:214 includes/class-forms.php:615
 msgid "Title"
 msgstr "Rubrik"
 
-#: includes/class-admin.php:216 includes/class-forms.php:566
+#: includes/class-admin.php:216 includes/class-forms.php:616
 msgid "Description"
 msgstr "Beskrivning"
 
-#: includes/class-admin.php:229 includes/class-admin.php:565
-#: includes/class-admin.php:572
+#: includes/class-admin.php:229 includes/class-admin.php:572
+#: includes/class-admin.php:579
 msgid "Name"
 msgstr "Namn"
 
@@ -207,15 +212,15 @@ msgstr "Postnummer"
 msgid "City"
 msgstr "Postanstalt"
 
-#: includes/class-admin.php:234 includes/class-admin.php:584
-#: includes/class-admin.php:616 includes/class-users.php:16
+#: includes/class-admin.php:234 includes/class-admin.php:591
+#: includes/class-admin.php:623 includes/class-users.php:16
 msgid "Phone"
 msgstr "Telefon"
 
-#: includes/class-admin.php:235 includes/class-admin.php:565
-#: includes/class-admin.php:572 includes/class-admin.php:584
-#: includes/class-admin.php:616 includes/class-forms.php:278
-#: includes/class-forms.php:368 includes/class-forms.php:590
+#: includes/class-admin.php:235 includes/class-admin.php:572
+#: includes/class-admin.php:579 includes/class-admin.php:591
+#: includes/class-admin.php:623 includes/class-forms.php:298
+#: includes/class-forms.php:402 includes/class-forms.php:640
 msgid "E-mail"
 msgstr "E-post"
 
@@ -260,16 +265,16 @@ msgstr "Redan skickade e-postmeddelanden återkallas inte."
 msgid "No bids yet."
 msgstr "Inga bud ännu."
 
-#: includes/class-admin.php:278 includes/class-admin.php:584
-#: includes/class-admin.php:616
+#: includes/class-admin.php:278 includes/class-admin.php:591
+#: includes/class-admin.php:623
 msgid "Bidder"
 msgstr "Budgivare"
 
-#: includes/class-admin.php:278 includes/class-admin.php:616
+#: includes/class-admin.php:278 includes/class-admin.php:623
 msgid "Amount"
 msgstr "Belopp"
 
-#: includes/class-admin.php:278 includes/class-admin.php:616
+#: includes/class-admin.php:278 includes/class-admin.php:623
 msgid "Time"
 msgstr "Tid"
 
@@ -291,110 +296,110 @@ msgid ""
 "The end time must be after the start time. The end time was not changed."
 msgstr "Sluttiden måste vara efter starttiden. Sluttiden ändrades inte."
 
-#: includes/class-admin.php:370
+#: includes/class-admin.php:377
 msgid "Reject this submission?"
 msgstr "Avvisa denna anmälan?"
 
-#: includes/class-admin.php:370
+#: includes/class-admin.php:377
 msgid "Reject submission"
 msgstr "Avvisa anmälan"
 
-#: includes/class-admin.php:377 includes/class-admin.php:393
-#: includes/class-admin.php:530 includes/class-admin.php:557
+#: includes/class-admin.php:384 includes/class-admin.php:400
+#: includes/class-admin.php:537 includes/class-admin.php:564
 msgid "You are not allowed to do this."
 msgstr "Du har inte behörighet till detta."
 
-#: includes/class-admin.php:380
+#: includes/class-admin.php:387
 msgid "Submission rejected."
 msgstr "Anmälan avvisad."
 
-#: includes/class-admin.php:400
+#: includes/class-admin.php:407
 msgid "Highest bid accepted and the winner notified."
 msgstr "Högsta budet godkänt och vinnaren meddelad."
 
-#: includes/class-admin.php:404
+#: includes/class-admin.php:411
 msgid "Highest bid rejected and the bidder notified."
 msgstr "Högsta budet avvisat och budgivaren meddelad."
 
-#: includes/class-admin.php:409
+#: includes/class-admin.php:416
 msgid "Decision undone."
 msgstr "Beslutet ångrat."
 
-#: includes/class-admin.php:414
+#: includes/class-admin.php:421
 msgid "The auction is not waiting for a decision."
 msgstr "Auktionen väntar inte på beslut."
 
-#: includes/class-admin.php:443 includes/class-admin.php:584
+#: includes/class-admin.php:450 includes/class-admin.php:591
 #: templates/account.php:41 templates/account.php:67
 #: templates/item-card.php:27 templates/single-item.php:65
 msgid "Highest bid"
 msgstr "Högsta bud"
 
-#: includes/class-admin.php:444 templates/single-item.php:71
+#: includes/class-admin.php:451 templates/single-item.php:71
 msgid "Bids"
 msgstr "Bud"
 
-#: includes/class-admin.php:445 templates/single-item.php:82
+#: includes/class-admin.php:452 templates/single-item.php:82
 msgid "Ends"
 msgstr "Slutar"
 
-#: includes/class-admin.php:446 includes/class-admin.php:584
+#: includes/class-admin.php:453 includes/class-admin.php:591
 msgid "Status"
 msgstr "Status"
 
-#: includes/class-admin.php:474 includes/class-admin.php:513
+#: includes/class-admin.php:481 includes/class-admin.php:520
 msgid "Waiting for decision"
 msgstr "Väntar på beslut"
 
-#: includes/class-admin.php:476
+#: includes/class-admin.php:483
 msgid "Waiting for approval"
 msgstr "Väntar på godkännande"
 
-#: includes/class-admin.php:521
+#: includes/class-admin.php:528
 msgid "Duplicate"
 msgstr "Duplicera"
 
-#: includes/class-admin.php:546
+#: includes/class-admin.php:553
 msgid "CSV files open in Excel and LibreOffice (semicolon separated, UTF-8)."
 msgstr ""
 "CSV-filerna öppnas i Excel och LibreOffice (semikolonseparerade, UTF-8)."
 
-#: includes/class-admin.php:547
+#: includes/class-admin.php:554
 msgid "Newsletter subscribers"
 msgstr "Prenumeranter på nyhetsbrevet"
 
-#: includes/class-admin.php:548
+#: includes/class-admin.php:555
 msgid "All bidders with contact details"
 msgstr "Alla användare med kontaktuppgifter"
 
-#: includes/class-admin.php:549
+#: includes/class-admin.php:556
 msgid "Ended auctions and winners"
 msgstr "Avslutade auktioner och vinnare"
 
-#: includes/class-admin.php:572 includes/class-users.php:106
+#: includes/class-admin.php:579 includes/class-users.php:106
 #: includes/class-users.php:157
 msgid "Newsletter"
 msgstr "Nyhetsbrev"
 
-#: includes/class-admin.php:572 includes/class-users.php:151
+#: includes/class-admin.php:579 includes/class-users.php:151
 msgid "Blocked"
 msgstr "Spärrad"
 
-#: includes/class-admin.php:584 includes/class-forms.php:564
+#: includes/class-admin.php:591 includes/class-forms.php:614
 #: templates/account.php:39 templates/account.php:65 templates/account.php:101
 msgid "Item"
 msgstr "Objekt"
 
-#: includes/class-admin.php:584 includes/class-frontend.php:55
+#: includes/class-admin.php:591 includes/class-frontend.php:55
 #: includes/class-frontend.php:151 templates/account.php:119
 msgid "Ended"
 msgstr "Avslutad"
 
-#: includes/class-admin.php:616
+#: includes/class-admin.php:623
 msgid "Automatic"
 msgstr "Automatiskt"
 
-#: includes/class-admin.php:630
+#: includes/class-admin.php:637
 msgid "Unknown export."
 msgstr "Okänd export."
 
@@ -454,7 +459,7 @@ msgstr "Automatiskt bud aktiverat. Du har det högsta budet."
 msgid "Automatic bid saved, but another bidder's maximum is higher."
 msgstr "Automatiskt bud sparat, men en annan budgivares maxbelopp är högre."
 
-#: includes/class-bidding.php:331
+#: includes/class-bidding.php:332
 msgid "The item is busy. Please try again."
 msgstr "Objektet är upptaget. Försök igen."
 
@@ -462,7 +467,7 @@ msgstr "Objektet är upptaget. Försök igen."
 msgid "Every five minutes"
 msgstr "Var femte minut"
 
-#: includes/class-forms.php:81 includes/class-forms.php:125
+#: includes/class-forms.php:81 includes/class-forms.php:129
 msgid "The form has expired. Please try again."
 msgstr "Formuläret har gått ut. Försök igen."
 
@@ -474,31 +479,40 @@ msgstr "Ange budet som ett tal, till exempel 150."
 msgid "Enter the maximum as a number, for example 500."
 msgstr "Ange maxbeloppet som ett tal, till exempel 500."
 
-#: includes/class-forms.php:102 includes/class-rest.php:154
+#: includes/class-forms.php:102 includes/class-rest.php:157
 msgid "Automatic bid removed."
 msgstr "Automatiskt bud borttaget."
 
-#: includes/class-forms.php:106 includes/class-rest.php:167
+#: includes/class-forms.php:106 includes/class-rest.php:131
+#: includes/class-rest.php:143 includes/class-rest.php:154
+msgid "Item not found."
+msgstr "Objektet hittades inte."
+
+#: includes/class-forms.php:110 includes/class-rest.php:170
 msgid "Added to your watch list."
 msgstr "Tillagt i bevakningslistan."
 
-#: includes/class-forms.php:106 includes/class-rest.php:167
+#: includes/class-forms.php:110 includes/class-rest.php:170
 msgid "Removed from your watch list."
 msgstr "Borttaget från bevakningslistan."
 
-#: includes/class-forms.php:109
+#: includes/class-forms.php:113
 msgid "Unknown action."
 msgstr "Okänd åtgärd."
 
-#: includes/class-forms.php:204 includes/class-forms.php:315
+#: includes/class-forms.php:207
+msgid "Too many registrations from your network. Please try again later."
+msgstr "För många registreringar från ditt nätverk. Försök igen senare."
+
+#: includes/class-forms.php:216 includes/class-forms.php:337
 msgid "Enter your name."
 msgstr "Ange ditt namn."
 
-#: includes/class-forms.php:207 includes/class-forms.php:318
+#: includes/class-forms.php:219 includes/class-forms.php:340
 msgid "Enter a valid e-mail address."
 msgstr "Ange en giltig e-postadress."
 
-#: includes/class-forms.php:209
+#: includes/class-forms.php:221
 msgid ""
 "An account with this e-mail address already exists. Log in or reset your "
 "password."
@@ -506,23 +520,23 @@ msgstr ""
 "Det finns redan ett konto med denna e-postadress. Logga in eller återställ "
 "lösenordet."
 
-#: includes/class-forms.php:212 includes/class-forms.php:324
+#: includes/class-forms.php:224 includes/class-forms.php:351
 msgid "The password must be at least 8 characters."
 msgstr "Lösenordet måste vara minst 8 tecken."
 
-#: includes/class-forms.php:214 includes/class-forms.php:326
+#: includes/class-forms.php:226 includes/class-forms.php:353
 msgid "The passwords do not match."
 msgstr "Lösenorden stämmer inte överens."
 
-#: includes/class-forms.php:218
+#: includes/class-forms.php:230
 msgid "Fill in all required fields."
 msgstr "Fyll i alla obligatoriska fält."
 
-#: includes/class-forms.php:223
+#: includes/class-forms.php:235
 msgid "You must accept the terms of use."
 msgstr "Du måste godkänna användarvillkoren."
 
-#: includes/class-forms.php:255
+#: includes/class-forms.php:274
 msgid ""
 "Thank you for registering! We sent you an e-mail. Open the link in it to "
 "activate your account."
@@ -530,137 +544,166 @@ msgstr ""
 "Tack för din registrering! Vi har skickat ett e-postmeddelande. Öppna länken"
 " i det för att aktivera ditt konto."
 
-#: includes/class-forms.php:259
+#: includes/class-forms.php:278
 msgid "Thank you for registering! You can now bid."
 msgstr "Tack för din registrering! Du kan nu bjuda."
 
-#: includes/class-forms.php:272
+#: includes/class-forms.php:292
 msgid "You are already logged in."
 msgstr "Du är redan inloggad."
 
-#: includes/class-forms.php:276
+#: includes/class-forms.php:296
 msgid "Account"
 msgstr "Konto"
 
-#: includes/class-forms.php:277 includes/class-forms.php:367
-#: includes/class-forms.php:584
+#: includes/class-forms.php:297 includes/class-forms.php:401
+#: includes/class-forms.php:634
 msgid "Name or company name"
 msgstr "Namn eller företagsnamn"
 
-#: includes/class-forms.php:278
+#: includes/class-forms.php:298
 msgid "You log in with your e-mail address."
 msgstr "Du loggar in med din e-postadress."
 
-#: includes/class-forms.php:279
+#: includes/class-forms.php:299
 msgid "Password"
 msgstr "Lösenord"
 
-#: includes/class-forms.php:279
+#: includes/class-forms.php:299
 msgid "At least 8 characters."
 msgstr "Minst 8 tecken."
 
-#: includes/class-forms.php:280
+#: includes/class-forms.php:300
 msgid "Password again"
 msgstr "Lösenord igen"
 
-#: includes/class-forms.php:281
+#: includes/class-forms.php:301
 msgid "Contact details"
 msgstr "Kontaktuppgifter"
 
-#: includes/class-forms.php:286
+#: includes/class-forms.php:306
 msgid "Only for companies."
 msgstr "Endast för företag."
 
-#: includes/class-forms.php:288 includes/class-forms.php:373
+#: includes/class-forms.php:308 includes/class-forms.php:407
 msgid "Send me the newsletter"
 msgstr "Skicka mig nyhetsbrevet"
 
 #. translators: %s: link to the terms of use
-#: includes/class-forms.php:293
+#: includes/class-forms.php:313
 msgid "I accept the %s"
 msgstr "Jag godkänner %s"
 
-#: includes/class-forms.php:294
+#: includes/class-forms.php:314
 msgid "terms of use"
 msgstr "användarvillkoren"
 
-#: includes/class-forms.php:298 includes/class-install.php:127
+#: includes/class-forms.php:318 includes/class-install.php:127
 msgid "Register"
 msgstr "Registrera dig"
 
-#: includes/class-forms.php:320
+#: includes/class-forms.php:342
 msgid "Another account already uses this e-mail address."
 msgstr "E-postadressen används redan av ett annat konto."
 
-#: includes/class-forms.php:353
+#: includes/class-forms.php:347
+msgid "Enter your current password to change your e-mail address or password."
+msgstr ""
+"Ange ditt nuvarande lösenord för att byta e-postadress eller lösenord."
+
+#: includes/class-forms.php:384
+msgid ""
+"Your details have been saved. We sent a confirmation link to your new e-mail"
+" address; open it before bidding again."
+msgstr ""
+"Dina uppgifter har sparats. Vi har skickat en bekräftelselänk till din nya "
+"e-postadress; öppna den innan du bjuder igen."
+
+#: includes/class-forms.php:387
 msgid "Your details have been saved."
 msgstr "Dina uppgifter har sparats."
 
-#: includes/class-forms.php:360
+#: includes/class-forms.php:394
 msgid "Log in to edit your details."
 msgstr "Logga in för att redigera dina uppgifter."
 
-#: includes/class-forms.php:374
+#: includes/class-forms.php:408
 msgid "Change password"
 msgstr "Byt lösenord"
 
-#: includes/class-forms.php:375
+#: includes/class-forms.php:409
 msgid "New password"
 msgstr "Nytt lösenord"
 
-#: includes/class-forms.php:375
+#: includes/class-forms.php:409
 msgid "Leave empty to keep the current password."
 msgstr "Lämna tomt för att behålla det nuvarande lösenordet."
 
-#: includes/class-forms.php:376
+#: includes/class-forms.php:410
 msgid "New password again"
 msgstr "Nytt lösenord igen"
 
-#: includes/class-forms.php:377 templates/single-item.php:131
+#: includes/class-forms.php:411
+msgid "Current password"
+msgstr "Nuvarande lösenord"
+
+#: includes/class-forms.php:411
+msgid "Required when you change your e-mail address or password."
+msgstr "Krävs när du byter e-postadress eller lösenord."
+
+#: includes/class-forms.php:412 templates/single-item.php:131
 msgid "Save"
 msgstr "Spara"
 
-#: includes/class-forms.php:387
+#: includes/class-forms.php:422
 msgid "Item submissions are closed."
 msgstr "Anmälan av objekt är stängd."
 
-#: includes/class-forms.php:390
+#: includes/class-forms.php:425
 msgid "Log in to submit an item."
 msgstr "Logga in för att anmäla ett objekt."
 
-#: includes/class-forms.php:393
+#: includes/class-forms.php:428
 msgid "Your account has been blocked."
 msgstr "Ditt konto har spärrats."
 
-#: includes/class-forms.php:396
+#: includes/class-forms.php:431
 msgid "Confirm your e-mail address before submitting items."
 msgstr "Bekräfta din e-postadress innan du anmäler objekt."
 
-#: includes/class-forms.php:414
+#: includes/class-forms.php:453
+msgid ""
+"You already have many items waiting for approval. Please wait until they "
+"have been handled."
+msgstr ""
+"Du har redan många objekt som väntar på godkännande. Vänta tills de har "
+"behandlats."
+
+#: includes/class-forms.php:464
 msgid "Enter a title."
 msgstr "Ange en rubrik."
 
-#: includes/class-forms.php:417
+#: includes/class-forms.php:467
 msgid "Enter a description."
 msgstr "Ange en beskrivning."
 
-#: includes/class-forms.php:420
+#: includes/class-forms.php:470
 msgid "Enter the start price as a number."
 msgstr "Ange utropspriset som ett tal."
 
-#: includes/class-forms.php:423
+#: includes/class-forms.php:473
 msgid "Enter the minimum raise as a number."
 msgstr "Ange minsta höjning som ett tal."
 
-#: includes/class-forms.php:426
+#: includes/class-forms.php:476
 msgid "The requested end time must be in the future."
 msgstr "Den önskade sluttiden måste vara i framtiden."
 
-#: includes/class-forms.php:433
+#: includes/class-forms.php:483
 msgid "Fill in the seller's name, phone and e-mail."
 msgstr "Fyll i säljarens namn, telefon och e-post."
 
-#: includes/class-forms.php:498
+#: includes/class-forms.php:548
 msgid ""
 "Thank you! Your item has been sent for approval. We will e-mail you when it "
 "is in the auction."
@@ -669,65 +712,65 @@ msgstr ""
 "när det är med i auktionen."
 
 #. translators: %s: file name
-#: includes/class-forms.php:518
+#: includes/class-forms.php:568
 msgid "The image %s could not be uploaded. It may be too large."
 msgstr "Bilden %s kunde inte laddas upp. Den kan vara för stor."
 
 #. translators: %s: file name
-#: includes/class-forms.php:523
+#: includes/class-forms.php:573
 msgid "%s is not a JPEG, PNG, WebP or GIF image."
 msgstr "%s är inte en JPEG-, PNG-, WebP- eller GIF-bild."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:535
+#: includes/class-forms.php:585
 msgid "You can add at most %d images."
 msgstr "Du kan lägga till högst %d bilder."
 
 #. translators: %d: maximum number of images
-#: includes/class-forms.php:569
+#: includes/class-forms.php:619
 msgid "Up to %d images. The first one is the main image."
 msgstr "Högst %d bilder. Den första är huvudbilden."
 
-#: includes/class-forms.php:571
+#: includes/class-forms.php:621
 msgid "For example: pick-up only, or shipping at the buyer's cost."
 msgstr "Till exempel: endast avhämtning, eller frakt på köparens bekostnad."
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:574
+#: includes/class-forms.php:624
 msgid "Start price (%s)"
 msgstr "Utropspris (%s)"
 
 #. translators: %s: currency symbol
-#: includes/class-forms.php:576
+#: includes/class-forms.php:626
 msgid "Minimum raise (%s)"
 msgstr "Minsta höjning (%s)"
 
-#: includes/class-forms.php:577
+#: includes/class-forms.php:627
 msgid "Requested end time"
 msgstr "Önskad sluttid"
 
-#: includes/class-forms.php:577
+#: includes/class-forms.php:627
 msgid "Optional. The administrator sets the final schedule."
 msgstr "Valfritt. Administratören bestämmer den slutliga tidtabellen."
 
-#: includes/class-forms.php:580
+#: includes/class-forms.php:630
 msgid "VAT 0 % (private seller or margin scheme)"
 msgstr "Moms 0 % (privat säljare eller marginalbeskattning)"
 
 #. translators: %s: VAT rate
-#: includes/class-forms.php:582
+#: includes/class-forms.php:632
 msgid "VAT %s %% is added to the price"
 msgstr "Moms %s %% tillkommer på priset"
 
-#: includes/class-forms.php:591
+#: includes/class-forms.php:641
 msgid "Contact person shown on the item page"
 msgstr "Kontaktperson som visas på objektets sida"
 
-#: includes/class-forms.php:591
+#: includes/class-forms.php:641
 msgid "Optional. Leave empty to show no contact details."
 msgstr "Valfritt. Lämna tomt om inga kontaktuppgifter ska visas."
 
-#: includes/class-forms.php:592
+#: includes/class-forms.php:642
 msgid "Send for approval"
 msgstr "Skicka för godkännande"
 
@@ -803,31 +846,31 @@ msgstr "Avslutad, inte såld"
 msgid "Log in to bid on items."
 msgstr "Logga in för att bjuda på objekt."
 
-#: includes/class-frontend.php:171
+#: includes/class-frontend.php:173
 msgid "Create an account"
 msgstr "Skapa konto"
 
-#: includes/class-frontend.php:173
+#: includes/class-frontend.php:175
 msgid "Forgot your password?"
 msgstr "Glömt lösenordet?"
 
-#: includes/class-frontend.php:276 includes/class-post-types.php:32
+#: includes/class-frontend.php:278 includes/class-post-types.php:32
 msgid "All items"
 msgstr "Alla objekt"
 
-#: includes/class-frontend.php:291
+#: includes/class-frontend.php:293
 msgid "Log in to see your bids."
 msgstr "Logga in för att se dina bud."
 
-#: includes/class-frontend.php:347
+#: includes/class-frontend.php:349
 msgid "Your e-mail address is confirmed. You can now log in and bid."
 msgstr "Din e-postadress är bekräftad. Du kan nu logga in och bjuda."
 
-#: includes/class-frontend.php:349
+#: includes/class-frontend.php:351
 msgid "This account is already activated."
 msgstr "Kontot är redan aktiverat."
 
-#: includes/class-frontend.php:351
+#: includes/class-frontend.php:353
 msgid "The activation link is invalid or has already been used."
 msgstr "Aktiveringslänken är ogiltig eller redan använd."
 
@@ -1028,10 +1071,6 @@ msgstr[1] "Avvisade <span class=\"count\">(%s)</span>"
 msgid "No bids"
 msgstr "Inga bud"
 
-#: includes/class-rest.php:131 includes/class-rest.php:143
-msgid "Item not found."
-msgstr "Objektet hittades inte."
-
 #: includes/class-settings.php:146
 msgid "— None —"
 msgstr "— Ingen —"
@@ -1191,18 +1230,18 @@ msgstr ""
 
 #. translators: date format for auction end times, see
 #. https://www.php.net/date
-#: includes/functions.php:55
+#: includes/functions.php:58
 msgid "l j.n.Y H:i:s"
 msgstr "l j.n.Y \\k\\l H:i:s"
 
 #. translators: date format for auction end times, see
 #. https://www.php.net/date
-#: includes/functions.php:55
+#: includes/functions.php:58
 msgid "j.n.Y H:i:s"
 msgstr "j.n.Y H:i:s"
 
 #. translators: %d: anonymous bidder number
-#: includes/functions.php:97
+#: includes/functions.php:100
 msgid "Bidder %d"
 msgstr "Budgivare %d"
 

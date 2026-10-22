@@ -76,7 +76,7 @@ class HK_Item {
 	public static function state( int $id, ?int $now = null ): string {
 		$now  = $now ?? hk_now();
 		$post = get_post( $id );
-		if ( ! $post || 'publish' !== $post->post_status ) {
+		if ( ! $post || HK_Post_Types::ITEM !== $post->post_type || 'publish' !== $post->post_status ) {
 			return self::STATE_DRAFT;
 		}
 		$result = self::result( $id );

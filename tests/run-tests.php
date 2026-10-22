@@ -234,6 +234,22 @@ t_ok( HK_Users::toggle_watch( $sold, $a ), 'watch on' );
 t_ok( HK_Users::is_watching( $sold, $a ), 'is watching' );
 t_ok( ! HK_Users::toggle_watch( $sold, $a ), 'watch off' );
 
+echo "Security hardening\n";
+t_eq( null, hk_parse_amount( '100000000' ), 'amount above the maximum rejected' );
+t_eq( null, hk_parse_amount( array( '150' ) ), 'array input rejected' );
+t_eq( 99999999.99, hk_parse_amount( '99999999,99' ), 'maximum amount accepted' );
+$post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Not an item' ) );
+update_post_meta( $post, '_hk_end', $GLOBALS['hk_test_clock'] + 3600 );
+$r = HK_Bidding::place_bid( $post, $a, 500 );
+t_ok( ! $r['ok'] && 'hk_closed' === $r['code'], 'cannot bid on a post that is not an auction item' );
+wp_delete_post( $post, true );
+$i = t_item( array(), $created_items );
+HK_Bidding::set_autobid( $i, $c, 1000 );
+HK_Users::start_activation( $c );
+HK_Bidding::place_bid( $i, $b, 300 );
+t_eq( array( $b, 300.0 ), t_high( $i ), 'automatic bid of an unconfirmed user does not answer' );
+delete_user_meta( $c, 'hk_activation' );
+
 echo "Failed-login lockout\n";
 HK_Settings::update( array( 'max_failed_logins' => 3 ) );
 $login = get_userdata( $a )->user_login;
